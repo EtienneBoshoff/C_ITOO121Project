@@ -65,7 +65,8 @@ public class DPcalc {
      */
     //Task: complete this method as described in the comments and to pass the unit test
     public Double calculateDP() {
-        throw new UnsupportedOperationException("You still need to complete this method");
+       double dp = (assignment * 0.6) + (continuous * 0.2) + (semesterTest * 0.2);
+        return dp;
     }
     
     /**
@@ -87,7 +88,14 @@ public class DPcalc {
      * @return A formatted string
      */
     public String prettyPrintDPreport() {
-        throw new UnsupportedOperationException("You still need to complete this method");
+       String result = "Dear student you have attained:\n"
+                        + "Assignment: "+ assignment +"%\n"
+                        + "Semester test: " + semesterTest + "%\n"
+                        + "Continous Assessment: "+ continuous +"%\n"
+                        + "Your DP is calculated as: " + calculateDP() + "%";
+        System.out.println(result);
+ 
+        return result;  
     }
     
     /**
@@ -102,11 +110,11 @@ public class DPcalc {
     
     // Task create the other accessors
     public Double getSemesterMark() {
-        throw new UnsupportedOperationException("You still need to complete this method");
+      return semesterTest; 
     }
     
     public Double getContinuousAssessmentMark() {
-        throw new UnsupportedOperationException("You still need to complete this method");
+       return continuous; 
     }
     
     /**
@@ -115,6 +123,17 @@ public class DPcalc {
      * @return True if you can write exams. False otherwise
      */
     public Boolean canWriteExams() {
-        throw new UnsupportedOperationException("You still need to complete this method");
+          boolean b = false;
+        if  (calculateDP() >= 40)
+            {
+                b = true;
+                System.out.println("You qualify to write exam.");  
+            }
+        else if (calculateDP() < 40)
+            {
+                b = false;
+                System.out.println("You do not qualify to write exam");  
+            }
+        return b;
     }
 }
