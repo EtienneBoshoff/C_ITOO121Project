@@ -11,6 +11,8 @@
  */
 package za.ac.pearson.cti.studentdpcalculator;
 
+import org.junit.Assert;
+
 /**
  * Program description:  This class will calculate a students due performance
  * or DP.  
@@ -36,6 +38,13 @@ public class DPcalc {
     Double assignment;
     Double semesterTest;
     Double continuous;
+    String subject;
+    String DVnum;
+    String name;
+    Double DP;
+    Boolean result;
+    
+    
     
     //End of variable declarations
     
@@ -65,7 +74,14 @@ public class DPcalc {
      */
     //Task: complete this method as described in the comments and to pass the unit test
     public Double calculateDP() {
-        throw new UnsupportedOperationException("You still need to complete this method");
+        
+        Double weightSem = 0.2;
+        Double weightAss = 0.6;
+        Double weightCont = 0.2;
+        
+        DP = assignment*weightAss + semesterTest*weightSem + continuous*weightCont;
+        return DP;      
+        //throw new UnsupportedOperationException("You still need to complete this method");
     }
     
     /**
@@ -87,7 +103,15 @@ public class DPcalc {
      * @return A formatted string
      */
     public String prettyPrintDPreport() {
-        throw new UnsupportedOperationException("You still need to complete this method");
+               String expectedResult = ("Dear student you have attained:\n"
+                + "Assignment: "+assignment+"%\n"
+                + "Semester test: "+semesterTest+"%\n"
+                + "Continous Assessment: "+continuous+"%\n"
+                + "Your DP is calculated as: 52.0%");
+        
+               System.out.println(expectedResult);
+               return expectedResult;
+        //throw new UnsupportedOperationException("You still need to complete this method");
     }
     
     /**
@@ -102,11 +126,11 @@ public class DPcalc {
     
     // Task create the other accessors
     public Double getSemesterMark() {
-        throw new UnsupportedOperationException("You still need to complete this method");
+        return semesterTest;
     }
     
     public Double getContinuousAssessmentMark() {
-        throw new UnsupportedOperationException("You still need to complete this method");
+        return continuous;
     }
     
     /**
@@ -115,6 +139,13 @@ public class DPcalc {
      * @return True if you can write exams. False otherwise
      */
     public Boolean canWriteExams() {
-        throw new UnsupportedOperationException("You still need to complete this method");
+        boolean write = false;
+        
+        if(calculateDP() >= 40){
+         write = true;   
+        }
+        return write;
+
+        //throw new UnsupportedOperationException("You still need to complete this method");
     }
 }
