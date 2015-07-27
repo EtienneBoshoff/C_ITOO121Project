@@ -22,6 +22,7 @@ package za.ac.pearson.cti.studentdpcalculator;
 public class DPcalc {
     
     /**
+     * 
      * Variables are your attributes associated with your class. For example a
      * car can be different colours.  The colour blue would then be an attribute
      * of the class car.  This means that its variable for colour may look as 
@@ -33,9 +34,11 @@ public class DPcalc {
      */
     //Variable declarations here
     //Task: Complete the variable declarations
-    Double assignment;
-    Double semesterTest;
-    Double continuous;
+    private final Double assignment;
+    private final Double semesterTest;
+    private final Double continuous;
+    private Double test;
+   
     
     //End of variable declarations
     
@@ -50,6 +53,7 @@ public class DPcalc {
         assignment = assMark;
         semesterTest = semTestMark;
         continuous = contAssMark;
+        
     }
     
     /**
@@ -65,7 +69,10 @@ public class DPcalc {
      */
     //Task: complete this method as described in the comments and to pass the unit test
     public Double calculateDP() {
-        throw new UnsupportedOperationException("You still need to complete this method");
+        
+        double dp = assignment * 0.6 + semesterTest * 0.2 + continuous * 0.2;
+        return dp;
+              
     }
     
     /**
@@ -87,8 +94,15 @@ public class DPcalc {
      * @return A formatted string
      */
     public String prettyPrintDPreport() {
-        throw new UnsupportedOperationException("You still need to complete this method");
+        String expectedResult = "Dear student you have attained:\n"
+                                                + "Assignment: "+getAssignmentMark()+"%\n"
+                                                + "Semester test: "+getSemesterMark()+"%\n"
+                                                + "Continous Assessment: "+getContinuousAssessmentMark()+"%\n"
+                                                + "Your DP is calculated as: "+calculateDP()+"%";
+        
+        return expectedResult;
     }
+    
     
     /**
      * This method is known as an accessor method or getter.  It allows you to 
@@ -102,11 +116,11 @@ public class DPcalc {
     
     // Task create the other accessors
     public Double getSemesterMark() {
-        throw new UnsupportedOperationException("You still need to complete this method");
+        return semesterTest;
     }
     
     public Double getContinuousAssessmentMark() {
-        throw new UnsupportedOperationException("You still need to complete this method");
+        return continuous;
     }
     
     /**
@@ -115,6 +129,13 @@ public class DPcalc {
      * @return True if you can write exams. False otherwise
      */
     public Boolean canWriteExams() {
-        throw new UnsupportedOperationException("You still need to complete this method");
+        Double test = calculateDP ();
+        Boolean write = false;
+        
+        if (test >= 40) {
+            write = true;
+        } 
+            return write;
     }
+    
 }
