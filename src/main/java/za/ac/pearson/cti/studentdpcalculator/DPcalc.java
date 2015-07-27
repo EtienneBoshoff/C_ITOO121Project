@@ -33,9 +33,9 @@ public class DPcalc {
      */
     //Variable declarations here
     //Task: Complete the variable declarations
-    Double assignment;
-    Double semesterTest;
-    Double continuous;
+    double assignment;
+    double semesterTest;
+    double continuous;
     
     //End of variable declarations
     
@@ -46,7 +46,7 @@ public class DPcalc {
      * @param semTestMark The semester test mark of the student in percentage
      * @param contAssMark The continual assessment mark of the student in percentage
      */
-    public DPcalc(Double assMark, Double semTestMark, Double contAssMark) {
+    public DPcalc(double assMark, double semTestMark, double contAssMark) {
         assignment = assMark;
         semesterTest = semTestMark;
         continuous = contAssMark;
@@ -64,8 +64,9 @@ public class DPcalc {
      * @return The DP of the student as a double floating point value
      */
     //Task: complete this method as described in the comments and to pass the unit test
-    public Double calculateDP() {
-        throw new UnsupportedOperationException("You still need to complete this method");
+    public double calculateDP() {
+            double dp = (assignment * 0.6) + (semesterTest * 0.2) + (continuous * 0.2);
+            return dp;
     }
     
     /**
@@ -86,8 +87,17 @@ public class DPcalc {
      * 
      * @return A formatted string
      */
-    public String prettyPrintDPreport() {
-        throw new UnsupportedOperationException("You still need to complete this method");
+    public String prettyPrintDPreport() 
+    {
+
+       String result = "Dear student you have attained:\n"
+                        + "Assignment: "+ getAssignmentMark() +"%\n"
+                        + "Semester test: " + getSemesterMark() + "%\n"
+                        + "Continous Assessment: "+ getContinuousAssessmentMark() +"%\n"
+                        + "Your DP is calculated as: " + calculateDP() + "%";
+        System.out.println(result);
+ 
+        return result;       
     }
     
     /**
@@ -101,12 +111,12 @@ public class DPcalc {
     }
     
     // Task create the other accessors
-    public Double getSemesterMark() {
-        throw new UnsupportedOperationException("You still need to complete this method");
+    public double getSemesterMark() {
+        return semesterTest;
     }
     
-    public Double getContinuousAssessmentMark() {
-        throw new UnsupportedOperationException("You still need to complete this method");
+    public double getContinuousAssessmentMark() {
+       return continuous;
     }
     
     /**
@@ -114,7 +124,18 @@ public class DPcalc {
      * Remember you need at least a 40% DP to get exam eligibility
      * @return True if you can write exams. False otherwise
      */
-    public Boolean canWriteExams() {
-        throw new UnsupportedOperationException("You still need to complete this method");
+    public boolean canWriteExams() {
+        boolean b = false;
+        if(calculateDP() >= 40)
+            {
+                b = true;
+                System.out.println("You qualify to  the exam.");  
+            }
+        else if (calculateDP() < 40)
+            {
+                b = false;
+                System.out.println("You do not qualify to write");  
+            }
+        return b;
     }
 }
