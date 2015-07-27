@@ -65,7 +65,8 @@ public class DPcalc {
      */
     //Task: complete this method as described in the comments and to pass the unit test
     public Double calculateDP() {
-        throw new UnsupportedOperationException("You still need to complete this method");
+        Double calcDP = assignment*0.6 + semesterTest*0.2 + continuous*0.2;
+        return calcDP;
     }
     
     /**
@@ -87,7 +88,15 @@ public class DPcalc {
      * @return A formatted string
      */
     public String prettyPrintDPreport() {
-        throw new UnsupportedOperationException("You still need to complete this method");
+
+
+        String studentResultPrint = "Dear student you have attained:\n"
+                + "Assignment: "+getAssignmentMark()+"%\n"
+                + "Semester test: "+getSemesterMark()+"%\n"
+                + "Continous Assessment: "+getContinuousAssessmentMark()+"%\n"
+                + "Your DP is calculated as: " + calculateDP() + "%";
+        
+        return studentResultPrint;
     }
     
     /**
@@ -102,11 +111,11 @@ public class DPcalc {
     
     // Task create the other accessors
     public Double getSemesterMark() {
-        throw new UnsupportedOperationException("You still need to complete this method");
+        return semesterTest;
     }
     
     public Double getContinuousAssessmentMark() {
-        throw new UnsupportedOperationException("You still need to complete this method");
+        return continuous;
     }
     
     /**
@@ -115,6 +124,13 @@ public class DPcalc {
      * @return True if you can write exams. False otherwise
      */
     public Boolean canWriteExams() {
-        throw new UnsupportedOperationException("You still need to complete this method");
-    }
-}
+        Double test = calculateDP () ;
+        Boolean write = false;
+        if (test >= 40.0) {
+            write = true;
+        }
+        return write;    
+                    }   
+        }
+    
+
