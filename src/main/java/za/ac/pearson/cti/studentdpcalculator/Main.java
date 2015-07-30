@@ -51,10 +51,33 @@ public class Main {
         String userInput = keyboardInput.nextLine();
         // Now we greet the user by name
         System.out.println("Greetings "+ userInput);
+        //this out message asks the user to insert the percentage they achieved for their assignment
         System.out.print("Please enter the percentage you received for your Assignment: ");
+        //assigns what we receive from the keyboard to a variable userInput
         userInput = keyboardInput.nextLine();
+        //converts the user input to Double and assigns the uset input value to the variable asssignmentMark
         Double assignmentMark = Double.parseDouble(userInput);
+        //This output message prompts the user to enter their percantage received for the semester test
+        System.out.print("Please enter the percentage you received for your Semester Test: ");
+        //assigns what we receive from the keyboard to a variable userInput
+        userInput = keyboardInput.nextLine();
+        //converts the user input to Double and assigns the uset input value to the variable semesterMark
+        Double semesterMark = Double.parseDouble(userInput);
+        // this prompts the user to insert their percentage which they had received for the coninuous assessment
+        System.out.print("Please enter the percentage you received for your Continuous Assessment: ");
+        //assigns what we receive from the keyboard to a variable userInput
+        userInput = keyboardInput.nextLine();
+        //converts the user input to Double and assigns the uset input value to the variable assessmentMark
+        Double assessmentMark = Double.parseDouble(userInput);
         
+        //creates a varibale name by using the class DPcalc to enable the connection between DPcalc class and the main class Main
+        DPcalc dpMark = new DPcalc(assignmentMark, semesterMark, assessmentMark);//the constructor is assigned the the variable dpMark
+        
+        //uses the accessor variable and the method name prettyDPreport to call the method created in the DPcalc class
+        dpMark.prettyPrintDPreport();
+        
+        //uses the accessor variable and the method name canWriteExams to call the method created in DPcalc
+        dpMark.canWriteExams();
         
         
     }
