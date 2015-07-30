@@ -33,10 +33,15 @@ public class DPcalc {
      */
     //Variable declarations here
     //Task: Complete the variable declarations
-    Double assignment;
-    Double semesterTest;
-    Double continuous;
-    
+    private final Double assignment;
+    private final Double semesterTest;
+    private final Double continuous;
+    private Double assignmentWeight;
+    private Double semesterTestWeight;
+    private Double continousAssessmentWeight;
+    private final String studentName;
+    private final String subject;
+    private final String studentDVnumber;
     //End of variable declarations
     
     /**
@@ -50,7 +55,39 @@ public class DPcalc {
         assignment = assMark;
         semesterTest = semTestMark;
         continuous = contAssMark;
+        assignmentWeight = 0.6;
+        semesterTestWeight = 0.2;
+        continousAssessmentWeight = 0.2;
+        studentName = "Default Student";
+        subject = "Default Subject";
+        studentDVnumber = "N/A";
     }
+
+    /**
+     * This is the secondary constructor for DPcalc
+     * @param assignment The assignment mark of the student in percentage
+     * @param semesterTest The semester test mark of the student in percentage
+     * @param continuous The continual assessment mark of the student in percentage
+     * @param studentName The name of the student for whom we are calculating the DP
+     * @param subject The subject the DP is calculated for
+     * @param studentDVnumber The student's DV number
+     * @param assignmentWeight The weight as a floating point percentage
+     * @param semesterTestWeight The weight as a floating point percentage
+     * @param continousAssessmentWeight The weight as a floating point percentage
+     */
+    public DPcalc(Double assignment, Double semesterTest, Double continuous, String studentName, String subject, String studentDVnumber, Double assignmentWeight, Double semesterTestWeight, Double continousAssessmentWeight) {
+        this.assignment = assignment;
+        this.semesterTest = semesterTest;
+        this.continuous = continuous;
+        this.assignmentWeight = assignmentWeight;
+        this.semesterTestWeight = semesterTestWeight;
+        this.continousAssessmentWeight = continousAssessmentWeight;
+        this.studentName = studentName;
+        this.subject = subject;
+        this.studentDVnumber = studentDVnumber;
+    }
+    
+    
     
     /**
      * This method calculates the students DP for the semester with the values
@@ -109,12 +146,34 @@ public class DPcalc {
         throw new UnsupportedOperationException("You still need to complete this method");
     }
     
+    public void setAssignmentWeight(Double assignmentWeight) {
+        throw new UnsupportedOperationException("You still need to complete this method");
+    }
+    
+    public void setSemesterTestWeight(Double semesterTestWeight) {
+        throw new UnsupportedOperationException("You still need to complete this method");
+    }
+    
+    public void setContinuousAssessmentWeight(Double continuousAssessmentWeight) {
+        throw new UnsupportedOperationException("You still need to complete this method");
+    }
+    
     /**
      * This method checks if you have eligibility to write the exams
      * Remember you need at least a 40% DP to get exam eligibility
      * @return True if you can write exams. False otherwise
      */
     public Boolean canWriteExams() {
+        throw new UnsupportedOperationException("You still need to complete this method");
+    }
+    
+    /**
+     * This method checks if you have a valid DV student number
+     * A student number must be in the following pattern
+     * "DV[yearEnrolled]-[fourDigits]"
+     * @return 
+     */
+    public Boolean verifyDVnum() {
         throw new UnsupportedOperationException("You still need to complete this method");
     }
 }
