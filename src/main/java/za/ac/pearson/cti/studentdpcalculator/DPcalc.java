@@ -11,6 +11,7 @@
  */
 package za.ac.pearson.cti.studentdpcalculator;
 
+import java.util.Scanner;
 import org.junit.Assert;
 
 /**
@@ -39,10 +40,12 @@ public class DPcalc {
     Double semesterTest;
     Double continuous;
     String subject;
-    String DVnum;
+    String number;
     String name;
+    Double weightSem;
+    Double weightAss;
+    Double weightCont; 
     Double DP;
-    Boolean result;
     
     
     
@@ -61,6 +64,19 @@ public class DPcalc {
         continuous = contAssMark;
     }
     
+    public DPcalc(Double assMark, Double semTestMark, Double contAssMark, String studName, String studSubject, String studNumber, Double assWeight, Double contWeight, Double semWeight) {
+        assignment = assMark;
+        semesterTest = semTestMark;
+        continuous = contAssMark;
+        name = studName;
+        subject = studSubject;
+        number = studNumber;
+        weightSem = semWeight;
+        weightAss = assWeight;
+        weightCont = contWeight;
+               
+    }
+    
     /**
      * This method calculates the students DP for the semester with the values
      * gathered from the constructor.  A method is the behaviour of an object
@@ -75,11 +91,11 @@ public class DPcalc {
     //Task: complete this method as described in the comments and to pass the unit test
     public Double calculateDP() {
         
-        Double weightSem = 0.2;
-        Double weightAss = 0.6;
-        Double weightCont = 0.2;
+        Double semWeight = 0.2;
+        Double assWeight = 0.6;
+        Double contWeight = 0.2;
         
-        DP = assignment*weightAss + semesterTest*weightSem + continuous*weightCont;
+        DP = assignment*assWeight + semesterTest*semWeight + continuous*contWeight;
         return DP;      
         //throw new UnsupportedOperationException("You still need to complete this method");
     }
@@ -148,4 +164,92 @@ public class DPcalc {
 
         //throw new UnsupportedOperationException("You still need to complete this method");
     }
-}
+    //get the users name       
+    public void setName(String studName) {
+    System.out.print("Enter your name: ");
+    Scanner userInput = new Scanner(System.in);
+    String firstName = userInput.nextLine();
+    System.out.print("Name : "+firstName+" ");
+    }
+    //get the users subject
+    public void setSubject(String studSubject) {
+    System.out.print("Enter the subject name: ");
+    Scanner userInput = new Scanner(System.in);
+    String subjectName = userInput.nextLine();
+    System.out.print("Subject Name : "+subjectName+" ");
+    }
+    //get the users dv number
+    public void setDVnum(String studNumber) {
+    System.out.print("Enter your DV number: ");
+    Scanner userInput = new Scanner(System.in);
+    String DVNum = userInput.nextLine();
+    System.out.print("DV Number : "+DVNum+" ");
+    }
+    //get the semester weight from the user
+    public void setSemesterTestWeight(Double semWeight) {
+    semWeight = 0.2;
+    weightSem = semWeight;
+    
+    }
+    
+    //get the assignment weight from the user
+    public void setAssignmentWeight(Double assWeight) {
+    assWeight = 0.6; 
+    weightAss = assWeight;
+    
+    }
+    
+    //get the continuous assessment weight from the user
+    public void setContinuousAssessmentWeight(Double contWeight) {
+    contWeight = 0.2;
+    weightCont = contWeight;
+    
+    }
+        
+    
+    //if statement to check if DVnum meets all the requirements (length, starts with DV, dash, contains numeric values in string)
+    public Boolean verifyDVnum() {
+           
+    if((number.length()) !=  11) {
+        return false;
+            } else { 
+                if(!"DV".matches(number.substring(0,2))) {
+                    if(!"-".matches(number.substring(6,1))) {
+                        if(!number.substring(2,4).matches("[0-9]")) {
+                            if(!number.substring(7,4).matches("[0-9]")) {
+                            return false;
+                            }
+                        } 
+                    }
+                } else {
+                return true;
+                    }
+                }
+                return true;
+                }
+                
+                
+                
+                
+                
+                                         
+                  //print all the users information
+         public String printFull() {
+            String fullResult = ("Dear student, your information is:\n"
+                + "Name: "+name+"\n"
+                + "Subject Name: "+subject+"\n"
+                + "DV number: "+number+"\n"
+                + "Weight of assignment mark: "+weightAss+"\n"
+                + "Weight of semester mark: "+weightSem+"\n"
+                + "Weight of continuous assessment mark: "+weightCont+"\n"
+                + "Assignment mark: "+assignment+"%\n"
+                + "Semester test mark: "+semesterTest+"%\n"
+                + "Continous Assessment mark: "+continuous+"%\n"
+                + "Your DP is calculated as: 52.0%\n");
+              
+                System.out.println(fullResult);
+                return fullResult;
+                }
+      
+ }
+
