@@ -33,11 +33,9 @@ public class DPcalc {
      */
     //Variable declarations here
     //Task: Complete the variable declarations
-    Double assignment = 60.0;
-    Double semesterTest = 60.0;
+    Double assignment;
+    Double semesterTest;
     Double continuous;
-    
-    
     
     //End of variable declarations
     
@@ -67,8 +65,7 @@ public class DPcalc {
      */
     //Task: complete this method as described in the comments and to pass the unit test
     public Double calculateDP() {
-        throw new UnsupportedOperationException();
-        
+        throw new UnsupportedOperationException("You still need to complete this method");
     }
     
     /**
