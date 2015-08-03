@@ -11,6 +11,8 @@
  */
 package za.ac.pearson.cti.studentdpcalculator;
 
+import java.util.Scanner;
+
 /**
  * Program description:  This class will calculate a students due performance
  * or DP.  
@@ -33,10 +35,16 @@ public class DPcalc {
      */
     //Variable declarations here
     //Task: Complete the variable declarations
-    Double assignment;
-    Double semesterTest;
-    Double continuous;
-    
+    private final Double assignment;
+    private final Double semesterTest;
+    private final Double continuous;
+    private Double assignmentWeight;
+    private Double semesterTestWeight;
+    private Double continousAssessmentWeight;
+    private final String studentName;
+    private final String subject;
+    private final String studentDVnumber;
+    private String fullPrint;
     //End of variable declarations
     
     /**
@@ -50,7 +58,39 @@ public class DPcalc {
         assignment = assMark;
         semesterTest = semTestMark;
         continuous = contAssMark;
+        assignmentWeight = 0.6;
+        semesterTestWeight = 0.2;
+        continousAssessmentWeight = 0.2;
+        studentName = "Default Student";
+        subject = "Default Subject";
+        studentDVnumber = "DV2015-0123";
     }
+
+    /**
+     * This is the secondary constructor for DPcalc
+     * @param assignment The assignment mark of the student in percentage
+     * @param semesterTest The semester test mark of the student in percentage
+     * @param continuous The continual assessment mark of the student in percentage
+     * @param studentName The name of the student for whom we are calculating the DP
+     * @param subject The subject the DP is calculated for
+     * @param studentDVnumber The student's DV number
+     * @param assignmentWeight The weight as a floating point percentage
+     * @param semesterTestWeight The weight as a floating point percentage
+     * @param continousAssessmentWeight The weight as a floating point percentage
+     */
+    public DPcalc(Double assignment, Double semesterTest, Double continuous, String studentName, String subject, String studentDVnumber, Double assignmentWeight, Double semesterTestWeight, Double continousAssessmentWeight) {
+        this.assignment = assignment;
+        this.semesterTest = semesterTest;
+        this.continuous = continuous;
+        this.assignmentWeight = assignmentWeight;
+        this.semesterTestWeight = semesterTestWeight;
+        this.continousAssessmentWeight = continousAssessmentWeight;
+        this.studentName = studentName;
+        this.subject = subject;
+        this.studentDVnumber = studentDVnumber;
+    }
+    
+    
     
     /**
      * This method calculates the students DP for the semester with the values
@@ -65,8 +105,8 @@ public class DPcalc {
      */
     //Task: complete this method as described in the comments and to pass the unit test
     public Double calculateDP() {
-        Double calcDP = assignment*0.6 + semesterTest*0.2 + continuous*0.2;
-        return calcDP;
+        Double DPmark = (assignment * assignmentWeight) + (semesterTest * semesterTestWeight) + (continuous * continousAssessmentWeight);
+        return DPmark;
     }
     
     /**
@@ -88,17 +128,25 @@ public class DPcalc {
      * @return A formatted string
      */
     public String prettyPrintDPreport() {
-
-
-        String studentResultPrint = "Dear student you have attained:\n"
+        String studentResult = "Dear student you have attained:\n"
                 + "Assignment: "+getAssignmentMark()+"%\n"
                 + "Semester test: "+getSemesterMark()+"%\n"
                 + "Continous Assessment: "+getContinuousAssessmentMark()+"%\n"
-                + "Your DP is calculated as: " + calculateDP() + "%";
-        
-        return studentResultPrint;
+                + "Your DP is calculated as: "+calculateDP()+"%";
+        return studentResult;
     }
-    
+    /*Prints the full report for the sudent*/
+    public String fullPrint() {
+        String finalResult = "Dear student, here is your report:/n"
+                + "Student Name: "+studentName+"/n"
+                + "Student DV number: "+studentDVnumber+"/n"
+                + "Subject: "+subject+"/n"
+                + "Assignment: "+getAssignmentMark()+"%\n"
+                + "Semester test: "+getSemesterMark()+"%\n"
+                + "Continous Assessment: "+getContinuousAssessmentMark()+"%\n"
+                + "Your DP is calculated as: "+calculateDP()+"%";
+        return finalResult;
+    }
     /**
      * This method is known as an accessor method or getter.  It allows you to 
      * get an attribute from an object.  In this case the Assignment mark stored
@@ -118,19 +166,70 @@ public class DPcalc {
         return continuous;
     }
     
+    public void setAssignmentWeight(Double assignmentWeight) {
+        Double assWeighDP = assignmentWeight;
+                
+    }
+    
+    public void setSemesterTestWeight(Double semesterTestWeight) {
+        Double semTestWeighDP = semesterTestWeight;
+        
+    }
+    
+    public void setContinuousAssessmentWeight(Double continuousAssessmentWeight) {
+        Double contAssWeighDP = continuousAssessmentWeight;
+        
+    }
+    
     /**
      * This method checks if you have eligibility to write the exams
      * Remember you need at least a 40% DP to get exam eligibility
      * @return True if you can write exams. False otherwise
      */
     public Boolean canWriteExams() {
-        Double test = calculateDP () ;
-        Boolean write = false;
-        if (test >= 40.0) {
-            write = true;
-        }
-        return write;    
-                    }   
-        }
-    
+        Boolean writeExam = false;
+        if ( calculateDP() >= 40 ) {
+            writeExam = true;
+    }
+        return writeExam;
+    }
 
+    /**
+     * This method checks if you have a valid DV student number
+     * A student number must be in the following pattern
+     * "DV[yearEnrolled]-[fourDigits]"
+     * @return 
+     */    
+    public Boolean verifyDVnum() {
+        Boolean studDV = null;
+      /*This if statement tests the DV number to see if it is the correct length*/
+        if (studentDVnumber.length() == 11) {
+            /*This if statement tests the DV number to see if it starts with the letters "DV"*/
+            if (studentDVnumber.substring(0, 2).contains("DV") == true) {
+                /*This if statements tests the middel part of the DV number to see if it contains a "-"*/
+                if (studentDVnumber.substring(6, 7).contains("-") == true) {
+                    /*Tests the DV numbers first number part to see if it contains 4 numbers*/
+                    if (studentDVnumber.substring(2, 6).equals(String.format("####", 1234)) == true) {
+                        /*Test to see if it is a date*/
+                        if (Integer.getInteger(studentDVnumber.substring(2, 6)) >= 1950) {
+                            /*Test last number secuence to ensure that is only numbers*/
+                            if (studentDVnumber.substring(7, 11).equals(String.format("####", 1234)) == true) {
+                                studDV = true;
+                            }
+                        }
+                    }
+                }
+            }
+        
+        }  else {
+            studDV = false;
+        }
+        
+    return studDV;    
+}
+
+}    
+
+
+
+ 

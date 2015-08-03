@@ -95,7 +95,7 @@ public class DPcalcTests {
         // END OF SETUP FOR SCENARIO 1
         // Do the test
         
-        String result = calculator.prettyPrintDPreport();
+        String result = calculator.prettyPrintDPreport();            
         Assert.assertEquals(result,expectedResult);
     }
     /**

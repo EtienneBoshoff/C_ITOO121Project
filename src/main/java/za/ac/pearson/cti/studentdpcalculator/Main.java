@@ -56,7 +56,6 @@ public class Main {
         Double assignmentMark = Double.parseDouble(userInput);
         
         
-        
     }
     
 }
