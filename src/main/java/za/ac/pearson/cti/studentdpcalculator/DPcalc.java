@@ -142,6 +142,18 @@ public class DPcalc {
         throw new UnsupportedOperationException("You still need to complete this method");
     }
     
+    public Double getSemesterTestMark(String subject) {
+        throw new UnsupportedOperationException("You still need to complete this method");       
+    }
+    
+    public Double getAssignmentMark(String subject) {
+        throw new UnsupportedOperationException("You still need to complete this method");
+    }
+    
+    public Double getContinuousAssessmentMark(String subject) {
+        throw new UnsupportedOperationException("You still need to complete this method");
+    }
+    
     public Double getContinuousAssessmentMark() {
         throw new UnsupportedOperationException("You still need to complete this method");
     }
@@ -175,5 +187,9 @@ public class DPcalc {
      */
     public Boolean verifyDVnum() {
         throw new UnsupportedOperationException("You still need to complete this method");
+    }
+
+    public void addSubject(Subject subject) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
