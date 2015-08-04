@@ -85,7 +85,7 @@ public class DPcalc {
         this.studentName = studentName;
         this.subject = subject;
         this.studentDVnumber = studentDVnumber;
-    }
+     }
     
     
     
@@ -102,7 +102,10 @@ public class DPcalc {
      */
     //Task: complete this method as described in the comments and to pass the unit test
     public Double calculateDP() {
-        throw new UnsupportedOperationException("You still need to complete this method");
+        return getAssignmentMark() * assignmentWeight 
+                + getSemesterMark() * semesterTestWeight  
+                + getContinuousAssessmentMark() * continousAssessmentWeight;
+        
     }
     
     /**
@@ -124,7 +127,12 @@ public class DPcalc {
      * @return A formatted string
      */
     public String prettyPrintDPreport() {
-        throw new UnsupportedOperationException("You still need to complete this method");
+                String output = "Dear student you have attained:\n" 
+                + "Assignment: "+getAssignmentMark()+"%\n" 
+                + "Semester test: "+getSemesterMark()+"%\n" 
+                + "Continous Assessment: "+getContinuousAssessmentMark()+"%\n"
+                + "Your DP is calculated as: "+calculateDP()+"%";
+        return output;
     }
     
     /**
@@ -139,23 +147,26 @@ public class DPcalc {
     
     // Task create the other accessors
     public Double getSemesterMark() {
-        throw new UnsupportedOperationException("You still need to complete this method");
+        return semesterTest;
     }
     
     public Double getContinuousAssessmentMark() {
-        throw new UnsupportedOperationException("You still need to complete this method");
+        return continuous;
     }
     
     public void setAssignmentWeight(Double assignmentWeight) {
-        throw new UnsupportedOperationException("You still need to complete this method");
+        double ass;
+        ass = assignmentWeight;
     }
     
     public void setSemesterTestWeight(Double semesterTestWeight) {
-        throw new UnsupportedOperationException("You still need to complete this method");
+        double sem;
+        sem = semesterTestWeight;
     }
     
     public void setContinuousAssessmentWeight(Double continuousAssessmentWeight) {
-        throw new UnsupportedOperationException("You still need to complete this method");
+        double cont;
+        cont = continuousAssessmentWeight;
     }
     
     /**
@@ -164,7 +175,7 @@ public class DPcalc {
      * @return True if you can write exams. False otherwise
      */
     public Boolean canWriteExams() {
-        throw new UnsupportedOperationException("You still need to complete this method");
+        return calculateDP() <= 0.40;
     }
     
     /**
@@ -174,6 +185,26 @@ public class DPcalc {
      * @return 
      */
     public Boolean verifyDVnum() {
-        throw new UnsupportedOperationException("You still need to complete this method");
+        if (studentDVnumber.length() != 11){
+            return false;
+        }
+        //String testDVnumber = "DV2015-0123";
+        else{
+            //It check the student number starts with "DV".
+            if (studentDVnumber.startsWith("DV")){
+                //It check if the 7th letter is a "-".
+                if (studentDVnumber.charAt(7) == '-'){
+                    if (studentDVnumber.contains("2015") ) {
+                        //It check if the last 4 letter in a student number is 
+                        //"0123"
+                        if (studentDVnumber.endsWith("0123")) {
+                            //It return true after checking all the value
+                            return true;
+                        }    
+                    }
+                }
+            }
+        }
+        return true;
     }
 }
