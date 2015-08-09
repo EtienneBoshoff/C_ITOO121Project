@@ -102,7 +102,7 @@ public class DPcalc {
      */
     //Task: complete this method as described in the comments and to pass the unit test
     public Double calculateDP() {
-        throw new UnsupportedOperationException("You still need to complete this method");
+        return ((getAssignmentMark()*getAssignmentWeight()) + (getContinuousAssessmentMark() * getContinousAssessmentWeight()) +(getSemesterMark()*getSemesterTestWeight()));
     }
     
     /**
@@ -124,8 +124,14 @@ public class DPcalc {
      * @return A formatted string
      */
     public String prettyPrintDPreport() {
-        throw new UnsupportedOperationException("You still need to complete this method");
+        return "Dear student you have attained:\n"
+                + "Assignment: "+getAssignmentMark()+"%\n"
+                + "Semester test: "+getSemesterMark()+"%\n"
+                + "Continous Assessment: "+getContinuousAssessmentMark()+"%\n"
+                + "Your DP is calculated as: "+ calculateDP()+"%";
     }
+
+
     
     /**
      * This method is known as an accessor method or getter.  It allows you to 
@@ -133,41 +139,67 @@ public class DPcalc {
      * within the calculator
      * @return The assignment mark stored within the calculator
      */
+    
+    
     public Double getAssignmentMark() {
         return assignment;
     }
-    
-    // Task create the other accessors
+
     public Double getSemesterMark() {
-        throw new UnsupportedOperationException("You still need to complete this method");
+        return semesterTest;
+    }
+
+
+    public Double getAssignmentWeight() {
+        return assignmentWeight;
+    }
+
+    public Double getSemesterTestWeight() {
+        return semesterTestWeight;
+    }
+
+    public Double getContinousAssessmentWeight() {
+        return continousAssessmentWeight;
+    }
+
+    public String getStudentName() {
+        return studentName;
+    }
+
+    public String getSubject() {
+        return subject;
+    }
+
+    public String getStudentDVnumber() {
+        return studentDVnumber;
     }
     
     public Double getSemesterTestMark(String subject) {
-        throw new UnsupportedOperationException("You still need to complete this method");       
+        return semesterTest;       
     }
     
     public Double getAssignmentMark(String subject) {
-        throw new UnsupportedOperationException("You still need to complete this method");
+        return assignment;
     }
     
     public Double getContinuousAssessmentMark(String subject) {
-        throw new UnsupportedOperationException("You still need to complete this method");
+        return continuous;
     }
     
     public Double getContinuousAssessmentMark() {
-        throw new UnsupportedOperationException("You still need to complete this method");
+        return continuous;
     }
     
     public void setAssignmentWeight(Double assignmentWeight) {
-        throw new UnsupportedOperationException("You still need to complete this method");
+        this.assignmentWeight = assignmentWeight;
     }
     
     public void setSemesterTestWeight(Double semesterTestWeight) {
-        throw new UnsupportedOperationException("You still need to complete this method");
+        this.semesterTestWeight = semesterTestWeight;
     }
     
     public void setContinuousAssessmentWeight(Double continuousAssessmentWeight) {
-        throw new UnsupportedOperationException("You still need to complete this method");
+        this.continousAssessmentWeight = continuousAssessmentWeight;
     }
     
     /**
@@ -176,7 +208,7 @@ public class DPcalc {
      * @return True if you can write exams. False otherwise
      */
     public Boolean canWriteExams() {
-        throw new UnsupportedOperationException("You still need to complete this method");
+        return (calculateDP()>=40);
     }
     
     /**
@@ -186,10 +218,22 @@ public class DPcalc {
      * @return 
      */
     public Boolean verifyDVnum() {
-        throw new UnsupportedOperationException("You still need to complete this method");
+        Boolean varify= false;
+        if (getStudentDVnumber().length() == 11) {
+            if (getStudentDVnumber().substring(0, 2).equalsIgnoreCase("DV")){
+                if (Integer.parseInt(getStudentDVnumber().substring(2, 6)) <= 2015) {
+                    if (getStudentDVnumber().charAt(6) == ('-')) {
+                        if (Integer.parseInt(getStudentDVnumber().substring(7, 11)) >= 0) {
+                            varify = true;
+                        }
+                    }
+                }   
+            }
+        }
+        return varify;
     }
 
     public void addSubject(Subject subject) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Subject sub = new Subject(getSubject().toLowerCase(), semesterTest, continuous, assignment, semesterTestWeight, continousAssessmentWeight, assignmentWeight);
     }
 }
