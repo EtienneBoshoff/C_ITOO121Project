@@ -11,6 +11,9 @@
  */
 package za.ac.pearson.cti.studentdpcalculator;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Program description:  This class will calculate a students due performance
  * or DP.  
@@ -33,15 +36,16 @@ public class DPcalc {
      */
     //Variable declarations here
     //Task: Complete the variable declarations
-    private final Double assignment;
-    private final Double semesterTest;
-    private final Double continuous;
-    private Double assignmentWeight;
-    private Double semesterTestWeight;
-    private Double continousAssessmentWeight;
+    //private final Double assignment;
+    //private final Double semesterTest;
+    //private final Double continuous;
+    //private Double assignmentWeight;
+    //private Double semesterTestWeight;
+    //private Double continousAssessmentWeight;
     private final String studentName;
     private final String subject;
     private final String studentDVnumber;
+    List<Subject> subjects = new ArrayList<>();
     //End of variable declarations
     
     /**
@@ -52,15 +56,19 @@ public class DPcalc {
      * @param contAssMark The continual assessment mark of the student in percentage
      */
     public DPcalc(Double assMark, Double semTestMark, Double contAssMark) {
-        assignment = assMark;
-        semesterTest = semTestMark;
-        continuous = contAssMark;
-        assignmentWeight = 0.6;
-        semesterTestWeight = 0.2;
-        continousAssessmentWeight = 0.2;
+        
+       
+       //assignment = assMark;
+       //semesterTest = semTestMark;
+       //continuous = contAssMark;
+       //assignmentWeight = 0.6;
+       //semesterTestWeight = 0.2;
+       // continousAssessmentWeight = 0.2;
         studentName = "Default Student";
         subject = "Default Subject";
         studentDVnumber = "N/A";
+        Subject aSubject = new Subject(subject,semTestMark,contAssMark,assMark,0.2,0.2,0.6);
+        subjects.add(aSubject);
     }
 
     /**
@@ -75,16 +83,20 @@ public class DPcalc {
      * @param semesterTestWeight The weight as a floating point percentage
      * @param continousAssessmentWeight The weight as a floating point percentage
      */
-    public DPcalc(Double assignment, Double semesterTest, Double continuous, String studentName, String subject, String studentDVnumber, Double assignmentWeight, Double semesterTestWeight, Double continousAssessmentWeight) {
-        this.assignment = assignment;
-        this.semesterTest = semesterTest;
-        this.continuous = continuous;
-        this.assignmentWeight = assignmentWeight;
-        this.semesterTestWeight = semesterTestWeight;
-        this.continousAssessmentWeight = continousAssessmentWeight;
+    public DPcalc(Double assignment, Double semesterTest, Double continuous, String studentName,  String studentDVnumber, String subject, Double assignmentWeight, Double semesterTestWeight, Double continousAssessmentWeight) {
+        
+       // this.assignment = assignment;
+       //this.semesterTest = semesterTest;
+       // this.continuous = continuous;
+       // this.assignmentWeight = assignmentWeight;
+       // this.semesterTestWeight = semesterTestWeight;
+       // this.continousAssessmentWeight = continousAssessmentWeight;
         this.studentName = studentName;
         this.subject = subject;
         this.studentDVnumber = studentDVnumber;
+        //System.out.println(subject + assignment + semesterTest + continuous + assignmentWeight + semesterTestWeight + continousAssessmentWeight);
+        Subject aSubject = new Subject(subject ,semesterTest, continuous, assignment, semesterTestWeight, continousAssessmentWeight,assignmentWeight);
+        subjects.add(aSubject); 
     }
     
     
@@ -102,7 +114,10 @@ public class DPcalc {
      */
     //Task: complete this method as described in the comments and to pass the unit test
     public Double calculateDP() {
-        throw new UnsupportedOperationException("You still need to complete this method");
+        //throw new UnsupportedOperationException("You still need to complete this method");
+       // Double dp = assignment * assignmentWeight + semesterTest * semesterTestWeight + continuous * continousAssessmentWeight;
+        Double dp = subjects.get(0).getAssessmentMark() * subjects.get(0).getAssessmentWeight() + subjects.get(0).getSemesterTestMark() * subjects.get(0).getSemesterTestWeight() + subjects.get(0).getContinuousAssessmentMark() * subjects.get(0).getContinuousAssessmentWeight();
+        return dp;
     }
     
     /**
@@ -124,7 +139,13 @@ public class DPcalc {
      * @return A formatted string
      */
     public String prettyPrintDPreport() {
-        throw new UnsupportedOperationException("You still need to complete this method");
+        //throw new UnsupportedOperationException("You still need to complete this method");
+         String expectedResult = "Dear student you have attained:\n"
+                + "Assignment: " + subjects.get(0).getAssessmentMark() + "%\n"
+                + "Semester test: " + subjects.get(0).getSemesterTestMark() + "%\n"
+                + "Continous Assessment: " + subjects.get(0).getContinuousAssessmentMark() + "%\n"
+                + "Your DP is calculated as: 52.0%";
+        return expectedResult;
     }
     
     /**
@@ -134,28 +155,50 @@ public class DPcalc {
      * @return The assignment mark stored within the calculator
      */
     public Double getAssignmentMark() {
-        return assignment;
+        return subjects.get(0).getAssessmentMark();
     }
     
     // Task create the other accessors
     public Double getSemesterMark() {
+        //throw new UnsupportedOperationException("You still need to complete this method");
+        return subjects.get(0).getSemesterTestMark();
+        
+    }
+    
+    public Double getSemesterTestMark(String subject) {
+        throw new UnsupportedOperationException("You still need to complete this method");    
+        
+    }
+    
+    public Double getAssignmentMark(String subject) {
         throw new UnsupportedOperationException("You still need to complete this method");
+    }
+    
+    public Double getContinuousAssessmentMark(String subject) {
+        throw new UnsupportedOperationException("You still need to complete this method");
+         
     }
     
     public Double getContinuousAssessmentMark() {
-        throw new UnsupportedOperationException("You still need to complete this method");
+        //throw new UnsupportedOperationException("You still need to complete this method");
+        return subjects.get(0).getContinuousAssessmentMark();
     }
     
     public void setAssignmentWeight(Double assignmentWeight) {
-        throw new UnsupportedOperationException("You still need to complete this method");
+        //throw new UnsupportedOperationException("You still need to complete this method");
+        subjects.get(0).setAssessmentWeight(assignmentWeight);
     }
     
     public void setSemesterTestWeight(Double semesterTestWeight) {
-        throw new UnsupportedOperationException("You still need to complete this method");
+        //throw new UnsupportedOperationException("You still need to complete this method");
+        subjects.get(0).setSemesterTestWeight(semesterTestWeight);
     }
     
     public void setContinuousAssessmentWeight(Double continuousAssessmentWeight) {
-        throw new UnsupportedOperationException("You still need to complete this method");
+        //throw new UnsupportedOperationException("You still need to complete this method");
+        subjects.get(0).setContinuousAssessmentWeight(continuousAssessmentWeight);
+       
+        
     }
     
     /**
@@ -164,7 +207,14 @@ public class DPcalc {
      * @return True if you can write exams. False otherwise
      */
     public Boolean canWriteExams() {
-        throw new UnsupportedOperationException("You still need to complete this method");
+        //throw new UnsupportedOperationException("You still need to complete this method");
+        boolean write = false;
+
+        if (calculateDP() >= 40) {
+            write = true;
+        }
+
+        return write;
     }
     
     /**
@@ -174,6 +224,37 @@ public class DPcalc {
      * @return 
      */
     public Boolean verifyDVnum() {
-        throw new UnsupportedOperationException("You still need to complete this method");
+        //throw new UnsupportedOperationException("You still need to complete this method");
+        Boolean verify = false;
+        int lenght = studentDVnumber.length();
+        System.out.println(studentDVnumber);
+        if (lenght == 11) {
+             if (studentDVnumber.substring(0, 2).equalsIgnoreCase("DV")) {
+               if ((studentDVnumber.charAt(6) + "").equalsIgnoreCase("-")) {    
+                 int year = Integer.parseInt(studentDVnumber.substring(2, 6)); 
+                   System.out.println(year);
+                   if((1990 <= year) &(year <= 2015)){
+                    String temp = (studentDVnumber.substring(7, 9));
+                    System.out.println(studentDVnumber.substring(7, 11));
+                    try {
+                       Double.parseDouble(temp);
+                    } catch (NumberFormatException | NullPointerException e) {
+                        return false;
+                    }
+                    // only got here if we didn't return false
+                    verify = true;   
+                   }
+                     }
+            }
+        } else {
+           verify = false;
+        }
+       return verify; 
+    }
+    
+
+    public void addSubject(Subject subject) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
     }
 }
