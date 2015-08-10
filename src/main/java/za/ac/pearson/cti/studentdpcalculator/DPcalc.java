@@ -11,7 +11,10 @@
  */
 package za.ac.pearson.cti.studentdpcalculator;
 
-import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 /**
  * Program description:  This class will calculate a students due performance
@@ -35,16 +38,21 @@ public class DPcalc {
      */
     //Variable declarations here
     //Task: Complete the variable declarations
-    private final Double assignment;
+    /*private final Double assignment;
     private final Double semesterTest;
-    private final Double continuous;
+    private Double continuous;
     private Double assignmentWeight;
     private Double semesterTestWeight;
     private Double continousAssessmentWeight;
+    private final String subject;*/
+    
     private final String studentName;
-    private final String subject;
     private final String studentDVnumber;
-    private String fullPrint;
+    private Subject aSubject;
+    List<Subject> subjects = new ArrayList<>();
+    
+    
+    
     //End of variable declarations
     
     /**
@@ -55,15 +63,20 @@ public class DPcalc {
      * @param contAssMark The continual assessment mark of the student in percentage
      */
     public DPcalc(Double assMark, Double semTestMark, Double contAssMark) {
-        assignment = assMark;
+        
+        /*assignment = assMark;
         semesterTest = semTestMark;
         continuous = contAssMark;
         assignmentWeight = 0.6;
         semesterTestWeight = 0.2;
         continousAssessmentWeight = 0.2;
+        subject = "Default Subject";*/
+        
         studentName = "Default Student";
-        subject = "Default Subject";
         studentDVnumber = "DV2015-0123";
+        Set<Subject> aSubject = new HashSet<Subject>();
+        /*subjects.add((Subject) aSubject);*/
+
     }
 
     /**
@@ -79,17 +92,22 @@ public class DPcalc {
      * @param continousAssessmentWeight The weight as a floating point percentage
      */
     public DPcalc(Double assignment, Double semesterTest, Double continuous, String studentName, String subject, String studentDVnumber, Double assignmentWeight, Double semesterTestWeight, Double continousAssessmentWeight) {
-        this.assignment = assignment;
+   
+        /*this.assignment = assignment;
         this.semesterTest = semesterTest;
         this.continuous = continuous;
         this.assignmentWeight = assignmentWeight;
         this.semesterTestWeight = semesterTestWeight;
         this.continousAssessmentWeight = continousAssessmentWeight;
+        this.subject = subject;*/
+        
         this.studentName = studentName;
-        this.subject = subject;
         this.studentDVnumber = studentDVnumber;
+        /*Subject aSubject = new Subject();*/
+        Set<Subject> aSubject = new HashSet<Subject>();
+        /*subjects.add(aSubject);*/
+        
     }
-    
     
     
     /**
@@ -105,7 +123,7 @@ public class DPcalc {
      */
     //Task: complete this method as described in the comments and to pass the unit test
     public Double calculateDP() {
-        Double DPmark = (assignment * assignmentWeight) + (semesterTest * semesterTestWeight) + (continuous * continousAssessmentWeight);
+        Double DPmark = (getAssignmentMark() * aSubject.getAssessmentWeight()) + (getSemesterMark() * aSubject.getSemesterTestWeight()) + (getContinuousAssessmentMark() * aSubject.getContinuousAssessmentWeight());
         return DPmark;
     }
     
@@ -140,7 +158,7 @@ public class DPcalc {
         String finalResult = "Dear student, here is your report:/n"
                 + "Student Name: "+studentName+"/n"
                 + "Student DV number: "+studentDVnumber+"/n"
-                + "Subject: "+subject+"/n"
+                + "Subject: "+aSubject.getName()+"/n"
                 + "Assignment: "+getAssignmentMark()+"%\n"
                 + "Semester test: "+getSemesterMark()+"%\n"
                 + "Continous Assessment: "+getContinuousAssessmentMark()+"%\n"
@@ -151,33 +169,41 @@ public class DPcalc {
      * This method is known as an accessor method or getter.  It allows you to 
      * get an attribute from an object.  In this case the Assignment mark stored
      * within the calculator
+     * @param aSubject
      * @return The assignment mark stored within the calculator
      */
+    public void newClas(Subject aSubject) {
+        subjects.add(aSubject);
+        
+    }
+    
     public Double getAssignmentMark() {
-        return assignment;
+        Double assignmentMk = aSubject.getAssessmentMark();
+        return assignmentMk;
     }
     
     // Task create the other accessors
     public Double getSemesterMark() {
-        return semesterTest;
+        return aSubject.getSemesterTestMark();
+       
     }
     
     public Double getContinuousAssessmentMark() {
-        return continuous;
+        return aSubject.getContinuousAssessmentMark();
     }
     
-    public void setAssignmentWeight(Double assignmentWeight) {
-        Double assWeighDP = assignmentWeight;
+    public void setAssignmentWeight(Double assessmentWeight) {
+        aSubject.getAssessmentWeight();
                 
     }
     
     public void setSemesterTestWeight(Double semesterTestWeight) {
-        Double semTestWeighDP = semesterTestWeight;
+        aSubject.getSemesterTestWeight();
         
     }
     
     public void setContinuousAssessmentWeight(Double continuousAssessmentWeight) {
-        Double contAssWeighDP = continuousAssessmentWeight;
+        aSubject.getContinuousAssessmentWeight();
         
     }
     
@@ -201,34 +227,51 @@ public class DPcalc {
      * @return 
      */    
     public Boolean verifyDVnum() {
-        Boolean studDV = null;
+        Boolean studDV = true;
+ 
       /*This if statement tests the DV number to see if it is the correct length*/
-        if (studentDVnumber.length() == 11) {
+        if (studentDVnumber.length() != 11) {
+            return studDV = false;
+        } else {
             /*This if statement tests the DV number to see if it starts with the letters "DV"*/
-            if (studentDVnumber.substring(0, 2).contains("DV") == true) {
+            if (studentDVnumber.substring(0, 2) != ("DV")) {
+                return studDV = false;
+            } 
                 /*This if statements tests the middel part of the DV number to see if it contains a "-"*/
-                if (studentDVnumber.substring(6, 7).contains("-") == true) {
+                if (studentDVnumber.substring(6, 7) != ("-")) {
+                    return studDV = false;
+                } else {
                     /*Tests the DV numbers first number part to see if it contains 4 numbers*/
-                    if (studentDVnumber.substring(2, 6).equals(String.format("####", 1234)) == true) {
+                    if (studentDVnumber.substring(2, 6) != String.format("####", 0000)) {
+                        return studDV = false;
+                    } else {
                         /*Test to see if it is a date*/
-                        if (Integer.getInteger(studentDVnumber.substring(2, 6)) >= 1950) {
+                        if (Integer.parseInt(studentDVnumber.substring(2, 6)) < 1950) {
+                            return studDV = false;
+                        } else {
                             /*Test last number secuence to ensure that is only numbers*/
-                            if (studentDVnumber.substring(7, 11).equals(String.format("####", 1234)) == true) {
-                                studDV = true;
+                            if (studentDVnumber.substring(7, 11) != String.format("####", 0000)) {
+                                return studDV = false;
+                            } else {
+                                return studDV;
                             }
                         }
                     }
                 }
             }
         
-        }  else {
-            studDV = false;
-        }
         
-    return studDV;    
-}
-
-}    
+        }
+        public void addSubject(Subject subject) {
+        
+        subjects.get(0).getAssessmentMark();
+        subjects.get(1).getContinuousAssessmentMark();
+        subjects.get(2).getSemesterTestMark();
+        subjects.get(3).getName();
+        
+    }    
+        
+} 
 
 
 
