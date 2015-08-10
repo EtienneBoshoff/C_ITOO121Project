@@ -11,6 +11,9 @@
  */
 package za.ac.pearson.cti.studentdpcalculator;
 
+import static com.sun.org.apache.xalan.internal.xsltc.compiler.util.Type.String;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 import org.junit.Assert;
 
@@ -36,17 +39,11 @@ public class DPcalc {
      */
     //Variable declarations here
     //Task: Complete the variable declarations
-    Double assignment;
-    Double semesterTest;
-    Double continuous;
-    String subject;
-    String number;
-    String name;
-    Double weightSem;
-    Double weightAss;
-    Double weightCont; 
-    Double DP;
     
+    String number;
+    String nameStud;
+    Double DP;
+    List<Subject> subjects = new ArrayList<>();
     
     
     //End of variable declarations
@@ -68,14 +65,35 @@ public class DPcalc {
         assignment = assMark;
         semesterTest = semTestMark;
         continuous = contAssMark;
-        name = studName;
+        nameStud = studName;
         subject = studSubject;
         number = studNumber;
         weightSem = semWeight;
         weightAss = assWeight;
         weightCont = contWeight;
-               
+        
+        Subject testSubject = new Subject();
+        subjects.add(testSubject);
+        Subject name = new Subject();
+        subjects.add(name);
+        Subject assignment = new Subject();
+        subjects.add(assignment);
+        Subject semesterTest = new Subject();
+        subjects.add(semesterTest);
+        Subject continuous = new Subject();
+        subjects.add(continuous);
+        Subject weightSem = new Subject();
+        subjects.add(weightSem);
+        Subject weightAss = new Subject();
+        subjects.add(weightAss);
+        Subject weightCont = new Subject();
+        subjects.add(weightCont);
+        
+        for (Subject g: subjects) System.out.println(g);
+        }
     }
+    
+   
     
     /**
      * This method calculates the students DP for the semester with the values
@@ -187,21 +205,21 @@ public class DPcalc {
     }
     //get the semester weight from the user
     public void setSemesterTestWeight(Double semWeight) {
-    semWeight = 0.2;
+    
     weightSem = semWeight;
     
     }
     
     //get the assignment weight from the user
     public void setAssignmentWeight(Double assWeight) {
-    assWeight = 0.6; 
+    
     weightAss = assWeight;
     
     }
     
     //get the continuous assessment weight from the user
     public void setContinuousAssessmentWeight(Double contWeight) {
-    contWeight = 0.2;
+    
     weightCont = contWeight;
     
     }
@@ -211,12 +229,10 @@ public class DPcalc {
     public Boolean verifyDVnum() {
            
     if((number.length()) !=  11) {
-        return false;
-            } else { 
-                if(!"DV".matches(number.substring(0,2))) {
-                    if(!"-".matches(number.substring(6,1))) {
-                        if(!number.substring(2,4).matches("[0-9]")) {
-                            if(!number.substring(7,4).matches("[0-9]")) {
+        if(!"DV".matches(number.substring(0,1))) {
+            if(!"-".matches(number.substring(6,7))) {
+                if(!number.substring(2,6).matches("[0-9]")) {
+                    if(!number.substring(7,11).matches("[0-9]")) {
                             return false;
                             }
                         } 
