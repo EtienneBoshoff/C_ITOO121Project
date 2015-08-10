@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="DPcalcTests" time="0.02" tests="26" errors="0" skipped="0" failures="7">
+<testsuite name="DPcalcTests" time="0.018" tests="26" errors="0" skipped="0" failures="7">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_51\jre\bin"/>
@@ -62,7 +62,7 @@
     <property name="exec.args" value="-classpath %classpath za.ac.pearson.cti.studentdpcalculator.Main"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase name="testCalculateDPwithFailingMarks" classname="DPcalcTests" time="0.001"/>
+  <testcase name="testCalculateDPwithFailingMarks" classname="DPcalcTests" time="0"/>
   <testcase name="testInvalidDVnumWithDatePartThatIsWrong" classname="DPcalcTests" time="0"/>
   <testcase name="testGetAssignmentWhereSubjectIsInCapitalLetters" classname="DPcalcTests" time="0"/>
   <testcase name="testGetSemesterTestWhereSubjectIsOnlyInLowerCase" classname="DPcalcTests" time="0"/>
@@ -107,7 +107,7 @@
 	at DPcalcTests.testGetAssignmentMarkWithMultipleSubjects(DPcalcTests.java:445)
 ]]></failure>
   </testcase>
-  <testcase name="testGetSemesterTestMarkWithMultipleSubjects" classname="DPcalcTests" time="0.001">
+  <testcase name="testGetSemesterTestMarkWithMultipleSubjects" classname="DPcalcTests" time="0">
     <failure message="expected:&lt;65.0&gt; but was:&lt;50.0&gt;" type="java.lang.AssertionError"><![CDATA[java.lang.AssertionError: expected:<65.0> but was:<50.0>
 	at org.junit.Assert.fail(Assert.java:88)
 	at org.junit.Assert.failNotEquals(Assert.java:834)
@@ -117,7 +117,7 @@
 ]]></failure>
   </testcase>
   <testcase name="testGetContinuousAssessmentWhereSubjectIsInCapitalLetters" classname="DPcalcTests" time="0"/>
-  <testcase name="testValidDVnum" classname="DPcalcTests" time="0.001">
+  <testcase name="testValidDVnum" classname="DPcalcTests" time="0">
     <failure message="expected:&lt;true&gt; but was:&lt;false&gt;" type="java.lang.AssertionError"><![CDATA[java.lang.AssertionError: expected:<true> but was:<false>
 	at org.junit.Assert.fail(Assert.java:88)
 	at org.junit.Assert.failNotEquals(Assert.java:834)
@@ -126,7 +126,7 @@
 	at DPcalcTests.testValidDVnum(DPcalcTests.java:192)
 ]]></failure>
   </testcase>
-  <testcase name="testInvalidDVnumThatIsTooShort" classname="DPcalcTests" time="0"/>
+  <testcase name="testInvalidDVnumThatIsTooShort" classname="DPcalcTests" time="0.001"/>
   <testcase name="testCanWriteExams" classname="DPcalcTests" time="0"/>
   <testcase name="testGetSemesterTestWithSubjectThatDoesNotExist" classname="DPcalcTests" time="0.001">
     <failure message="Expected exception: java.lang.ArrayIndexOutOfBoundsException" type="java.lang.AssertionError">java.lang.AssertionError: Expected exception: java.lang.ArrayIndexOutOfBoundsException
@@ -163,13 +163,13 @@
   <testcase name="testInvalidDVnumWithLast4DigitsThatIsWrong" classname="DPcalcTests" time="0"/>
   <testcase name="testInvalidDVnumThatIsMissingTheDash" classname="DPcalcTests" time="0"/>
   <testcase name="testGetContinuousAssessmentWhereSubjectIsOnlyInLowerCase" classname="DPcalcTests" time="0"/>
-  <testcase name="testThatYouHaveAllAccessors" classname="DPcalcTests" time="0"/>
+  <testcase name="testThatYouHaveAllAccessors" classname="DPcalcTests" time="0.001"/>
   <testcase name="testPrettyPrint" classname="DPcalcTests" time="0"/>
   <testcase name="testInvalidDVnumThatIsTooLong" classname="DPcalcTests" time="0"/>
   <testcase name="testInvalidDVnumThatHasAdashInTheWrongPlace" classname="DPcalcTests" time="0"/>
   <testcase name="testGetSemesterTestWhereSubjectIsInCapitalLetters" classname="DPcalcTests" time="0"/>
   <testcase name="testCanWriteExamsEdgeCase" classname="DPcalcTests" time="0"/>
-  <testcase name="testGetContinuousAssessmentWithSubjectThatDoesNotExist" classname="DPcalcTests" time="0.001">
+  <testcase name="testGetContinuousAssessmentWithSubjectThatDoesNotExist" classname="DPcalcTests" time="0">
     <failure message="Expected exception: java.lang.ArrayIndexOutOfBoundsException" type="java.lang.AssertionError">java.lang.AssertionError: Expected exception: java.lang.ArrayIndexOutOfBoundsException
 	at org.junit.internal.runners.statements.ExpectException.evaluate(ExpectException.java:32)
 	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
@@ -200,8 +200,8 @@
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:103)
 </failure>
   </testcase>
-  <testcase name="testCalculateDPwithPassingMarks" classname="DPcalcTests" time="0"/>
-  <testcase name="testGetContinuousAssessmentWithMultipleSubjects" classname="DPcalcTests" time="0.002">
+  <testcase name="testCalculateDPwithPassingMarks" classname="DPcalcTests" time="0.001"/>
+  <testcase name="testGetContinuousAssessmentWithMultipleSubjects" classname="DPcalcTests" time="0.001">
     <failure message="expected:&lt;65.0&gt; but was:&lt;50.0&gt;" type="java.lang.AssertionError"><![CDATA[java.lang.AssertionError: expected:<65.0> but was:<50.0>
 	at org.junit.Assert.fail(Assert.java:88)
 	at org.junit.Assert.failNotEquals(Assert.java:834)

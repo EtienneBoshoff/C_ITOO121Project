@@ -52,39 +52,12 @@ public class DPcalc {
      * @param contAssMark The continual assessment mark of the student in percentage
      */
     public DPcalc(Double assMark, Double semTestMark, Double contAssMark) {
-        assignment = assMark;
-        semesterTest = semTestMark;
-        continuous = contAssMark;
-        assignmentWeight = 0.6;
-        semesterTestWeight = 0.2;
-        continousAssessmentWeight = 0.2;
-        studentName = "Default Student";
-        subject = "Default Subject";
-        studentDVnumber = "N/A";
+        subjects.add(new Subject("Defalt Subject", semTestMark,  contAssMark,  assMark,  0.2,  0.2,  0.6));
     }
 
-    /**
-     * This is the secondary constructor for DPcalc
-     * @param assignment The assignment mark of the student in percentage
-     * @param semesterTest The semester test mark of the student in percentage
-     * @param continuous The continual assessment mark of the student in percentage
-     * @param studentName The name of the student for whom we are calculating the DP
-     * @param subject The subject the DP is calculated for
-     * @param studentDVnumber The student's DV number
-     * @param assignmentWeight The weight as a floating point percentage
-     * @param semesterTestWeight The weight as a floating point percentage
-     * @param continousAssessmentWeight The weight as a floating point percentage
-     */
+    
     public DPcalc(Double assignment, Double semesterTest, Double continuous, String studentName, String subject, String studentDVnumber, Double assignmentWeight, Double semesterTestWeight, Double continousAssessmentWeight) {
-        this.assignment = assignment;
-        this.semesterTest = semesterTest;
-        this.continuous = continuous;
-        this.assignmentWeight = assignmentWeight;
-        this.semesterTestWeight = semesterTestWeight;
-        this.continousAssessmentWeight = continousAssessmentWeight;
-        this.studentName = studentName;
-        this.subject = subject;
-        this.studentDVnumber = studentDVnumber;
+        subjects.add(new Subject(subject, semesterTest,  continuous,  assignment, semesterTestWeight, continousAssessmentWeight, assignmentWeight));
     }
     
     
@@ -234,6 +207,6 @@ public class DPcalc {
     }
 
     public void addSubject(Subject subject) {
-        Subject sub = new Subject(getSubject().toLowerCase(), semesterTest, continuous, assignment, semesterTestWeight, continousAssessmentWeight, assignmentWeight);
+        
     }
 }
