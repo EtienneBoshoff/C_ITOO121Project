@@ -102,7 +102,18 @@ public class DPcalc {
      */
     //Task: complete this method as described in the comments and to pass the unit test
     public Double calculateDP() {
-        throw new UnsupportedOperationException("You still need to complete this method");
+          /*
+        teachers work
+        
+        return getAssignment() * 0.6
+            + getSemesterMark() * 0.2
+            + getContinuousAssessmentMark() * 0.2;
+        
+        */
+        
+        double dp;
+        dp = assignment*0.6 + semesterTest*0.2 + continuous*0.2;
+        return dp;
     }
     
     /**
@@ -124,7 +135,7 @@ public class DPcalc {
      * @return A formatted string
      */
     public String prettyPrintDPreport() {
-        throw new UnsupportedOperationException("You still need to complete this method");
+        
     }
     
     /**
@@ -139,11 +150,11 @@ public class DPcalc {
     
     // Task create the other accessors
     public Double getSemesterMark() {
-        throw new UnsupportedOperationException("You still need to complete this method");
+    return semesterTest;
     }
     
     public Double getSemesterTestMark(String subject) {
-        throw new UnsupportedOperationException("You still need to complete this method");       
+        return semesterTest;       
     }
     
     public Double getAssignmentMark(String subject) {
@@ -151,11 +162,11 @@ public class DPcalc {
     }
     
     public Double getContinuousAssessmentMark(String subject) {
-        throw new UnsupportedOperationException("You still need to complete this method");
+        return continuous;
     }
     
     public Double getContinuousAssessmentMark() {
-        throw new UnsupportedOperationException("You still need to complete this method");
+        return continuous;
     }
     
     public void setAssignmentWeight(Double assignmentWeight) {
@@ -176,7 +187,22 @@ public class DPcalc {
      * @return True if you can write exams. False otherwise
      */
     public Boolean canWriteExams() {
-        throw new UnsupportedOperationException("You still need to complete this method");
+          /*
+        Teachers Work
+        
+        return calculateDP() >= 0.40;
+        
+        
+        */
+        
+        double dp;
+        dp = assignment*0.6 + semesterTest*0.2 + continuous*0.2;
+        
+        if (calculateDP() >=40) {
+            return true;
+    }   else {
+            return false;
+    }
     }
     
     /**
@@ -186,7 +212,18 @@ public class DPcalc {
      * @return 
      */
     public Boolean verifyDVnum() {
-        throw new UnsupportedOperationException("You still need to complete this method");
+        
+      String  dvNumber = "DV2013-0756";
+      
+   
+      
+  if(dvNumber.length()==11 ){
+        return false;
+        }else{
+        return true;
+        }
+    
+    
     }
 
     public void addSubject(Subject subject) {
