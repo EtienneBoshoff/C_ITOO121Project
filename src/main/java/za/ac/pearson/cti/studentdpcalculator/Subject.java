@@ -5,6 +5,9 @@
  */
 package za.ac.pearson.cti.studentdpcalculator;
 
+//import java.util.ArrayList;
+//import java.util.List;
+
 /**
  *
  * @author uboshet
@@ -14,19 +17,21 @@ public class Subject {
     private String name;
     private Double semesterTestMark;
     private Double continuousAssessmentMark;
-    private Double assessmentMark;
+    private Double assignmentMark;
     private Double semesterTestWeight;
     private Double continuousAssessmentWeight;
-    private Double assessmentWeight;
+    private Double assignmentWeight;
+//    private final List <Subject> subjects;
 
-    public Subject(String name, Double semesterTestMark, Double continuousAssessmentMark, Double assessmentMark, Double semesterTestWeight, Double continuousAssessmentWeight, Double assessmentWeight) {
+    public Subject(String name, Double semesterTestMark, Double continuousAssessmentMark, Double assignmentMark, Double semesterTestWeight, Double continuousAssessmentWeight, Double assessmentWeight) {
         this.name = name;
         this.semesterTestMark = semesterTestMark;
         this.continuousAssessmentMark = continuousAssessmentMark;
-        this.assessmentMark = assessmentMark;
+        this.assignmentMark = assignmentMark;
         this.semesterTestWeight = semesterTestWeight;
         this.continuousAssessmentWeight = continuousAssessmentWeight;
-        this.assessmentWeight = assessmentWeight;
+        this.assignmentWeight = assessmentWeight;
+  
     }
 
     public String getName() {
@@ -53,12 +58,12 @@ public class Subject {
         this.continuousAssessmentMark = continuousAssessmentMark;
     }
 
-    public Double getAssessmentMark() {
-        return assessmentMark;
+    public Double getAssignmentMark() {
+        return assignmentMark;
     }
 
-    public void setAssessmentMark(Double assessmentMark) {
-        this.assessmentMark = assessmentMark;
+    public void setAssignmentMark(Double assignmentMark) {
+        this.assignmentMark = assignmentMark;
     }
 
     public Double getSemesterTestWeight() {
@@ -77,14 +82,13 @@ public class Subject {
         this.continuousAssessmentWeight = continuousAssessmentWeight;
     }
 
-    public Double getAssessmentWeight() {
-        return assessmentWeight;
+    public Double getAssignmentWeight() {
+        return assignmentWeight;
     }
 
-    public void setAssessmentWeight(Double assessmentWeight) {
-        this.assessmentWeight = assessmentWeight;
+    public void setAssignmentWeight(Double assignmentWeight) {
+        this.assignmentWeight = assignmentWeight;
     }
-    
     
     
 }

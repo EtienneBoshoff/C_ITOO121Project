@@ -42,8 +42,7 @@ public class Main {
          */
         //End of bonus credit part
         
-        //This part asks the user for his name and marks while welcoming him to the program
-        System.out.println("Welcome to DP Calculator: ");
+                System.out.println("Welcome to DP Calculator: ");
         System.out.print("What is your name: ");
         // This makes an object for the keyboard
         Scanner keyboardInput = new Scanner(System.in);
@@ -54,9 +53,29 @@ public class Main {
         System.out.print("Please enter the percentage you received for your Assignment: ");
         userInput = keyboardInput.nextLine();
         Double assignmentMark = Double.parseDouble(userInput);
+         System.out.print("Please enter the percentage you received for your Semester Test: ");
+        userInput = keyboardInput.nextLine();
+        Double semesterTestMark = Double.parseDouble(userInput);
+         System.out.print("Please enter the percentage you received for your Continuous Assessment: ");
+        userInput = keyboardInput.nextLine();
+        Double contAssessmentMark = Double.parseDouble(userInput);
+
+        Double assWeight = .60;
+        Double semWeight = .20;
+        Double contWeight = .20; 
+        Double calcDP;
         
-        
-        
-    }
+        calcDP = (assignmentMark *assWeight) + (semesterTestMark*semWeight) + (contAssessmentMark*contWeight);
+        System.out.printf("Dear student you have attained: \n Assignment:\t%3.2f\n Semester Test:\t%3.2f\n Continuous Assessment:\t%3.2f\n Your DP is calculated as:\t%3.2f\n", assignmentMark, semesterTestMark, contAssessmentMark, calcDP);
+   
+        Double result = calcDP;
+        boolean canWrite = true;
+        String pass = "";
+        if (result < 40.0) {  
+            canWrite = false;
+            System.out.printf("Did you make Due Performance: %B\n", canWrite);
+            }
+        System.out.printf("Did you make Due Performance: %B\n", canWrite);
+        }
     
 }
