@@ -1,12 +1,7 @@
-/*
- * Storage Class
- */
+
 package za.ac.pearson.cti.studentdpcalculator;
 
-/**
- *
- * @author Philip
- */
+
 public class Subject {
     
     private String subjectName;

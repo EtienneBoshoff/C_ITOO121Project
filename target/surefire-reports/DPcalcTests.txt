@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: DPcalcTests
 -------------------------------------------------------------------------------
-Tests run: 26, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec <<< FAILURE! - in DPcalcTests
-testValidDVnum(DPcalcTests)  Time elapsed: 0 sec  <<< FAILURE!
+Tests run: 26, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.075 sec <<< FAILURE! - in DPcalcTests
+testValidDVnum(DPcalcTests)  Time elapsed: 0.006 sec  <<< FAILURE!
 java.lang.AssertionError: expected:<true> but was:<false>
 	at org.junit.Assert.fail(Assert.java:88)
 	at org.junit.Assert.failNotEquals(Assert.java:834)
