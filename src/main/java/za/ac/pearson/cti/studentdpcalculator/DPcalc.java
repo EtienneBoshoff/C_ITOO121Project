@@ -11,6 +11,10 @@
  */
 package za.ac.pearson.cti.studentdpcalculator;
 
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.JOptionPane;
+
 /**
  * Program description:  This class will calculate a students due performance
  * or DP.  
@@ -102,7 +106,11 @@ public class DPcalc {
      */
     //Task: complete this method as described in the comments and to pass the unit test
     public Double calculateDP() {
-        throw new UnsupportedOperationException("You still need to complete this method");
+        Double answer;
+        
+        answer = (assignment *0.6)+(semesterTest * 0.2)+(continuous*0.2);
+        
+        return answer;
     }
     
     /**
@@ -124,7 +132,15 @@ public class DPcalc {
      * @return A formatted string
      */
     public String prettyPrintDPreport() {
-        throw new UnsupportedOperationException("You still need to complete this method");
+        
+         String print = "Dear student you have attained:\n"
+                + "Assignment: "+assignment+"%\n"
+                + "Semester test: "+semesterTest+"%\n"
+                + "Continous Assessment: "+continuous+"%\n"
+                + "Your DP is calculated as: " + calculateDP() +"%";
+         
+         System.out.println(print);
+         return print;
     }
     
     /**
@@ -139,23 +155,35 @@ public class DPcalc {
     
     // Task create the other accessors
     public Double getSemesterMark() {
-        throw new UnsupportedOperationException("You still need to complete this method");
+        return semesterTest;
+    }
+    
+    public Double getSemesterTestMark(String subject) {
+       return semesterTest;       
+    }
+    
+    public Double getAssignmentMark(String subject) {
+        return assignment;
+    }
+    
+    public Double getContinuousAssessmentMark(String subject) {
+        return continuous;
     }
     
     public Double getContinuousAssessmentMark() {
-        throw new UnsupportedOperationException("You still need to complete this method");
+        return continuous;
     }
     
     public void setAssignmentWeight(Double assignmentWeight) {
-        throw new UnsupportedOperationException("You still need to complete this method");
+         this.assignmentWeight = assignmentWeight;
     }
     
     public void setSemesterTestWeight(Double semesterTestWeight) {
-        throw new UnsupportedOperationException("You still need to complete this method");
+       this.semesterTestWeight = semesterTestWeight;
     }
     
     public void setContinuousAssessmentWeight(Double continuousAssessmentWeight) {
-        throw new UnsupportedOperationException("You still need to complete this method");
+       this.continousAssessmentWeight = continousAssessmentWeight;
     }
     
     /**
@@ -164,7 +192,18 @@ public class DPcalc {
      * @return True if you can write exams. False otherwise
      */
     public Boolean canWriteExams() {
-        throw new UnsupportedOperationException("You still need to complete this method");
+      Boolean  canWrite = false;
+      
+      if(calculateDP() >= 40){
+        System.out.println("You may write exams: ");
+        canWrite = true;
+    }
+      else if(calculateDP() <= 40){
+          System.out.println("You do not qualify to write exams: ");
+          canWrite = false;
+      }
+      
+      return canWrite;
     }
     
     /**
@@ -174,6 +213,41 @@ public class DPcalc {
      * @return 
      */
     public Boolean verifyDVnum() {
-        throw new UnsupportedOperationException("You still need to complete this method");
+       Boolean verify = false;
+       
+       if(studentDVnumber.length() <= 11){
+           
+           System.out.println("The DV-number is too short");
+           return verify = false;
+       }
+       else if(studentDVnumber.substring(0, 2) != "DV"){
+           System.out.println("The DV-number should start with DV");
+           return verify = false;
+       }
+       else if(studentDVnumber.substring(6, 7) != "-") {
+           System.out.println("The dash is missung or misplaced: ");
+           return verify = false;
+       }
+           
+       
+       
+       return verify;
     }
+
+    public void addSubject(Subject subject) {
+        
+        List<Subject> subjects  = new ArrayList<>();
+        
+        subjects.get(semesterTestWeight.intValue());
+        
+        Subject aSubject = new Subject (subject, semesterTest, continousAssessmentWeight, assignment, semesterTestWeight, continousAssessmentWeight, assignmentWeight);
+        
+        subject.add(aSubject);  //To change body of generated methods, choose Tools | Templates.
+    }
+    
+   
+       
+      
+       
+    
 }
