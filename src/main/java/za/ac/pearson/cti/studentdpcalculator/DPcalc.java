@@ -69,6 +69,7 @@ public class DPcalc {
         studentName = "Default Student";
         subject = "Default Subject";
         studentDVnumber = "N/A";
+        //test
         Subject aSubject = new Subject(subject,semTestMark,contAssMark,assMark,0.2,0.2,0.6);
         subjects.add(aSubject);
     }
