@@ -13,6 +13,9 @@ package za.ac.pearson.cti.studentdpcalculator;
 
 import java.util.Scanner;
 
+/*public String gigo() {
+
+}*/
 /**
  * Remember that all programs will be compiled through Maven.
  * If Maven is not used then you will receive 0 for this task
@@ -54,8 +57,23 @@ public class Main {
         System.out.print("Please enter the percentage you received for your Assignment: ");
         userInput = keyboardInput.nextLine();
         Double assignmentMark = Double.parseDouble(userInput);
+         System.out.print("Please enter the percentage you received for your Semester test: ");
+        userInput = keyboardInput.nextLine();
+        Double semesterTest = Double.parseDouble(userInput);
+         System.out.print("Please enter the percentage you received for your Continuous Assessment: ");
+        userInput = keyboardInput.nextLine();
+        Double contAss = Double.parseDouble(userInput);
         
-        
+        DPcalc dp = new DPcalc(assignmentMark, semesterTest, contAss);
+        System.out.println(dp.prettyPrintDPreport());
+        if (dp.canWriteExams())
+        {
+            System.out.println("you can write exams");
+        }
+        else 
+        {
+            System.out.println("you have failed");
+        }
         
     }
     
