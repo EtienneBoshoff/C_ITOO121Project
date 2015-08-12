@@ -112,7 +112,7 @@ public class DPcalc {
             return false;
         }
         //By first caracters
-        if (dvNumber.substring(0, 2).equalsIgnoreCase("dv")) {
+        if (!dvNumber.substring(0, 2).equalsIgnoreCase("dv")) {
             return false;
         }
         //By fist set of numbers
