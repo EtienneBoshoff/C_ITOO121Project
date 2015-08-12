@@ -12,9 +12,9 @@
 package za.ac.pearson.cti.studentdpcalculator;
 
 import java.util.ArrayList;
-import java.util.HashSet;
+
 import java.util.List;
-import java.util.Set;
+
 
 /**
  * Program description:  This class will calculate a students due performance
@@ -38,13 +38,13 @@ public class DPcalc {
      */
     //Variable declarations here
     //Task: Complete the variable declarations
-    /*private final Double assignment;
+    private final Double assignment;
     private final Double semesterTest;
     private Double continuous;
     private Double assignmentWeight;
     private Double semesterTestWeight;
     private Double continousAssessmentWeight;
-    private final String subject;*/
+    private final String subject;
     
     private final String studentName;
     private final String studentDVnumber;
@@ -64,18 +64,19 @@ public class DPcalc {
      */
     public DPcalc(Double assMark, Double semTestMark, Double contAssMark) {
         
-        /*assignment = assMark;
+        assignment = assMark;
         semesterTest = semTestMark;
         continuous = contAssMark;
         assignmentWeight = 0.6;
         semesterTestWeight = 0.2;
         continousAssessmentWeight = 0.2;
-        subject = "Default Subject";*/
+        subject = "Default Subject";
         
         studentName = "Default Student";
         studentDVnumber = "DV2015-0123";
-        Set<Subject> aSubject = new HashSet<Subject>();
-        /*subjects.add((Subject) aSubject);*/
+        /*Subject aSubject = new Subject();*/
+        Subject aSubject = new Subject(subject, semesterTest, continuous, assignment, semesterTestWeight, continousAssessmentWeight, assignmentWeight);
+        subjects.add(aSubject);
 
     }
 
@@ -93,19 +94,19 @@ public class DPcalc {
      */
     public DPcalc(Double assignment, Double semesterTest, Double continuous, String studentName, String subject, String studentDVnumber, Double assignmentWeight, Double semesterTestWeight, Double continousAssessmentWeight) {
    
-        /*this.assignment = assignment;
+        this.assignment = assignment;
         this.semesterTest = semesterTest;
         this.continuous = continuous;
         this.assignmentWeight = assignmentWeight;
         this.semesterTestWeight = semesterTestWeight;
         this.continousAssessmentWeight = continousAssessmentWeight;
-        this.subject = subject;*/
+        this.subject = subject;
         
         this.studentName = studentName;
         this.studentDVnumber = studentDVnumber;
         /*Subject aSubject = new Subject();*/
-        Set<Subject> aSubject = new HashSet<Subject>();
-        /*subjects.add(aSubject);*/
+        Subject aSubject = new Subject(subject, semesterTest, continuous, assignment, semesterTestWeight, continousAssessmentWeight, assignmentWeight);
+        subjects.add(aSubject);
         
     }
     
@@ -123,7 +124,7 @@ public class DPcalc {
      */
     //Task: complete this method as described in the comments and to pass the unit test
     public Double calculateDP() {
-        Double DPmark = (getAssignmentMark() * aSubject.getAssessmentWeight()) + (getSemesterMark() * aSubject.getSemesterTestWeight()) + (getContinuousAssessmentMark() * aSubject.getContinuousAssessmentWeight());
+        Double DPmark = (getAssignmentMark() * subjects.get(0).getAssessmentWeight()) + (getSemesterMark() * subjects.get(0).getSemesterTestWeight()) + (getContinuousAssessmentMark() * subjects.get(0).getContinuousAssessmentWeight());
         return DPmark;
     }
     
@@ -147,9 +148,9 @@ public class DPcalc {
      */
     public String prettyPrintDPreport() {
         String studentResult = "Dear student you have attained:\n"
-                + "Assignment: "+getAssignmentMark()+"%\n"
-                + "Semester test: "+getSemesterMark()+"%\n"
-                + "Continous Assessment: "+getContinuousAssessmentMark()+"%\n"
+                + "Assignment: "+subjects.get(0).getAssessmentMark()+"%\n"
+                + "Semester test: "+subjects.get(0).getSemesterTestMark()+"%\n"
+                + "Continous Assessment: "+subjects.get(0).getContinuousAssessmentMark()+"%\n"
                 + "Your DP is calculated as: "+calculateDP()+"%";
         return studentResult;
     }
@@ -172,38 +173,85 @@ public class DPcalc {
      * @param aSubject
      * @return The assignment mark stored within the calculator
      */
-    public void newClas(Subject aSubject) {
+    public void newList(Subject aSubject) {
         subjects.add(aSubject);
-        
-    }
-    
-    public Double getAssignmentMark() {
-        Double assignmentMk = aSubject.getAssessmentMark();
-        return assignmentMk;
-    }
-    
-    // Task create the other accessors
-    public Double getSemesterMark() {
-        return aSubject.getSemesterTestMark();
        
     }
     
+    public Double getAssignmentMark() {
+        if (subjects.size() > 0) {
+            return subjects.get(0).getAssessmentMark();
+        }
+       
+        return 0.0;
+}
+    
+    public Double getAssignmentMark(String subject) {
+        Double assRet = subjects.get(0).getAssessmentMark();
+        for (int i=0;i<subjects.size();i++) {
+            if (subjects.get(i).getName().equalsIgnoreCase(subject)) {
+                assRet = subjects.get(i).getAssessmentMark();
+            
+            }
+        }
+        return assRet;
+    }
+    
+    
+    // Task create the other accessors
+    public Double getSemesterMark() {
+        if (subjects.size() > 0) {
+            return subjects.get(0).getSemesterTestMark();
+        }
+        return 0.0;
+       
+    }
+    
+    public Double getSemesterTestMark(String subject) {
+        Double semRet = subjects.get(0).getSemesterTestMark();
+        for (int i=0;i<subjects.size();i++) {
+            if (subjects.get(i).getName().equalsIgnoreCase(subject)) {
+                semRet = subjects.get(i).getSemesterTestMark();
+            }
+            
+            
+        }
+        return semRet;
+    }
+        
+    
     public Double getContinuousAssessmentMark() {
-        return aSubject.getContinuousAssessmentMark();
+        if (subjects.size() > 0) {
+            return subjects.get(0).getContinuousAssessmentMark();
+        }
+        
+        return 0.0;
+    }
+    
+    
+    
+    public Double getContinuousAssessmentMark(String subject) {
+        Double conRet = subjects.get(0).getContinuousAssessmentMark();
+        for (int i=0;i<subjects.size();i++) {
+            if (subjects.get(i).getName().equalsIgnoreCase(subject)) {
+                conRet = subjects.get(i).getContinuousAssessmentMark();
+            }
+        }
+        return conRet;
     }
     
     public void setAssignmentWeight(Double assessmentWeight) {
-        aSubject.getAssessmentWeight();
+        subjects.get(0).getAssessmentWeight();
                 
     }
     
     public void setSemesterTestWeight(Double semesterTestWeight) {
-        aSubject.getSemesterTestWeight();
+        subjects.get(0).getSemesterTestWeight();
         
     }
     
     public void setContinuousAssessmentWeight(Double continuousAssessmentWeight) {
-        aSubject.getContinuousAssessmentWeight();
+        subjects.get(0).getContinuousAssessmentWeight();
         
     }
     
@@ -227,33 +275,36 @@ public class DPcalc {
      * @return 
      */    
     public Boolean verifyDVnum() {
-        Boolean studDV = true;
+        Boolean studDV = false;
  
       /*This if statement tests the DV number to see if it is the correct length*/
-        if (studentDVnumber.length() != 11) {
-            return studDV = false;
-        } else {
-            /*This if statement tests the DV number to see if it starts with the letters "DV"*/
-            if (studentDVnumber.substring(0, 2) != ("DV")) {
-                return studDV = false;
-            } 
-                /*This if statements tests the middel part of the DV number to see if it contains a "-"*/
-                if (studentDVnumber.substring(6, 7) != ("-")) {
-                    return studDV = false;
-                } else {
-                    /*Tests the DV numbers first number part to see if it contains 4 numbers*/
-                    if (studentDVnumber.substring(2, 6) != String.format("####", 0000)) {
-                        return studDV = false;
-                    } else {
-                        /*Test to see if it is a date*/
-                        if (Integer.parseInt(studentDVnumber.substring(2, 6)) < 1950) {
-                            return studDV = false;
-                        } else {
-                            /*Test last number secuence to ensure that is only numbers*/
-                            if (studentDVnumber.substring(7, 11) != String.format("####", 0000)) {
-                                return studDV = false;
+        if (studentDVnumber.length() == 11) {
+          /*This if statement tests the DV number to see if it starts with the letters "DV"*/
+            if (studentDVnumber.substring(0, 2) == ("DV")) {
+              /*This if statements tests the middel part of the DV number to see if it contains a "-"*/
+                if (studentDVnumber.substring(6, 7) == ("-")) {
+                  /*Tests the DV numbers first number part to see if it contains 4 numbers*/
+                    if (studentDVnumber.substring(2, 6).equals(String.format("####", 0000))) {
+                       /*Test to see if it is a date*/
+                        if (Integer.parseInt(studentDVnumber.substring(2, 6)) > 1950) {
+                          /*Test last number secuence to ensure that is only numbers*/
+                            if (studentDVnumber.substring(7, 11).equals(String.format("####", 0000))) {
+                                studDV = true;
                             } else {
-                                return studDV;
+                               if (studentDVnumber.length() != 11) {
+                                 /*This if statement tests the DV number to see if it starts with the letters "DV"*/
+                                     if (studentDVnumber.substring(0, 2) != ("DV")) {
+                                         /*This if statements tests the middel part of the DV number to see if it contains a "-"*/
+                                           if (studentDVnumber.substring(6, 7) != ("-")) {
+                                              /*Tests the DV numbers first number part to see if it contains 4 numbers*/
+                                               if (studentDVnumber.substring(2, 6) != String.format("####", 0000)) {
+                                                   /*Test to see if it is a date*/
+                                                    if (Integer.parseInt(studentDVnumber.substring(2, 6)) < 1950) {
+                                                      /*Test last number secuence to ensure that is only numbers*/
+                                                        if (studentDVnumber.substring(7, 11) != String.format("####", 0000)) {
+                                                            studDV = false;
+                            }
+                                
                             }
                         }
                     }
@@ -262,14 +313,26 @@ public class DPcalc {
         
         
         }
+                        }
+                    }
+                }
+            }
+        }
+        
+        return studDV;
+    }
+                        
+                        
         public void addSubject(Subject subject) {
         
-        subjects.get(0).getAssessmentMark();
-        subjects.get(1).getContinuousAssessmentMark();
-        subjects.get(2).getSemesterTestMark();
-        subjects.get(3).getName();
+        subjects.add(subject);
+        
         
     }    
+
+    private String outOfBoundsMsg(int i) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
         
 } 
 
