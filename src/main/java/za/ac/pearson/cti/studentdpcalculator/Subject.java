@@ -5,10 +5,6 @@
  */
 package za.ac.pearson.cti.studentdpcalculator;
 
-/**
- *
- * @author Wehan
- */
 public class Subject {
     
     private String name;
