@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="DPcalcTests" time="0" tests="26" errors="0" skipped="0" failures="0">
+<testsuite name="DPcalcTests" time="0" tests="14" errors="0" skipped="0" failures="1">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0\jre\bin"/>
@@ -15,7 +15,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="sun.os.patch.level" value=""/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
-    <property name="user.dir" value="D:\Studies\Books\Object Oriented Programming\C_ITOO121Project-PaulWeek4"/>
+    <property name="user.dir" value="D:\Studies\Books\Object Oriented Programming\C_ITOO121Project-master"/>
     <property name="java.runtime.version" value="1.8.0-b132"/>
     <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
     <property name="java.endorsed.dirs" value="C:\Program Files\Java\jdk1.8.0\jre\lib\endorsed"/>
@@ -62,28 +62,30 @@
   </properties>
   <testcase name="testCalculateDPwithFailingMarks" classname="DPcalcTests" time="0"/>
   <testcase name="testInvalidDVnumWithDatePartThatIsWrong" classname="DPcalcTests" time="0"/>
-  <testcase name="testGetAssignmentWhereSubjectIsInCapitalLetters" classname="DPcalcTests" time="0"/>
-  <testcase name="testGetSemesterTestWhereSubjectIsOnlyInLowerCase" classname="DPcalcTests" time="0"/>
-  <testcase name="testGetAssignmentWithSubjectThatDoesNotExist" classname="DPcalcTests" time="0"/>
   <testcase name="testCannotWriteExams" classname="DPcalcTests" time="0"/>
-  <testcase name="testGetAssignmentMarkWithMultipleSubjects" classname="DPcalcTests" time="0"/>
-  <testcase name="testGetSemesterTestMarkWithMultipleSubjects" classname="DPcalcTests" time="0"/>
-  <testcase name="testGetContinuousAssessmentWhereSubjectIsInCapitalLetters" classname="DPcalcTests" time="0"/>
   <testcase name="testValidDVnum" classname="DPcalcTests" time="0"/>
   <testcase name="testInvalidDVnumThatIsTooShort" classname="DPcalcTests" time="0"/>
   <testcase name="testCanWriteExams" classname="DPcalcTests" time="0"/>
-  <testcase name="testGetSemesterTestWithSubjectThatDoesNotExist" classname="DPcalcTests" time="0"/>
-  <testcase name="testGetAssignmentWhereSubjectIsOnlyInLowerCase" classname="DPcalcTests" time="0"/>
   <testcase name="testInvalidDVnumWithLast4DigitsThatIsWrong" classname="DPcalcTests" time="0"/>
   <testcase name="testInvalidDVnumThatIsMissingTheDash" classname="DPcalcTests" time="0"/>
-  <testcase name="testGetContinuousAssessmentWhereSubjectIsOnlyInLowerCase" classname="DPcalcTests" time="0"/>
   <testcase name="testThatYouHaveAllAccessors" classname="DPcalcTests" time="0"/>
-  <testcase name="testPrettyPrint" classname="DPcalcTests" time="0"/>
+  <testcase name="testPrettyPrint" classname="DPcalcTests" time="0">
+    <failure message="expected:&lt;...ained:&#10;Assignment: 5[0.0%&#10;Semester test: 55.0%&#10;Continous Assessment: 55].0%&#10;Your DP is calcu...&gt; but was:&lt;...ained:&#10;Assignment: 5[5.0%&#10;Semester test: 55.0%&#10;Continous Assessment: 50].0%&#10;Your DP is calcu...&gt;" type="org.junit.ComparisonFailure"><![CDATA[org.junit.ComparisonFailure: expected:<...ained:
+Assignment: 5[0.0%
+Semester test: 55.0%
+Continous Assessment: 55].0%
+Your DP is calcu...> but was:<...ained:
+Assignment: 5[5.0%
+Semester test: 55.0%
+Continous Assessment: 50].0%
+Your DP is calcu...>
+	at org.junit.Assert.assertEquals(Assert.java:115)
+	at org.junit.Assert.assertEquals(Assert.java:144)
+	at DPcalcTests.testPrettyPrint(DPcalcTests.java:99)
+]]></failure>
+  </testcase>
   <testcase name="testInvalidDVnumThatIsTooLong" classname="DPcalcTests" time="0"/>
   <testcase name="testInvalidDVnumThatHasAdashInTheWrongPlace" classname="DPcalcTests" time="0"/>
-  <testcase name="testGetSemesterTestWhereSubjectIsInCapitalLetters" classname="DPcalcTests" time="0"/>
   <testcase name="testCanWriteExamsEdgeCase" classname="DPcalcTests" time="0"/>
-  <testcase name="testGetContinuousAssessmentWithSubjectThatDoesNotExist" classname="DPcalcTests" time="0"/>
   <testcase name="testCalculateDPwithPassingMarks" classname="DPcalcTests" time="0"/>
-  <testcase name="testGetContinuousAssessmentWithMultipleSubjects" classname="DPcalcTests" time="0"/>
 </testsuite>

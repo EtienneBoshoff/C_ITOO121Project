@@ -1,31 +1,33 @@
-/*
- *Author: Paul Treurnicht
- *Operating System: Windows 8.1
- *Description: This is a student DP calulator that calculates the DP for a student and then tests it against certain validations.
- *DV2012-0003 
- */
+
 package za.ac.pearson.cti.studentdpcalculator;
 
-public class Subject {
-    
+/*
+ * Author: Paul Treurnicht
+ * Date created: 2015/08/12
+ * Operating system: Windows 8.1
+ * DV2012-0003
+ */
+
+public class subject {
+
     private String name;
-    private Double semesterTestMark;
-    private Double continuousAssessmentMark;
-    private Double assessmentMark;
-    private Double semesterTestWeight;
-    private Double continuousAssessmentWeight;
-    private Double assessmentWeight;
+    private Double assignment;
+    private Double semesterTest;
+    private Double continuous;
+    private Double weightSem;
+    private Double weightAss;
+    private Double weightCont;
 
-    public Subject(String name, Double semesterTestMark, Double continuousAssessmentMark, Double assessmentMark, Double semesterTestWeight, Double continuousAssessmentWeight, Double assessmentWeight) {
+    public subject(String name, Double assignment, Double semesterTest, Double continuous, Double weightSem, Double weightAss, Double weightCont) {
         this.name = name;
-        this.semesterTestMark = semesterTestMark;
-        this.continuousAssessmentMark = continuousAssessmentMark;
-        this.assessmentMark = assessmentMark;
-        this.semesterTestWeight = semesterTestWeight;
-        this.continuousAssessmentWeight = continuousAssessmentWeight;
-        this.assessmentWeight = assessmentWeight;
+        this.assignment = assignment;
+        this.semesterTest = semesterTest;
+        this.continuous = continuous;
+        this.weightSem = weightSem;
+        this.weightAss = weightAss;
+        this.weightCont = weightCont;
     }
-
+    
     public String getName() {
         return name;
     }
@@ -34,51 +36,51 @@ public class Subject {
         this.name = name;
     }
 
-    public Double getSemesterTestMark() {
-        return semesterTestMark;
+    public Double getAssignmentMark() {
+        return assignment;
     }
 
-    public void setSemesterTestMark(Double semesterTestMark) {
-        this.semesterTestMark = semesterTestMark;
+    public void setAssignment(Double assignment) {
+        this.assignment = assignment;
+    }
+
+    public Double getSemesterMark() {
+        return semesterTest;
+    }
+
+    public void setSemesterTest(Double semesterTest) {
+        this.semesterTest = semesterTest;
     }
 
     public Double getContinuousAssessmentMark() {
-        return continuousAssessmentMark;
+        return continuous;
     }
 
-    public void setContinuousAssessmentMark(Double continuousAssessmentMark) {
-        this.continuousAssessmentMark = continuousAssessmentMark;
+    public void setContinuous(Double continuous) {
+        this.continuous = continuous;
     }
 
-    public Double getAssessmentMark() {
-        return assessmentMark;
+    public Double getWeightSem() {
+        return weightSem;
     }
 
-    public void setAssessmentMark(Double assessmentMark) {
-        this.assessmentMark = assessmentMark;
+    public void setSemesterTestWeight(Double weightSem) {
+        this.weightSem = weightSem;
     }
 
-    public Double getSemesterTestWeight() {
-        return semesterTestWeight;
+    public Double getWeightAss() {
+        return weightAss;
     }
 
-    public void setSemesterTestWeight(Double semesterTestWeight) {
-        this.semesterTestWeight = semesterTestWeight;
+    public void setAssignmentWeight(Double weightAss) {
+        this.weightAss = weightAss;
     }
 
-    public Double getContinuousAssessmentWeight() {
-        return continuousAssessmentWeight;
+    public Double getWeightCont() {
+        return weightCont;
     }
 
-    public void setContinuousAssessmentWeight(Double continuousAssessmentWeight) {
-        this.continuousAssessmentWeight = continuousAssessmentWeight;
+    public void setContinuousAssessmentWeight(Double weightCont) {
+        this.weightCont = weightCont;
     }
-
-    public Double getAssessmentWeight() {
-        return assessmentWeight;
-    }
-
-    public void setAssessmentWeight(Double assessmentWeight) {
-        this.assessmentWeight = assessmentWeight;
-    }  
 }

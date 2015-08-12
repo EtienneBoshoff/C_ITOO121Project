@@ -1,4 +1,18 @@
 -------------------------------------------------------------------------------
 Test set: DPcalcTests
 -------------------------------------------------------------------------------
-Tests run: 26, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.016 sec - in DPcalcTests
+Tests run: 14, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0 sec <<< FAILURE! - in DPcalcTests
+testPrettyPrint(DPcalcTests)  Time elapsed: 0 sec  <<< FAILURE!
+org.junit.ComparisonFailure: expected:<...ained:
+Assignment: 5[0.0%
+Semester test: 55.0%
+Continous Assessment: 55].0%
+Your DP is calcu...> but was:<...ained:
+Assignment: 5[5.0%
+Semester test: 55.0%
+Continous Assessment: 50].0%
+Your DP is calcu...>
+	at org.junit.Assert.assertEquals(Assert.java:115)
+	at org.junit.Assert.assertEquals(Assert.java:144)
+	at DPcalcTests.testPrettyPrint(DPcalcTests.java:99)
+
