@@ -33,10 +33,15 @@ public class DPcalc {
      */
     //Variable declarations here
     //Task: Complete the variable declarations
-    Double assignment;
-    Double semesterTest;
-    Double continuous;
-    
+    private final Double assignment;
+    private final Double semesterTest;
+    private final Double continuous;
+    private Double assignmentWeight;
+    private Double semesterTestWeight;
+    private Double continousAssessmentWeight;
+    private final String studentName;
+    private final String subject;
+    private final String studentDVnumber;
     //End of variable declarations
     
     /**
@@ -50,7 +55,39 @@ public class DPcalc {
         assignment = assMark;
         semesterTest = semTestMark;
         continuous = contAssMark;
+        assignmentWeight = 0.6;
+        semesterTestWeight = 0.2;
+        continousAssessmentWeight = 0.2;
+        studentName = "Default Student";
+        subject = "Default Subject";
+        studentDVnumber = "N/A";
     }
+
+    /**
+     * This is the secondary constructor for DPcalc
+     * @param assignment The assignment mark of the student in percentage
+     * @param semesterTest The semester test mark of the student in percentage
+     * @param continuous The continual assessment mark of the student in percentage
+     * @param studentName The name of the student for whom we are calculating the DP
+     * @param subject The subject the DP is calculated for
+     * @param studentDVnumber The student's DV number
+     * @param assignmentWeight The weight as a floating point percentage
+     * @param semesterTestWeight The weight as a floating point percentage
+     * @param continousAssessmentWeight The weight as a floating point percentage
+     */
+    public DPcalc(Double assignment, Double semesterTest, Double continuous, String studentName, String subject, String studentDVnumber, Double assignmentWeight, Double semesterTestWeight, Double continousAssessmentWeight) {
+        this.assignment = assignment;
+        this.semesterTest = semesterTest;
+        this.continuous = continuous;
+        this.assignmentWeight = assignmentWeight;
+        this.semesterTestWeight = semesterTestWeight;
+        this.continousAssessmentWeight = continousAssessmentWeight;
+        this.studentName = studentName;
+        this.subject = subject;
+        this.studentDVnumber = studentDVnumber;
+    }
+    
+    
     
     /**
      * This method calculates the students DP for the semester with the values
@@ -88,7 +125,7 @@ public class DPcalc {
      * @return A formatted string
      */
     public String prettyPrintDPreport() {
-       String result = "Dear student you have attained:\n"
+          String result = "Dear student you have attained:\n"
                         + "Assignment: "+ assignment +"%\n"
                         + "Semester test: " + semesterTest + "%\n"
                         + "Continous Assessment: "+ continuous +"%\n"
@@ -110,11 +147,23 @@ public class DPcalc {
     
     // Task create the other accessors
     public Double getSemesterMark() {
-      return semesterTest; 
+       return semesterTest; 
     }
     
     public Double getContinuousAssessmentMark() {
-       return continuous; 
+        return continuous;
+    }
+    
+    public void setAssignmentWeight(Double assignmentWeight) {
+       this.assignmentWeight = assignmentWeight; 
+    }
+    
+    public void setSemesterTestWeight(Double semesterTestWeight) {
+     this.semesterTestWeight = semesterTestWeight; 
+    }
+    
+    public void setContinuousAssessmentWeight(Double continuousAssessmentWeight) {
+      this.continousAssessmentWeight = continuousAssessmentWeight;
     }
     
     /**
@@ -123,7 +172,7 @@ public class DPcalc {
      * @return True if you can write exams. False otherwise
      */
     public Boolean canWriteExams() {
-          boolean b = false;
+     boolean b = false;
         if  (calculateDP() >= 40)
             {
                 b = true;
@@ -136,4 +185,50 @@ public class DPcalc {
             }
         return b;
     }
+    
+    /**
+     * This method checks if you have a valid DV student number
+     * A student number must be in the following pattern
+     * "DV[yearEnrolled]-[fourDigits]"
+     * @return 
+     */
+    public Boolean verifyDVnum() {
+     Boolean verify = false;
+        int lenght = studentDVnumber.length();
+        System.out.println(studentDVnumber);
+        
+        if (lenght == 11) {
+            
+             if (studentDVnumber.substring(0, 2).equalsIgnoreCase("DV")) {
+                
+               if ((studentDVnumber.charAt(6) + "").equalsIgnoreCase("-")) {
+                   
+                    
+                 int year = Integer.parseInt(studentDVnumber.substring(2, 6)); 
+                   System.out.println(year);
+                   if((1990 <= year) &(year <= 2015)){
+                    String temp = (studentDVnumber.substring(7, 9));
+                    System.out.println(studentDVnumber.substring(7, 11));
+                    try {
+                       Double.parseDouble(temp);
+                    } catch (NumberFormatException | NullPointerException e) {
+                        return false;
+                    }
+                    // only got here if we didn't return false
+                    verify = true;   
+                   }
+                   
+                    
+
+                     }
+               
+            }
+        } else {
+           verify = false;
+        }
+
+       return verify; 
+      
+    }
 }
+
