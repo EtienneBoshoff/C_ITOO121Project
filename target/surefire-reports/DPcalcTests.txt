@@ -1,0 +1,81 @@
+-------------------------------------------------------------------------------
+Test set: DPcalcTests
+-------------------------------------------------------------------------------
+Tests run: 26, Failures: 4, Errors: 6, Skipped: 0, Time elapsed: 0.125 sec <<< FAILURE! - in DPcalcTests
+testCalculateDPwithFailingMarks(DPcalcTests)  Time elapsed: 0.031 sec  <<< ERROR!
+java.lang.UnsupportedOperationException: Not supported yet.
+	at za.ac.pearson.cti.studentdpcalculator.Subject.getAssignmentWeight(Subject.java:89)
+	at za.ac.pearson.cti.studentdpcalculator.DPcalc.getAssignmentWeight(DPcalc.java:142)
+	at za.ac.pearson.cti.studentdpcalculator.DPcalc.calculateDP(DPcalc.java:92)
+	at DPcalcTests.testCalculateDPwithFailingMarks(DPcalcTests.java:70)
+
+testInvalidDVnumWithDatePartThatIsWrong(DPcalcTests)  Time elapsed: 0 sec  <<< FAILURE!
+java.lang.AssertionError: expected:<false> but was:<true>
+	at org.junit.Assert.fail(Assert.java:88)
+	at org.junit.Assert.failNotEquals(Assert.java:834)
+	at org.junit.Assert.assertEquals(Assert.java:118)
+	at org.junit.Assert.assertEquals(Assert.java:144)
+	at DPcalcTests.testInvalidDVnumWithDatePartThatIsWrong(DPcalcTests.java:218)
+
+testCannotWriteExams(DPcalcTests)  Time elapsed: 0 sec  <<< ERROR!
+java.lang.UnsupportedOperationException: Not supported yet.
+	at za.ac.pearson.cti.studentdpcalculator.Subject.getAssignmentWeight(Subject.java:89)
+	at za.ac.pearson.cti.studentdpcalculator.DPcalc.getAssignmentWeight(DPcalc.java:142)
+	at za.ac.pearson.cti.studentdpcalculator.DPcalc.calculateDP(DPcalc.java:92)
+	at za.ac.pearson.cti.studentdpcalculator.DPcalc.canWriteExams(DPcalc.java:202)
+	at DPcalcTests.testCannotWriteExams(DPcalcTests.java:144)
+
+testCanWriteExams(DPcalcTests)  Time elapsed: 0 sec  <<< ERROR!
+java.lang.UnsupportedOperationException: Not supported yet.
+	at za.ac.pearson.cti.studentdpcalculator.Subject.getAssignmentWeight(Subject.java:89)
+	at za.ac.pearson.cti.studentdpcalculator.DPcalc.getAssignmentWeight(DPcalc.java:142)
+	at za.ac.pearson.cti.studentdpcalculator.DPcalc.calculateDP(DPcalc.java:92)
+	at za.ac.pearson.cti.studentdpcalculator.DPcalc.canWriteExams(DPcalc.java:202)
+	at DPcalcTests.testCanWriteExams(DPcalcTests.java:122)
+
+testInvalidDVnumWithLast4DigitsThatIsWrong(DPcalcTests)  Time elapsed: 0 sec  <<< FAILURE!
+java.lang.AssertionError: expected:<false> but was:<true>
+	at org.junit.Assert.fail(Assert.java:88)
+	at org.junit.Assert.failNotEquals(Assert.java:834)
+	at org.junit.Assert.assertEquals(Assert.java:118)
+	at org.junit.Assert.assertEquals(Assert.java:144)
+	at DPcalcTests.testInvalidDVnumWithLast4DigitsThatIsWrong(DPcalcTests.java:244)
+
+testInvalidDVnumThatIsMissingTheDash(DPcalcTests)  Time elapsed: 0 sec  <<< FAILURE!
+java.lang.AssertionError: expected:<false> but was:<true>
+	at org.junit.Assert.fail(Assert.java:88)
+	at org.junit.Assert.failNotEquals(Assert.java:834)
+	at org.junit.Assert.assertEquals(Assert.java:118)
+	at org.junit.Assert.assertEquals(Assert.java:144)
+	at DPcalcTests.testInvalidDVnumThatIsMissingTheDash(DPcalcTests.java:319)
+
+testPrettyPrint(DPcalcTests)  Time elapsed: 0 sec  <<< ERROR!
+java.lang.UnsupportedOperationException: Not supported yet.
+	at za.ac.pearson.cti.studentdpcalculator.Subject.getAssignmentWeight(Subject.java:89)
+	at za.ac.pearson.cti.studentdpcalculator.DPcalc.getAssignmentWeight(DPcalc.java:142)
+	at za.ac.pearson.cti.studentdpcalculator.DPcalc.calculateDP(DPcalc.java:92)
+	at za.ac.pearson.cti.studentdpcalculator.DPcalc.prettyPrintDPreport(DPcalc.java:119)
+	at DPcalcTests.testPrettyPrint(DPcalcTests.java:99)
+
+testInvalidDVnumThatHasAdashInTheWrongPlace(DPcalcTests)  Time elapsed: 0.015 sec  <<< FAILURE!
+java.lang.AssertionError: expected:<false> but was:<true>
+	at org.junit.Assert.fail(Assert.java:88)
+	at org.junit.Assert.failNotEquals(Assert.java:834)
+	at org.junit.Assert.assertEquals(Assert.java:118)
+	at org.junit.Assert.assertEquals(Assert.java:144)
+	at DPcalcTests.testInvalidDVnumThatHasAdashInTheWrongPlace(DPcalcTests.java:345)
+
+testCanWriteExamsEdgeCase(DPcalcTests)  Time elapsed: 0 sec  <<< ERROR!
+java.lang.UnsupportedOperationException: Not supported yet.
+	at za.ac.pearson.cti.studentdpcalculator.Subject.getAssignmentWeight(Subject.java:89)
+	at za.ac.pearson.cti.studentdpcalculator.DPcalc.getAssignmentWeight(DPcalc.java:142)
+	at za.ac.pearson.cti.studentdpcalculator.DPcalc.calculateDP(DPcalc.java:92)
+	at DPcalcTests.testCanWriteExamsEdgeCase(DPcalcTests.java:165)
+
+testCalculateDPwithPassingMarks(DPcalcTests)  Time elapsed: 0 sec  <<< ERROR!
+java.lang.UnsupportedOperationException: Not supported yet.
+	at za.ac.pearson.cti.studentdpcalculator.Subject.getAssignmentWeight(Subject.java:89)
+	at za.ac.pearson.cti.studentdpcalculator.DPcalc.getAssignmentWeight(DPcalc.java:142)
+	at za.ac.pearson.cti.studentdpcalculator.DPcalc.calculateDP(DPcalc.java:92)
+	at DPcalcTests.testCalculateDPwithPassingMarks(DPcalcTests.java:46)
+
