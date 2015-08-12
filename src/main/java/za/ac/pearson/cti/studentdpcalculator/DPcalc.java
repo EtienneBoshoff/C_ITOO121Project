@@ -11,6 +11,10 @@
  */
 package za.ac.pearson.cti.studentdpcalculator;
 
+import java.util.ArrayList;
+import static java.util.Collections.list;
+import java.util.List;
+
 /**
  * Program description:  This class will calculate a students due performance
  * or DP.  
@@ -33,7 +37,7 @@ public class DPcalc {
      */
     //Variable declarations here
     //Task: Complete the variable declarations
-    private final Double assignment;
+     private final Double assignment;
     private final Double semesterTest;
     private final Double continuous;
     private Double assignmentWeight;
@@ -42,6 +46,9 @@ public class DPcalc {
     private final String studentName;
     private final String subject;
     private final String studentDVnumber;
+    private double calcDP;
+    private Subject aSubject;   
+    private List<Subject> subjects = new ArrayList<>();
     //End of variable declarations
     
     /**
@@ -61,6 +68,8 @@ public class DPcalc {
         studentName = "Default Student";
         subject = "Default Subject";
         studentDVnumber = "N/A";
+    Subject aSubject = new Subject(subject, semesterTest, continuous, assignment, semesterTestWeight, continousAssessmentWeight, assignmentWeight);
+        subjects.add(aSubject);
     }
 
     /**
@@ -75,16 +84,20 @@ public class DPcalc {
      * @param semesterTestWeight The weight as a floating point percentage
      * @param continousAssessmentWeight The weight as a floating point percentage
      */
-    public DPcalc(Double assignment, Double semesterTest, Double continuous, String studentName, String subject, String studentDVnumber, Double assignmentWeight, Double semesterTestWeight, Double continousAssessmentWeight) {
-        this.assignment = assignment;
+    public DPcalc(Double assignment, Double semesterTest, Double continuous, String studentName, String studentDVnumber, String subject, Double assignmentWeight, Double semesterTestWeight, Double continousAssessmentWeight) {
+       this.assignment = assignment;
         this.semesterTest = semesterTest;
         this.continuous = continuous;
         this.assignmentWeight = assignmentWeight;
         this.semesterTestWeight = semesterTestWeight;
         this.continousAssessmentWeight = continousAssessmentWeight;
-        this.studentName = studentName;
+        this.studentName = studentName;  
         this.subject = subject;
         this.studentDVnumber = studentDVnumber;
+        Subject aSubject = new Subject(subject, semesterTest, continuous, assignment, semesterTestWeight, continousAssessmentWeight, assignmentWeight);
+        subjects.add(aSubject);
+        
+      
     }
     
     
@@ -102,8 +115,13 @@ public class DPcalc {
      */
     //Task: complete this method as described in the comments and to pass the unit test
     public Double calculateDP() {
-        throw new UnsupportedOperationException("You still need to complete this method");
+       calcDP= (getAssignmentMark()*subjects.get(0).getAssessmentWeight())
+           + (getSemesterMark()*subjects.get(0).getSemesterTestWeight()) 
+           + (getContinuousAssessmentMark()*subjects.get(0).getContinuousAssessmentWeight());
+       System.out.print(subjects.get(0).getContinuousAssessmentMark());
+        return calcDP;
     }
+    
     
     /**
      * This method returns a string that is formatted to look like a nice report
@@ -124,7 +142,14 @@ public class DPcalc {
      * @return A formatted string
      */
     public String prettyPrintDPreport() {
-        throw new UnsupportedOperationException("You still need to complete this method");
+              String studentPrintResult = "Dear student you have attained:\n"
+                + "Assignment: "+subjects.get(0).getAssessmentMark()+"%\n"
+                + "Semester test: "+subjects.get(0).getSemesterTestMark()+"%\n"
+                + "Continous Assessment: "+subjects.get(0).getContinuousAssessmentMark()+"%\n"
+                + "Your DP is calculated as: "+calculateDP()+"%";
+        System.out.print(studentPrintResult);
+              return studentPrintResult;
+        
     }
     
     /**
@@ -133,47 +158,150 @@ public class DPcalc {
      * within the calculator
      * @return The assignment mark stored within the calculator
      */
-    public Double getAssignmentMark() {
-        return assignment;
-    }
+   public void newList (Subject aSubject){
+       subjects.add(aSubject);
+               }
     
-    // Task create the other accessors
-    public Double getSemesterMark() {
-        throw new UnsupportedOperationException("You still need to complete this method");
+    
+    public Double getAssignmentMark() {
+        if (subjects.size() > 0) {
+            return subjects.get(0).getAssessmentMark();
+        }
+        return 0.0;
     }
+        
+    // Task create the other accessors
+        public Double getSemesterMark() {
+          if (subjects.size() > 0) {
+            return subjects.get(0).getSemesterTestMark();
+    }
+          return 0.0;
+        }
     
     public Double getContinuousAssessmentMark() {
-        throw new UnsupportedOperationException("You still need to complete this method");
+      if (subjects.size() > 0) {
+            return subjects.get(0).getContinuousAssessmentMark();
+    }
+          return 0.0;    
     }
     
-    public void setAssignmentWeight(Double assignmentWeight) {
-        throw new UnsupportedOperationException("You still need to complete this method");
+    public void setAssignmentWeight(Double assessmentWeight) {
+            subjects.get(0).getAssessmentWeight();
     }
+          
+    
     
     public void setSemesterTestWeight(Double semesterTestWeight) {
-        throw new UnsupportedOperationException("You still need to complete this method");
+       
+            subjects.get(0).getSemesterTestWeight();
+        
     }
     
     public void setContinuousAssessmentWeight(Double continuousAssessmentWeight) {
-        throw new UnsupportedOperationException("You still need to complete this method");
+            subjects.get(0).getContinuousAssessmentWeight();
     }
     
+    public Double getSemesterTestMark(String subject){
+        Double retSTM=subjects.get(0).getSemesterTestMark();
+        for (int i = 0; i < subjects.size();i++) {
+            if (subjects.get(i).getName().equalsIgnoreCase(subject)) {
+                retSTM= subjects.get(i).getSemesterTestMark();
+            }
+         
+        }
+    return retSTM;
+            
+        }
+    
+      public Double getAssignmentMark(String subject){
+        Double retAss=subjects.get(0).getAssessmentMark();
+        for (int i = 0; i < subjects.size();i++) {
+            if (subjects.get(i).getName().equalsIgnoreCase(subject)) {
+                retAss= subjects.get(i).getAssessmentMark();
+            }
+         
+        }
+    return retAss;
+            
+        }
+      public Double getContinuousAssessmentMark(String subject){
+        Double retCont=subjects.get(0).getContinuousAssessmentMark();
+        for (int i = 0; i < subjects.size();i++) {
+            if (subjects.get(i).getName().equalsIgnoreCase(subject)) {
+                retCont= subjects.get(i).getContinuousAssessmentMark();
+            }
+         
+        }
+    return retCont;
+            
+        }
     /**
      * This method checks if you have eligibility to write the exams
      * Remember you need at least a 40% DP to get exam eligibility
      * @return True if you can write exams. False otherwise
      */
-    public Boolean canWriteExams() {
-        throw new UnsupportedOperationException("You still need to complete this method");
+     public Boolean canWriteExams() {
+                Double write = calculateDP ();
+        boolean canWrite=false;
+         
+       if (write >= 40.0) {
+           canWrite=true;}
+       return canWrite;
     }
-    
     /**
      * This method checks if you have a valid DV student number
      * A student number must be in the following pattern
      * "DV[yearEnrolled]-[fourDigits]"
      * @return 
      */
+  
     public Boolean verifyDVnum() {
-        throw new UnsupportedOperationException("You still need to complete this method");
+      // two boolean varibles to distinguise between valid an invalid.
+        boolean testInvalid= true;
+         boolean testValid= false;
+         //if to test invalid forms of dv number.
+        if (studentDVnumber.length() != 11 || studentDVnumber.substring(6, 7).matches(".*[a-z1-9].*")|| 
+                !studentDVnumber.contains("-")||studentDVnumber.substring(2,6).matches(".*[a-zA-z].*")||studentDVnumber.substring(7).matches(".*[a-zA-z].*")
+                || studentDVnumber.substring(2,6).contains("-"))
+           
+        {
+           
+          testInvalid = false;
+          return testInvalid;
+          
+          //if to test valid entry of a DV number.
+        } else { if (studentDVnumber.startsWith("DV")){
+                     if (studentDVnumber.substring(6,7).equals("-"))
+                    if (studentDVnumber.substring(2,6).matches(".*[1-9].*")) 
+                        if (studentDVnumber.substring(7).matches(".*[1-9].*"))
+                       System.out.print(studentDVnumber.substring(0,2));
+                        System.out.print(studentDVnumber.substring(2,6));
+                        System.out.print(studentDVnumber.substring(6,7));
+                        System.out.print(studentDVnumber.substring(7));
+            
+        }
+      testValid = true;
+      return testValid;  }
+        
+   
     }
+
+    
+    
+    public String printFull(){
+        String fullPrint= "Dear " +studentName +"\n"
+        +"DV Number:" +studentDVnumber +"\n"
+                + "Assignment: "+getAssignmentMark()+"%\n"
+                + "Semester test: "+getSemesterMark()+"%\n"
+                + "Continous Assessment: "+getContinuousAssessmentMark()+"%\n"
+                + "Your DP is calculated as: "+calculateDP()+"%\n"
+                + "For "+ subject;
+        System.out.print(fullPrint);
+            return fullPrint  ;
+    }
+    public void addSubject(Subject subject) {
+    subjects.add(subject);
+    
+    }
+    
 }
