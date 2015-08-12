@@ -12,25 +12,21 @@ package za.ac.pearson.cti.studentdpcalculator;
 public class Subject {
     
     private String name;
-    private Double semesterTestMark;
-    private Double continuousAssessmentMark;
+    private Double semesterTest;
+    private Double continuousMark;
     private Double assignmentMark;
-    private Double semesterTestWeight;
-    private Double continuousAssessmentWeight;
-    private Double assignmentWeight;
-    private String subject;
-    private String dvNum;
+    private Double weightAss;
+    private Double weightCont;
+    private Double weightTest;
 
-    public Subject(String name, Double semesterTestMark, Double continuousAssessmentMark, Double assignmentMark, Double semesterTestWeight, Double continuousAssessmentWeight, Double assignmentWeight,String subject,String dvNum) {
+    public Subject(String name, Double semesterTest, Double continuousMark, Double assignmentMark, Double weightTest, Double weightCont, Double weightAss) {
         this.name = name;
-        this.semesterTestMark = semesterTestMark;
-        this.continuousAssessmentMark = continuousAssessmentMark;
+        this.semesterTest = semesterTest;
+        this.continuousMark = continuousMark;
         this.assignmentMark = assignmentMark;
-        this.semesterTestWeight = semesterTestWeight;
-        this.continuousAssessmentWeight = continuousAssessmentWeight;
-        this.assignmentWeight = assignmentWeight;
-        this.subject = subject;
-        this.dvNum = dvNum;
+        this.weightAss = weightAss;
+        this.weightCont = weightCont;
+        this.weightTest = weightTest;
     }
 
     public String getName() {
@@ -41,65 +37,52 @@ public class Subject {
         this.name = name;
     }
 
-    public Double getSemesterTestMark() {
-        return semesterTestMark;
+    public Double getSemesterTest() {
+        return semesterTest;
     }
 
-    public void setSemesterTestMark(Double semesterTestMark) {
-        this.semesterTestMark = semesterTestMark;
+    public void setSemesterTest(Double semesterTest) {
+        this.semesterTest = semesterTest;
     }
 
-    public Double getContinuousAssessmentMark() {
-        return continuousAssessmentMark;
+    public Double getContinuousMark() {
+        return continuousMark;
     }
 
-    public void setContinuousAssessmentMark(Double continuousAssessmentMark) {
-        this.continuousAssessmentMark = continuousAssessmentMark;
+    public void setContinuousMark(Double continuousMark) {
+        this.continuousMark = continuousMark;
     }
 
     public Double getAssignmentMark() {
         return assignmentMark;
     }
 
-    public void setAssignmentMark(Double assessmentMark) {
-        this.assignmentMark = assessmentMark;
+    public void setAssignmentMark(Double assignmentMark) {
+        this.assignmentMark = assignmentMark;
     }
 
-    public Double getSemesterTestWeight() {
-        return semesterTestWeight;
+    public Double getWeightTest() {
+        return weightTest;
     }
 
-    public void setSemesterTestWeight(Double semesterTestWeight) {
-        this.semesterTestWeight = semesterTestWeight;
+    public void setWeightTest(Double weightTest) {
+        this.weightTest = weightTest;
     }
 
-    public Double getContinuousAssessmentWeight() {
-        return continuousAssessmentWeight;
+    public Double getWeightCont() {
+        return weightCont;
     }
 
-    public void setContinuousAssessmentWeight(Double continuousAssessmentWeight) {
-        this.continuousAssessmentWeight = continuousAssessmentWeight;
+    public void setWeightCont(Double weightCont) {
+        this.weightCont = weightCont;
     }
 
-     public Double getAssignmentWeight() {
-        return assignmentWeight;
-    }
-    public void setAssignmentWeight(Double assignmentWeight) {
-        this.assignmentWeight = assignmentWeight;
+    public Double getWeightAss() {
+        return weightAss;
     }
 
-        public String getdvNum() {
-        return dvNum;
+    public void setWeightAss(Double weightAss) {
+        this.weightAss = weightAss;
     }
-    
-    void setSubject(String newSubject) {
-       this.subject = newSubject;
-    }
-    
-    public String getsubject() {
-        return subject;
-    }
-    public void setdvNum(String newDV) {
-        this.dvNum = newDV;
-    }
+
 }

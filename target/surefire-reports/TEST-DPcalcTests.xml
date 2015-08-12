@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="DPcalcTests" time="0" tests="4" errors="0" skipped="0" failures="0">
+<testsuite name="DPcalcTests" time="0.016" tests="26" errors="1" skipped="0" failures="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0\jre\bin"/>
@@ -15,7 +15,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="sun.os.patch.level" value=""/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
-    <property name="user.dir" value="C:\Users\Wehan\Desktop\Programming\C_ITOO121Project-master"/>
+    <property name="user.dir" value="C:\Users\Wehan\Downloads\commit 1\C_ITOO121Project-master"/>
     <property name="java.runtime.version" value="1.8.0-b132"/>
     <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
     <property name="java.endorsed.dirs" value="C:\Program Files\Java\jdk1.8.0\jre\lib\endorsed"/>
@@ -28,7 +28,7 @@
     <property name="maven.ext.class.path" value="C:\Program Files\NetBeans 8.0.2\java\maven-nblib\netbeans-eventspy.jar"/>
     <property name="classworlds.conf" value="C:\Program Files\NetBeans 8.0.2\java\maven\bin\m2.conf"/>
     <property name="sun.jnu.encoding" value="Cp1252"/>
-    <property name="java.library.path" value="C:\Program Files\Java\jdk1.8.0\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\ProgramData\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Git\cmd;C:\Program Files (x86)\Git\bin;C:\Program Files (x86)\GitExtensions\;C:\Program Files\apache-maven-3.3.3\bin\;C:\Program Files\Java\jdk1.8.0\bin\;."/>
+    <property name="java.library.path" value="C:\Program Files\Java\jdk1.8.0\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\ProgramData\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Git\cmd;C:\Program Files (x86)\Git\bin;C:\Program Files (x86)\GitExtensions\;C:\Program Files\apache-maven-3.3.3\bin\;C:\Program Files\Java\jdk1.8.0\bin\;C:\Program Files (x86)\Common Files\lenovo\easyplussdk\bin;."/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="java.class.version" value="52.0"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
@@ -63,7 +63,33 @@
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
   <testcase name="testCalculateDPwithFailingMarks" classname="DPcalcTests" time="0"/>
+  <testcase name="testInvalidDVnumWithDatePartThatIsWrong" classname="DPcalcTests" time="0"/>
+  <testcase name="testGetAssignmentWhereSubjectIsInCapitalLetters" classname="DPcalcTests" time="0"/>
+  <testcase name="testGetSemesterTestWhereSubjectIsOnlyInLowerCase" classname="DPcalcTests" time="0"/>
+  <testcase name="testGetAssignmentWithSubjectThatDoesNotExist" classname="DPcalcTests" time="0"/>
+  <testcase name="testCannotWriteExams" classname="DPcalcTests" time="0"/>
+  <testcase name="testGetAssignmentMarkWithMultipleSubjects" classname="DPcalcTests" time="0"/>
+  <testcase name="testGetSemesterTestMarkWithMultipleSubjects" classname="DPcalcTests" time="0"/>
+  <testcase name="testGetContinuousAssessmentWhereSubjectIsInCapitalLetters" classname="DPcalcTests" time="0"/>
+  <testcase name="testValidDVnum" classname="DPcalcTests" time="0"/>
+  <testcase name="testInvalidDVnumThatIsTooShort" classname="DPcalcTests" time="0"/>
   <testcase name="testCanWriteExams" classname="DPcalcTests" time="0"/>
-  <testcase name="testPrettyPrint" classname="DPcalcTests" time="0"/>
+  <testcase name="testGetSemesterTestWithSubjectThatDoesNotExist" classname="DPcalcTests" time="0"/>
+  <testcase name="testGetAssignmentWhereSubjectIsOnlyInLowerCase" classname="DPcalcTests" time="0"/>
+  <testcase name="testInvalidDVnumWithLast4DigitsThatIsWrong" classname="DPcalcTests" time="0"/>
+  <testcase name="testInvalidDVnumThatIsMissingTheDash" classname="DPcalcTests" time="0"/>
+  <testcase name="testGetContinuousAssessmentWhereSubjectIsOnlyInLowerCase" classname="DPcalcTests" time="0"/>
+  <testcase name="testThatYouHaveAllAccessors" classname="DPcalcTests" time="0">
+    <error message="Uncompilable source code - Erroneous sym type: za.ac.pearson.cti.studentdpcalculator.DPcalc.setAssignmentWeight" type="java.lang.RuntimeException">java.lang.RuntimeException: Uncompilable source code - Erroneous sym type: za.ac.pearson.cti.studentdpcalculator.DPcalc.setAssignmentWeight
+	at DPcalcTests.testThatYouHaveAllAccessors(DPcalcTests.java:368)
+</error>
+  </testcase>
+  <testcase name="testPrettyPrint" classname="DPcalcTests" time="0.016"/>
+  <testcase name="testInvalidDVnumThatIsTooLong" classname="DPcalcTests" time="0"/>
+  <testcase name="testInvalidDVnumThatHasAdashInTheWrongPlace" classname="DPcalcTests" time="0"/>
+  <testcase name="testGetSemesterTestWhereSubjectIsInCapitalLetters" classname="DPcalcTests" time="0"/>
+  <testcase name="testCanWriteExamsEdgeCase" classname="DPcalcTests" time="0"/>
+  <testcase name="testGetContinuousAssessmentWithSubjectThatDoesNotExist" classname="DPcalcTests" time="0"/>
   <testcase name="testCalculateDPwithPassingMarks" classname="DPcalcTests" time="0"/>
+  <testcase name="testGetContinuousAssessmentWithMultipleSubjects" classname="DPcalcTests" time="0"/>
 </testsuite>

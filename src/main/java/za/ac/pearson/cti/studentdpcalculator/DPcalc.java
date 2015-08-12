@@ -13,6 +13,8 @@ package za.ac.pearson.cti.studentdpcalculator;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * Program description:  This class will calculate a students due performance
@@ -23,6 +25,7 @@ import java.util.List;
  * allowed to change the tests in any way.
  */
 public class DPcalc {
+
     
     /**
      * Variables are your attributes associated with your class. For example a
@@ -36,19 +39,12 @@ public class DPcalc {
      */
     //Variable declarations here
     //Task: Complete the variable declarations
-    private final Double assignment;
-    private final Double semesterTest;
-    private final Double continuous;
-    private Double assignmentWeight;
-    private Double semesterTestWeight;
-    private Double continousAssessmentWeight;
-    private String name;
-    private String subject;
-    private String dvNum;
-    private List<Subject> subjects = new ArrayList<>();
     
-//End of variable declarations
-    
+    private String studentName;
+    private String studentDVnumber;
+    private List<Subject> subject = new ArrayList<>(); 
+    //End of variable declarations
+   
     
     /**
      * This is the constructor for DPcalc.  A constructor is used to create an
@@ -58,16 +54,9 @@ public class DPcalc {
      * @param contAssMark The continual assessment mark of the student in percentage
      */
     public DPcalc(Double assMark, Double semTestMark, Double contAssMark) {
-       
-        assignment = assMark;
-        semesterTest = semTestMark;
-        continuous = contAssMark;
-        assignmentWeight = 0.6;
-        semesterTestWeight = 0.2;
-        continousAssessmentWeight = 0.2;
-        name = "Default Student";
-        subject = "Default Subject";
-        dvNum = "N/A";
+       this.subject.add(new Subject("DP", semTestMark, contAssMark, assMark, 0.2, 0.2, 0.6));
+        studentName = "Default Student";
+        studentDVnumber = "N/A";
     }
 
     /**
@@ -82,30 +71,13 @@ public class DPcalc {
      * @param semesterTestWeight The weight as a floating point percentage
      * @param continousAssessmentWeight The weight as a floating point percentage
      */
-    public DPcalc(Double assignment, Double semesterTest, Double continuous, String studentName, String subject, String studentDVnumber, Double assignmentWeight, Double semesterTestWeight, Double continousAssessmentWeight) {
-        
-        this.assignment = assignment;
-        this.semesterTest = semesterTest;
-        this.continuous = continuous;
-        this.assignmentWeight = assignmentWeight;
-        this.semesterTestWeight = semesterTestWeight;
-        this.continousAssessmentWeight = continousAssessmentWeight;
-        this.name = studentName;
-        this.subject = subject;
-        this.dvNum = studentDVnumber;
+    public DPcalc(Double assignment, Double semesterTest, Double continuous, String studentName, String studentDVnumber, String subject, Double assignmentWeight, Double semesterTestWeight, Double continousAssessmentWeight) {
+        this.subject.add(new Subject(subject, semesterTest, continuous, assignment, semesterTestWeight, continousAssessmentWeight, assignmentWeight));
+        this.studentName = studentName;
+        this.studentDVnumber = studentDVnumber;
     }
-    /*
-        semesterTest = semTestMark;
-        continuous = contAssMark;
-        subject = subName;
-        name = studName;
-        dvNum = studNum;
-        weightSem = wSem;
-        weightAss = wAss;
-        weightCont = wCont;
-    */
-    
-    
+          //String name, Double semesterTestMark, Double continuousAssessmentMark, Double assessmentMark, Double semesterTestWeight, Double continuousAssessmentWeight, Double assessmentWeight
+       
     /**
      * This method calculates the students DP for the semester with the values
      * gathered from the constructor.  A method is the behaviour of an object
@@ -118,11 +90,11 @@ public class DPcalc {
      * @return The DP of the student as a double floating point value
      */
     //Task: complete this method as described in the comments and to pass the unit test
-  public Double calculateDP() {
+    public Double calculateDP() {
         
-        double DP = (assignment*assignmentWeight)+(semesterTest*semesterTestWeight)+(continuous*continousAssessmentWeight);
-        
+         Double DP = getAssignmentMark()*getAssignmentWeight() + getSemesterMark()*getSemesterTestWeight() + getContinuousAssessmentMark()*getContinuousAssessmentWeight();
         return DP;
+    }
     
     /**
      * This method returns a string that is formatted to look like a nice report
@@ -142,36 +114,18 @@ public class DPcalc {
      * 
      * @return A formatted string
      */
-    /**
-     * This method is known as an accessor method or getter.  It allows you to 
-     * get an attribute from an object.  In this case the Assignment mark stored
-     * within the calculator
-     * @return The assignment mark stored within the calculator
-     */
-    }
     public String prettyPrintDPreport() {
-        String formatedString = "Dear student you have attained:\n"
-        +"Assignment: "+getAssignmentMark()+"%\n"
-        +"Semester test: "+getSemesterMark()+"%\n"
-        +"Continous Assessment: "+getContinuousAssessmentMark()+"%\n"
-        +"Your DP is calculated as: "+calculateDP()+"%";
-        
-        return formatedString;
+        String report = "Dear student you have attained:\n"
+                + "Assignment: "+getAssignmentMark()+"%\n"
+                + "Semester test: "+getSemesterMark()+"%\n"
+                + "Continous Assessment: "+getContinuousAssessmentMark()+"%\n"
+                + "Your DP is calculated as: "+calculateDP()+"%";
+        return report;
     }
-    public String printFull() {
-        String fullString = "Dear "+name+" "+dvNum+" you have attained the following mark for "+subject+":\n"
-        +"\n"
-        +"Assignment: "+getAssignmentMark()+"%\n"
-        +"Assignment weight: "+getAssignmentWeight()+"%\n"
-        +"Semester test: "+getSemesterMark()+"%\n"
-        +"Semester test weight: "+getSemesterTestWeight()+"%\n"
-        +"Continous Assessment: "+getContinuousAssessmentMark()+"%\n"       
-        +"Continous Assessment weight: "+getContinuousWeight()+"%\n"
-        +"\n"
-        +"Your DP for "+subject+" is: "+calculateDP()/100+"%\n"
-
-        ;
-        return fullString;
+    
+    public String prettyFullPrint(){
+        System.out.println("Have a great day");
+        return null;
     }
     /**
      * This method is known as an accessor method or getter.  It allows you to 
@@ -179,108 +133,78 @@ public class DPcalc {
      * within the calculator
      * @return The assignment mark stored within the calculator
      */
-
-
-    public String getSubject() {
-        return subject;
-    }
-
-    //Get attribute from object
-    public Double getSemesterMark() {
-        subjects.get(0).getSemesterTestMark();
-        return semesterTest;
-    }
-
-    //Get attribute from object
-    public Double getContinuousAssessmentMark() {
-        subjects.get(0).getContinuousAssessmentMark();
-        return continuous;
-    }
     public Double getAssignmentMark() {
-        subjects.get(0).getAssignmentMark();
-        return assignment;
+        return subject.get(0).getAssignmentMark();
     }
+    
+    // Task create the other accessors
+    public Double getSemesterMark() {
+        return subject.get(0).getSemesterTest();
+    }
+    
     public Double getAssignmentWeight(){
-          subjects.get(0).getAssignmentWeight();
-        return assignmentWeight;
+        return this.subject.get(0).getWeightAss();
     }
-
-    //Get attribute from object
+    
     public Double getSemesterTestWeight(){
-        subjects.get(0).getSemesterTestWeight();
-        return semesterTestWeight;
-    }
-
-    
-    //Get attribute from object
-    public Double getContinuousWeight(){
-        subjects.get(0).getContinuousAssessmentWeight();
-        return continousAssessmentWeight;
-    }
-
-    //Sets the new name variable
-    public void setName(String newName) {
-        subjects.get(0).setName(newName);
-        name = newName;
+        return this.subject.get(0).getWeightTest();
     }
     
-    //Sets the new subject variable
-    public void setSubject(String newSubject) { 
-        subjects.get(0).setSubject(newSubject);
-        subject = newSubject;
+    public Double getContinuousAssessmentWeight(){
+        return this.subject.get(0).getWeightCont();
     }
     
-
-    //Sets the new DVnum variable
-    public void setdvNum(String newDV) {
-        subjects.get(0).setdvNum(newDV);
-        dvNum = newDV;
+    public Double getSemesterTestMark(String subject) {
+        return this.subject.get(collectSubject(subject)).getSemesterTest();
     }
     
-    //Sets the semester weight
-    public void setSemesterTestWeight(Double newSemWeight,String subject) {   
-        subjects.get(0).setSemesterTestWeight(newSemWeight);
-        semesterTestWeight = newSemWeight;
+    public Double getAssignmentMark(String subject) {
+        return this.subject.get(collectSubject(subject)).getAssignmentMark();
     }
     
-
-    //Sets the assignment weight
-    public void setAssignmentWeight(Double newAssWeight) {
-        subjects.get(0).setAssignmentWeight(newAssWeight);
-        assignmentWeight = newAssWeight;
+    public Double getContinuousAssessmentMark(String subject) {
+        return this.subject.get(collectSubject(subject)).getContinuousMark();
     }
     
-
-    //Sets the continuous weight
-    public void setContinuousAssessmentWeight(Double newContWeight) {  
-        subjects.get(0).getContinuousAssessmentMark();
-        continousAssessmentWeight = newContWeight;
+    public Double getContinuousAssessmentMark() {
+       return subject.get(0).getContinuousMark();
     }
-
-    //Checks if student can write exams
-    public Boolean canWriteExams() {
-        return calculateDP()>= 40;
+    
+    public void setWeightAss(Double weightAss) {
+       Subject subs = subject.get(0);
+       subs.setWeightAss(weightAss);
+       subject.set(0, subs);
     }
-
-    public Boolean verifyDVnum() {
-
-
-        if(dvNum.length() != 11){
-            return false;
-        }else{
-            if (dvNum.substring(0,2) == "DV"){
-                if(dvNum.substring(2,4) == ("([0-9][0-9][0-9][0-9])")){
-                    if(dvNum.substring(6, 1) == "-"){
-                        if(dvNum.substring(7,4) == ("([0-9][0-9][0-9][0-9]")){
-                    }
-                }
-            }                
-        }
-        return true;
-        }
-
-    }   
+    
+    public void setWeightTest(Double weightTest) {
+        Subject subs = subject.get(0);
+        subs.setWeightTest(weightTest);
+        subject.set(0,subs);
+    }
+    
+    public void setWeightCont(Double weightCont) {
+        Subject subs = subject.get(0);
+        subs.setWeightCont(weightCont);
+        subject.set(0,subs);
+    }
+    
+    private Integer collectSubject(String sub){
+        for (int i = 0; i < subject.size(); i++) {
+            if (subject.get(i).getName().equalsIgnoreCase(sub))
+            {
+                return i;
+            }
+        }    
+        return -10;
 }
+    /**
+     * This method checks if you have eligibility to write the exams
+     * Remember you need at least a 40% DP to get exam eligibility
+     * @return True if you can write exams. False otherwise
+     */
+    public Boolean canWriteExams() {
+        return calculateDP()>= 40.0;
+    }//this method checks whether the student's DP is high enough to write exams displays true or false
     
     /**
      * This method checks if you have a valid DV student number
@@ -288,4 +212,34 @@ public class DPcalc {
      * "DV[yearEnrolled]-[fourDigits]"
      * @return 
      */
+    public Boolean verifyDVnum() {
+        if (studentDVnumber.length() == 11){
+            String d = studentDVnumber.charAt(0)+"";
+            String v = studentDVnumber.charAt(1)+"";
+            String year = studentDVnumber.substring(2, 6);
+            String dash = studentDVnumber.charAt(6)+"";
+            String lastNum = studentDVnumber.substring(7);
+            
+            if(d.equalsIgnoreCase("d") && 
+                   v.equalsIgnoreCase("v") && 
+                   year.matches("^\\d+$") && 
+                   dash.equals("-") && 
+                   lastNum.matches("^\\d+$"))
+            {
+                return true;
+            }
+            else 
+            {
+                return false;
+            }
+        } 
+        else 
+        {
+        return false;
+        }
+    }
 
+    public void addSubject(Subject subject) {
+        this.subject.add(subject);
+    }
+}
