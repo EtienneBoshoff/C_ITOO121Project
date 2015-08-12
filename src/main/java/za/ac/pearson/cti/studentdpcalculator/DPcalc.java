@@ -11,6 +11,9 @@
  */
 package za.ac.pearson.cti.studentdpcalculator;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Program description:  This class will calculate a students due performance
  * or DP.  
@@ -42,6 +45,7 @@ public class DPcalc {
     private final String studentName;
     private final String subject;
     private final String studentDVnumber;
+    //private List<Subject> subjects = new ArrayList<>();;
     //End of variable declarations
     
     /**
@@ -85,7 +89,7 @@ public class DPcalc {
         this.studentName = studentName;
         this.subject = subject;
         this.studentDVnumber = studentDVnumber;
-     }
+    }
     
     
     
@@ -103,9 +107,8 @@ public class DPcalc {
     //Task: complete this method as described in the comments and to pass the unit test
     public Double calculateDP() {
         return getAssignmentMark() * assignmentWeight 
-                + getSemesterMark() * semesterTestWeight  
-                + getContinuousAssessmentMark() * continousAssessmentWeight;
-        
+                + getSemesterMark() * semesterTestWeight 
+                + getContinuousAssessmentMark() *continousAssessmentWeight;
     }
     
     /**
@@ -127,7 +130,7 @@ public class DPcalc {
      * @return A formatted string
      */
     public String prettyPrintDPreport() {
-                String output = "Dear student you have attained:\n" 
+        String output = "Dear student you have attained:\n" 
                 + "Assignment: "+getAssignmentMark()+"%\n" 
                 + "Semester test: "+getSemesterMark()+"%\n" 
                 + "Continous Assessment: "+getContinuousAssessmentMark()+"%\n"
@@ -150,18 +153,33 @@ public class DPcalc {
         return semesterTest;
     }
     
+    public Double getSemesterTestMark(String subject) {
+        return semesterTest;
+        //throw new UnsupportedOperationException("You still need to complete this method");       
+    }
+    
+    public Double getAssignmentMark(String subject) {
+        return assignment;
+        //throw new UnsupportedOperationException("You still need to complete this method");
+    }
+    
+    public Double getContinuousAssessmentMark(String subject) {
+        return continuous;
+        //throw new UnsupportedOperationException("You still need to complete this method");
+    }
+    
     public Double getContinuousAssessmentMark() {
         return continuous;
     }
     
     public void setAssignmentWeight(Double assignmentWeight) {
-        double ass;
-        ass = assignmentWeight;
+        double assgnmnt;
+        assgnmnt = assignmentWeight;
     }
     
     public void setSemesterTestWeight(Double semesterTestWeight) {
-        double sem;
-        sem = semesterTestWeight;
+        double semstr;
+        semstr = semesterTestWeight;
     }
     
     public void setContinuousAssessmentWeight(Double continuousAssessmentWeight) {
@@ -194,12 +212,12 @@ public class DPcalc {
             if (studentDVnumber.startsWith("DV")){
                 //It check if the 7th letter is a "-".
                 if (studentDVnumber.charAt(7) == '-'){
-                    if (studentDVnumber.contains("2015") ) {
+                    if (studentDVnumber.substring(2, 6) == "") {
                         //It check if the last 4 letter in a student number is 
                         //"0123"
                         if (studentDVnumber.endsWith("0123")) {
                             //It return true after checking all the value
-                            return true;
+                            //return true;
                         }    
                     }
                 }
@@ -207,4 +225,22 @@ public class DPcalc {
         }
         return true;
     }
+
+    public void addSubject(Subject subject) {
+        
+        List<Subject> subjects  = new ArrayList<>(); 
+          
+         subjects.get(assignment.intValue());
+         subjects.get(semesterTest.intValue());
+         subjects.get(continuous.intValue());
+         subjects.get(assignmentWeight.intValue());
+         subjects.get(semesterTestWeight.intValue());
+         subjects.get(continousAssessmentWeight.intValue());
+         
+         //Subject aSubject = new Subject (subject, assignment, semesterTest, 
+                 //continuous, assignmentWeight, semesterTestWeight, 
+                  //continousAssessmentWeight); 
+         //subject.Add(aSubject); 
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }    
 }
