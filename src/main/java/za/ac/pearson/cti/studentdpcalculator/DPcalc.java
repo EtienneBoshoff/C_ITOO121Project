@@ -1,36 +1,19 @@
-/*
- * This is the starting program for CTI students in Object Orientated 
- * Programming.  To run this program click on the Run button in the toolbar
- * above (The one that looks like a play button).  In each class you will find
- * instructions on what needs to be done to complete this homework assignment
- * 
- * This is homework assignment: 1
- * It is due: Week of 13 July 2015
- * Remember to hand in all you need to do is upload a picture of all of your
- * JUnit tests passing.
- */
 package za.ac.pearson.cti.studentdpcalculator;
+import javax.swing.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Program description:  This class will calculate a students due performance
  * or DP.  
- * @author Etienne Boshoff - Lecturer CTI Education Group
+ * @author Pinto Manuel - Student
  * 
  * Task: Complete the methods such that the tests pass.  Note you are not
  * allowed to change the tests in any way.
  */
 public class DPcalc {
     
-    /**
-     * Variables are your attributes associated with your class. For example a
-     * car can be different colours.  The colour blue would then be an attribute
-     * of the class car.  This means that its variable for colour may look as 
-     * follows:
-     * 
-     * String colour = "blue"; 
-     * OR
-     * String colour; if we leave it undefined till a later time
-     */
+ 
     //Variable declarations here
     //Task: Complete the variable declarations
     private final Double assignment;
@@ -40,8 +23,8 @@ public class DPcalc {
     private Double semesterTestWeight;
     private Double continousAssessmentWeight;
     private final String studentName;
-    private final String subject;
-    private final String studentDVnumber;
+    private final String subjects;
+    private final String DVnumber;
     //End of variable declarations
     
     /**
@@ -59,8 +42,8 @@ public class DPcalc {
         semesterTestWeight = 0.2;
         continousAssessmentWeight = 0.2;
         studentName = "Default Student";
-        subject = "Default Subject";
-        studentDVnumber = "N/A";
+        subjects = "Default Subject";
+        DVnumber = "N/A";
     }
 
     /**
@@ -83,79 +66,65 @@ public class DPcalc {
         this.semesterTestWeight = semesterTestWeight;
         this.continousAssessmentWeight = continousAssessmentWeight;
         this.studentName = studentName;
-        this.subject = subject;
-        this.studentDVnumber = studentDVnumber;
+        this.subjects = subject;
+        this.DVnumber = studentDVnumber;
     }
     
     
-    
-    /**
-     * This method calculates the students DP for the semester with the values
-     * gathered from the constructor.  A method is the behaviour of an object
-     * it can be seen as doing a specific task.  In the comments I will describe
-     * the task and you are required to complete the method such that it passes
-     * the java unit test.
-     * 
-     * Method: DP is calculated by taking assignment*assWeight + semesterTest*semWeight * continuous*contWeight
-     * 
-     * @return The DP of the student as a double floating point value
-     */
+   
     //Task: complete this method as described in the comments and to pass the unit test
     public Double calculateDP() {
-        throw new UnsupportedOperationException("You still need to complete this method");
+        Double my_answer;
+        my_answer =(assignment * 0.6)+(semesterTest * 0.2)+(continuous*0.2);
+        return my_answer;
     }
     
-    /**
-     * This method returns a string that is formatted to look like a nice report
-     * when printed with System.out.println
-     * 
-     * A few things to take note of:
-     * \n gives you a new line
-     * \t gives you a tab
-     * All students received marks and then his calculated DP must be displayed 
-     * as follows
-     * 
-     * Dear student you have attained:
-     * Assignment: -studentmark-% 
-     * SemesterTest: -studentmark-% 
-     * Continuous Assessment: -studentmark-% 
-     * Your DP is calculated as: -calculatedDP-%
-     * 
-     * @return A formatted string
-     */
+    
     public String prettyPrintDPreport() {
-        throw new UnsupportedOperationException("You still need to complete this method");
+       String printer = "Dear student your Final result is:\n"
+                + "Assignment: "+assignment+"%\n"
+                + "Semester test: "+semesterTest+"%\n"
+                + "Continous Assessment: "+continuous+"%\n"
+                + "Your DP is calculated as: " + calculateDP() +"%";
+         
+         System.out.println(printer);
+         return printer;
     }
-    
-    /**
-     * This method is known as an accessor method or getter.  It allows you to 
-     * get an attribute from an object.  In this case the Assignment mark stored
-     * within the calculator
-     * @return The assignment mark stored within the calculator
-     */
+
     public Double getAssignmentMark() {
         return assignment;
-    }
-    
+    } 
     // Task create the other accessors
     public Double getSemesterMark() {
-        throw new UnsupportedOperationException("You still need to complete this method");
+        return semesterTest;
+    }
+    
+    public Double getSemesterTestMark(String subject) {
+        return semesterTest;    
+    }
+    
+    public Double getAssignmentMark(String subject) {
+         return assignment;
+    }
+    
+    public Double getContinuousAssessmentMark(String subject) {
+       return continuous;
     }
     
     public Double getContinuousAssessmentMark() {
-        throw new UnsupportedOperationException("You still need to complete this method");
+      return continuous;
     }
     
     public void setAssignmentWeight(Double assignmentWeight) {
-        throw new UnsupportedOperationException("You still need to complete this method");
+         this.assignmentWeight = assignmentWeight;
     }
     
     public void setSemesterTestWeight(Double semesterTestWeight) {
-        throw new UnsupportedOperationException("You still need to complete this method");
+        this.semesterTestWeight = semesterTestWeight;
     }
     
     public void setContinuousAssessmentWeight(Double continuousAssessmentWeight) {
-        throw new UnsupportedOperationException("You still need to complete this method");
+         this.continousAssessmentWeight = continousAssessmentWeight;
     }
     
     /**
@@ -164,7 +133,18 @@ public class DPcalc {
      * @return True if you can write exams. False otherwise
      */
     public Boolean canWriteExams() {
-        throw new UnsupportedOperationException("You still need to complete this method");
+        Boolean  canWrite = false;
+      
+      if(calculateDP() >= 40){
+        System.out.println("You may write exams: ");
+        canWrite = true;
+    }
+      else if(calculateDP() <= 40){
+          System.out.println("You do not qualify to write exams: ");
+          canWrite = false;
+      }
+      
+      return canWrite;
     }
     
     /**
@@ -174,6 +154,32 @@ public class DPcalc {
      * @return 
      */
     public Boolean verifyDVnum() {
-        throw new UnsupportedOperationException("You still need to complete this method");
+        Boolean ver = false;
+       
+       if(DVnumber.length() <= 11){
+           
+           System.out.println("The DV-number is too short");
+           return ver = false;
+       }
+       else if(DVnumber.substring(0, 2) != "DV"){
+           System.out.println("The DV-number should start with DV");
+           return ver = false;
+       }
+       else if(DVnumber.substring(6, 7) != "-") {
+           System.out.println("The dash is missung or misplaced: ");
+           return ver = false;
+       }
+       return ver;
+    }
+
+    public void addSubject(Subject subject) {
+       
+        List<Subject>  sub  = new ArrayList<>();
+        
+        sub.get(semesterTestWeight.intValue());
+        
+       // Subject S = new Subject (  sub, semesterTest, continousAssessmentWeight, assignment, semesterTestWeight, continousAssessmentWeight, assignmentWeight);
+        
+       // sub.add(S);
     }
 }
