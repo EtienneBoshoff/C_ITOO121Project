@@ -45,7 +45,9 @@ public class DPcalc {
     private final String studentName;
     private final String subject;
     private final String studentDVnumber;
-    List<Subject> subjects = new ArrayList<>();
+    private List<Subject> subjects = new ArrayList<>();
+    
+    
     //End of variable declarations
     
     /**
@@ -144,7 +146,7 @@ public class DPcalc {
                 + "Assignment: " + subjects.get(0).getAssessmentMark() + "%\n"
                 + "Semester test: " + subjects.get(0).getSemesterTestMark() + "%\n"
                 + "Continous Assessment: " + subjects.get(0).getContinuousAssessmentMark() + "%\n"
-                + "Your DP is calculated as: 52.0%";
+                + "Your DP is calculated as: " + calculateDP() + "%";
         return expectedResult;
     }
     
@@ -166,17 +168,45 @@ public class DPcalc {
     }
     
     public Double getSemesterTestMark(String subject) {
-        throw new UnsupportedOperationException("You still need to complete this method");    
+        //throw new UnsupportedOperationException("You still need to complete this method"); 
+        Double mark = null;
+        
+        for(int i = 0; i < subjects.size(); i++){
+        if(subjects.get(i).getName().equalsIgnoreCase(subject)){
+        mark = subjects.get(i).getSemesterTestMark();    
+        }
+       
+        }
+        return mark; 
         
     }
     
     public Double getAssignmentMark(String subject) {
-        throw new UnsupportedOperationException("You still need to complete this method");
+        //throw new UnsupportedOperationException("You still need to complete this method");
+        Double mark = null;
+        
+        for(int i = 0; i < subjects.size(); i++){
+        if(subjects.get(i).getName().equalsIgnoreCase(subject)){
+        mark = subjects.get(i).getAssessmentMark();    
+        }
+       
+        }
+        return mark; 
+        
     }
     
     public Double getContinuousAssessmentMark(String subject) {
-        throw new UnsupportedOperationException("You still need to complete this method");
-         
+        //throw new UnsupportedOperationException("You still need to complete this method");
+        Double mark = null;
+        
+        for(int i = 0; i < subjects.size(); i++){
+        if(subjects.get(i).getName().equalsIgnoreCase(subject)){
+        mark = subjects.get(i).getContinuousAssessmentMark();    
+        }
+       
+        }
+        
+        return mark;  
     }
     
     public Double getContinuousAssessmentMark() {
@@ -227,15 +257,15 @@ public class DPcalc {
         //throw new UnsupportedOperationException("You still need to complete this method");
         Boolean verify = false;
         int lenght = studentDVnumber.length();
-        System.out.println(studentDVnumber);
+        
         if (lenght == 11) {
              if (studentDVnumber.substring(0, 2).equalsIgnoreCase("DV")) {
                if ((studentDVnumber.charAt(6) + "").equalsIgnoreCase("-")) {    
                  int year = Integer.parseInt(studentDVnumber.substring(2, 6)); 
-                   System.out.println(year);
+                  
                    if((1990 <= year) &(year <= 2015)){
                     String temp = (studentDVnumber.substring(7, 9));
-                    System.out.println(studentDVnumber.substring(7, 11));
+                    
                     try {
                        Double.parseDouble(temp);
                     } catch (NumberFormatException | NullPointerException e) {
@@ -254,7 +284,8 @@ public class DPcalc {
     
 
     public void addSubject(Subject subject) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-        
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        //Subject aSubject = new Subject(subject ,semesterTest, continuous, assignment, semesterTestWeight, continousAssessmentWeight,assignmentWeight);
+        subjects.add(subject); 
     }
 }
