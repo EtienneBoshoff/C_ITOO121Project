@@ -44,7 +44,7 @@ public class DPcalc {
     
     private Subject aSubject;
     
-    List<Subject> subjects = new ArrayList<>();
+    private List<Subject> subjects = new ArrayList<>();
     //End of variable declarations
 
     /**
@@ -81,7 +81,8 @@ public class DPcalc {
      * percentage
      */
     public DPcalc(Double assignment, Double semesterTest, Double continuous, String studentName, String subject, String studentDVnumber, Double assignmentWeight, Double semesterTestWeight, Double continousAssessmentWeight) {
-        
+        Subject aSubject = new Subject(subject, semesterTest, continousAssessmentWeight, assignment, semesterTestWeight, continousAssessmentWeight, assignmentWeight);
+        subjects.add(aSubject);
         this.studentName = studentName;
         this.studentDVnumber = studentDVnumber;
     }
@@ -150,8 +151,11 @@ public class DPcalc {
      * @return The assignment mark stored within the calculator
      */
     public Double getAssignmentMark() {
-       Double assignmentMk = aSubject.getAssessmentMark();
-        return assignmentMk;
+        if (subjects.size() > 0) {
+            return subjects.get(0).getAssessmentMark();
+        }
+       
+        return -1.0;
     }
 
     // Task create the other accessors
@@ -227,10 +231,7 @@ public class DPcalc {
     
      public void addSubject(Subject subject) {
         
-        subjects.get(0).getAssessmentMark();
-        subjects.get(1).getContinuousAssessmentMark();
-        subjects.get(2).getSemesterTestMark();
-        subjects.get(3).getName();
+       subjects.add(subject);
         
     }    
 }

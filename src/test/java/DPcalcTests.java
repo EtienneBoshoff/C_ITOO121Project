@@ -189,7 +189,7 @@ public class DPcalcTests {
         
         //Check results
         //Expected result value of true
-        Assert.assertEquals(Boolean.FALSE, result); 
+        Assert.assertEquals(Boolean.TRUE, result); 
     }
     
     /**
