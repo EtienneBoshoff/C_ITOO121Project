@@ -11,6 +11,9 @@
  */
 package za.ac.pearson.cti.studentdpcalculator;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Program description:  This class will calculate a students due performance
  * or DP.  
@@ -135,7 +138,14 @@ public class DPcalc {
      * @return A formatted string
      */
     public String prettyPrintDPreport() {
-        
+        String output = "Dear student you have attained:\n"
+                + "Assignment: "+getAssignmentMark()+"%\n"
+                + "Semester test: "+getSemesterMark()+"%\n"
+                + "Continous Assessment: "+getContinuousAssessmentMark()+"%\n"
+                + "Your DP is calculated as: "+calculateDP()+"%";
+
+
+return output;
     }
     
     /**
@@ -158,7 +168,10 @@ public class DPcalc {
     }
     
     public Double getAssignmentMark(String subject) {
-        throw new UnsupportedOperationException("You still need to complete this method");
+        //throw new UnsupportedOperationException("You still need to complete this method");
+        
+      return assignment;
+        
     }
     
     public Double getContinuousAssessmentMark(String subject) {
@@ -170,11 +183,14 @@ public class DPcalc {
     }
     
     public void setAssignmentWeight(Double assignmentWeight) {
-        throw new UnsupportedOperationException("You still need to complete this method");
+       throw new UnsupportedOperationException("You still need to complete this method");
+   
     }
     
     public void setSemesterTestWeight(Double semesterTestWeight) {
-        throw new UnsupportedOperationException("You still need to complete this method");
+      throw new UnsupportedOperationException("You still need to complete this method");
+        
+        
     }
     
     public void setContinuousAssessmentWeight(Double continuousAssessmentWeight) {
@@ -213,7 +229,8 @@ public class DPcalc {
      */
     public Boolean verifyDVnum() {
         
-      String  dvNumber = "DV2013-0756";
+
+       String  dvNumber = "DV2013-0756";
       
    
       
@@ -222,9 +239,8 @@ public class DPcalc {
         }else{
         return true;
         }
-    
-    
-    }
+      
+      }
 
     public void addSubject(Subject subject) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
