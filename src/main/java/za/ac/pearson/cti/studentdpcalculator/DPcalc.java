@@ -123,13 +123,10 @@ public class DPcalc {
         return report;
     }
     
-    public String printFull() {
-        String report = "Dear student you have attained:\n"
-                + "Assignment: "+getAssignmentMark()+"%\n"
-                + "Semester test: "+getSemesterMark()+"%\n"
-                + "Continous Assessment: "+getContinuousAssessmentMark()+"%\n"
-                + "Your DP is calculated as: "+calculateDP()+"%";
-        return report;
+    public String prettyFullPrint(){
+        System.out.println("Have a great day");
+        return null;
+    }
     /**
      * This method is known as an accessor method or getter.  It allows you to 
      * get an attribute from an object.  In this case the Assignment mark stored
