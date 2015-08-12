@@ -1,195 +1,202 @@
-/*
- * This is the starting program for CTI students in Object Orientated 
- * Programming.  To run this program click on the Run button in the toolbar
- * above (The one that looks like a play button).  In each class you will find
- * instructions on what needs to be done to complete this homework assignment
- * 
- * This is homework assignment: 1
- * It is due: Week of 13 July 2015
- * Remember to hand in all you need to do is upload a picture of all of your
- * JUnit tests passing.
- */
+//Stephan Malan DV2015-0073
+
 package za.ac.pearson.cti.studentdpcalculator;
 
-/**
- * Program description:  This class will calculate a students due performance
- * or DP.  
- * @author Etienne Boshoff - Lecturer CTI Education Group
- * 
- * Task: Complete the methods such that the tests pass.  Note you are not
- * allowed to change the tests in any way.
- */
+//Imports
+import java.util.ArrayList;
+import java.util.List;
+
 public class DPcalc {
+
+    //Global variables
+    private String studentName;
+    private String dvNum;
+    private List<Subject> subjects = new ArrayList<>();
+
+    /*
+        ##########  Constructors ##########
+    */
     
-    /**
-     * Variables are your attributes associated with your class. For example a
-     * car can be different colours.  The colour blue would then be an attribute
-     * of the class car.  This means that its variable for colour may look as 
-     * follows:
-     * 
-     * String colour = "blue"; 
-     * OR
-     * String colour; if we leave it undefined till a later time
-     */
-    //Variable declarations here
-    //Task: Complete the variable declarations
-    private final Double assignment;
-    private final Double semesterTest;
-    private final Double continuous;
-    private Double assignmentWeight;
-    private Double semesterTestWeight;
-    private Double continousAssessmentWeight;
-    private final String studentName;
-    private final String subject;
-    private final String studentDVnumber;
-    //End of variable declarations
-    
-    /**
-     * This is the constructor for DPcalc.  A constructor is used to create an
-     * object and give it its default values. 
-     * @param assMark The assignment mark of the student in percentage
-     * @param semTestMark The semester test mark of the student in percentage
-     * @param contAssMark The continual assessment mark of the student in percentage
-     */
+    //Constructor
     public DPcalc(Double assMark, Double semTestMark, Double contAssMark) {
-        assignment = assMark;
-        semesterTest = semTestMark;
-        continuous = contAssMark;
-        assignmentWeight = 0.6;
-        semesterTestWeight = 0.2;
-        continousAssessmentWeight = 0.2;
-        studentName = "Default Student";
-        subject = "Default Subject";
-        studentDVnumber = "N/A";
+        subjects.add(new Subject("Subject", assMark, semTestMark, contAssMark, 0.6, 0.2, 0.2));
+        studentName = "Default";
+        dvNum = "Default";
     }
 
-    /**
-     * This is the secondary constructor for DPcalc
-     * @param assignment The assignment mark of the student in percentage
-     * @param semesterTest The semester test mark of the student in percentage
-     * @param continuous The continual assessment mark of the student in percentage
-     * @param studentName The name of the student for whom we are calculating the DP
-     * @param subject The subject the DP is calculated for
-     * @param studentDVnumber The student's DV number
-     * @param assignmentWeight The weight as a floating point percentage
-     * @param semesterTestWeight The weight as a floating point percentage
-     * @param continousAssessmentWeight The weight as a floating point percentage
-     */
-    public DPcalc(Double assignment, Double semesterTest, Double continuous, String studentName, String subject, String studentDVnumber, Double assignmentWeight, Double semesterTestWeight, Double continousAssessmentWeight) {
-        this.assignment = assignment;
-        this.semesterTest = semesterTest;
-        this.continuous = continuous;
-        this.assignmentWeight = assignmentWeight;
-        this.semesterTestWeight = semesterTestWeight;
-        this.continousAssessmentWeight = continousAssessmentWeight;
-        this.studentName = studentName;
-        this.subject = subject;
-        this.studentDVnumber = studentDVnumber;
+    //Secondary constructor
+    public DPcalc(Double assMark, Double semTestMark, Double contAssMark, String name, String dvNumber, String subject, Double assWeight, Double semTestWeight, Double contAssWeight) {
+        subjects.add(new Subject(subject, assMark, semTestMark, contAssMark, assWeight, semTestWeight, contAssWeight));
+        studentName = name;
+        dvNum = dvNumber;
     }
-    
-    
-    
-    /**
-     * This method calculates the students DP for the semester with the values
-     * gathered from the constructor.  A method is the behaviour of an object
-     * it can be seen as doing a specific task.  In the comments I will describe
-     * the task and you are required to complete the method such that it passes
-     * the java unit test.
-     * 
-     * Method: DP is calculated by taking assignment*assWeight + semesterTest*semWeight * continuous*contWeight
-     * 
-     * @return The DP of the student as a double floating point value
+
+    /*
+        ##########  Accessors ##########
      */
-    //Task: complete this method as described in the comments and to pass the unit test
-    public Double calculateDP() {
-        throw new UnsupportedOperationException("You still need to complete this method");
-    }
     
-    /**
-     * This method returns a string that is formatted to look like a nice report
-     * when printed with System.out.println
-     * 
-     * A few things to take note of:
-     * \n gives you a new line
-     * \t gives you a tab
-     * All students received marks and then his calculated DP must be displayed 
-     * as follows
-     * 
-     * Dear student you have attained:
-     * Assignment: -studentmark-% 
-     * SemesterTest: -studentmark-% 
-     * Continuous Assessment: -studentmark-% 
-     * Your DP is calculated as: -calculatedDP-%
-     * 
-     * @return A formatted string
-     */
-    public String prettyPrintDPreport() {
-        throw new UnsupportedOperationException("You still need to complete this method");
-    }
-    
-    /**
-     * This method is known as an accessor method or getter.  It allows you to 
-     * get an attribute from an object.  In this case the Assignment mark stored
-     * within the calculator
-     * @return The assignment mark stored within the calculator
-     */
+    //Returns assignment mark
     public Double getAssignmentMark() {
-        return assignment;
-    }
-    
-    // Task create the other accessors
-    public Double getSemesterMark() {
-        throw new UnsupportedOperationException("You still need to complete this method");
-    }
-    
-    public Double getSemesterTestMark(String subject) {
-        throw new UnsupportedOperationException("You still need to complete this method");       
-    }
-    
-    public Double getAssignmentMark(String subject) {
-        throw new UnsupportedOperationException("You still need to complete this method");
-    }
-    
-    public Double getContinuousAssessmentMark(String subject) {
-        throw new UnsupportedOperationException("You still need to complete this method");
-    }
-    
-    public Double getContinuousAssessmentMark() {
-        throw new UnsupportedOperationException("You still need to complete this method");
-    }
-    
-    public void setAssignmentWeight(Double assignmentWeight) {
-        throw new UnsupportedOperationException("You still need to complete this method");
-    }
-    
-    public void setSemesterTestWeight(Double semesterTestWeight) {
-        throw new UnsupportedOperationException("You still need to complete this method");
-    }
-    
-    public void setContinuousAssessmentWeight(Double continuousAssessmentWeight) {
-        throw new UnsupportedOperationException("You still need to complete this method");
-    }
-    
-    /**
-     * This method checks if you have eligibility to write the exams
-     * Remember you need at least a 40% DP to get exam eligibility
-     * @return True if you can write exams. False otherwise
-     */
-    public Boolean canWriteExams() {
-        throw new UnsupportedOperationException("You still need to complete this method");
-    }
-    
-    /**
-     * This method checks if you have a valid DV student number
-     * A student number must be in the following pattern
-     * "DV[yearEnrolled]-[fourDigits]"
-     * @return 
-     */
-    public Boolean verifyDVnum() {
-        throw new UnsupportedOperationException("You still need to complete this method");
+        return subjects.get(0).getAssignmentMark();
     }
 
-    public void addSubject(Subject subject) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    //Returns assignment mark of certain subject
+    public Double getAssignmentMark(String subject) {
+        return subjects.get(getListIndex(subject)).getAssignmentMark();
+    }
+
+    //Returns semester test mark
+    public Double getSemesterMark() {
+        return subjects.get(0).getSemesterTestMark();
+    }
+
+    //Returns semester test mark of certain subject
+    public Double getSemesterTestMark(String subject) {
+        return subjects.get(getListIndex(subject)).getSemesterTestMark();
+    }
+
+    //Returns continuous assesment mark
+    public Double getContinuousAssessmentMark() {
+        return subjects.get(0).getContinuousMark();
+    }
+
+    //Returns continuous assessment mark of certain subject
+    public Double getContinuousAssessmentMark(String subject) {
+        return subjects.get(getListIndex(subject)).getContinuousMark();
+    }
+    
+    //Returns assignment weight
+    public Double getAssignmentWeight() {
+        return subjects.get(0).getAssignmentWeight();
+    }
+
+    //Returns assignment weight of certain subject
+    public Double getAssignmentWeight(String subject) {
+        return subjects.get(getListIndex(subject)).getAssignmentWeight();
+    }
+    
+    //Returns semester test weight
+    public Double getSemesterTestWeight() {
+        return subjects.get(0).getSemesterTestWeight();
+    }
+
+    //Returns semester test weight of certain subject
+    public Double getSemesterTestWeight(String subject) {
+        return subjects.get(getListIndex(subject)).getSemesterTestWeight();
+    }
+
+    //Returns continuous assessment weight
+    public Double getContinuousWeight() {
+        return subjects.get(0).getContinuousWeight();
+    }
+    
+    //Returns continuous assessment weight for certain subject
+    public Double getContinuousWeight(String subject) {
+        return subjects.get(getListIndex(subject)).getContinuousWeight();
+    }
+
+    //Returns student name
+    public String getStudentName() {
+        return studentName;
+    }
+
+    //Returns student dv number
+    public String getDvNum() {
+        return dvNum;
+    }
+
+    //Returns student subject
+    public String getStudentSubject() {
+        return subjects.get(0).getSubjectName();
+    }
+    
+    //Sets value of assignment weight
+    public void setAssignmentWeight(Double assWeight) {
+        subjects.get(0).setAssignmentWeight(assWeight);
+    }
+    
+    //Sets value of assignment weight of certain subject
+    public void setAssignmentWeight(Double assWeight, String subject) {
+        subjects.get(getListIndex(subject)).setAssignmentWeight(assWeight);
+    }
+    
+    //Sets value of semester test weight
+    public void setSemesterTestWeight(Double semesterWeight) {
+        subjects.get(0).setSemesterTestWeight(semesterWeight);
+    }
+    
+    //Sets value of semester test weight
+    public void setSemesterTestWeight(Double semesterWeight, String subject) {
+        subjects.get(getListIndex(subject)).setSemesterTestWeight(semesterWeight);
+    }
+    
+    //Sets value of continuous assessment weight
+    public void setContinuousAssessmentWeight(Double contWeight) {
+        subjects.get(0).setContinuousWeight(contWeight);
+    }
+    
+    //Sets value of continuous assessment weight
+    public void setContinuousAssessmentWeight(Double contWeight, String subject) {
+        subjects.get(getListIndex(subject)).setContinuousWeight(contWeight);
+    }
+
+    /*
+        ########## Methods ##########
+    */
+    
+    //Returns formatted text of student's results
+    public String prettyPrintDPreport() {
+        return "Dear student you have attained:\nAssignment: " + getAssignmentMark() + "%\nSemester test: " + getSemesterMark()+ "%\nContinous Assessment: " + getContinuousAssessmentMark()+ "%\nYour DP is calculated as: " + calculateDP() + "%";
+    }
+    
+    //Returns formatted text of all the student's results and information
+    public String prettyFullPrint() {
+        return "Dear " + getStudentSubject() + " you have attained:\nDV number: " + getDvNum() + "\nSubject: " + getStudentSubject() + "\nAssignment: " + getAssignmentMark() + "%\nSemester test: " + getSemesterMark()+ "%\nContinous Assessment: " + getContinuousAssessmentMark()+ "%\nYour DP is calculated as: " + calculateDP() + "%";
+    }
+    
+    //Returns the student's DP
+    public Double calculateDP() {
+        return ((getAssignmentMark() * getAssignmentWeight()) + (getSemesterMark()* getSemesterTestWeight()) + (getContinuousAssessmentMark()* getContinuousWeight()));
+    }
+    
+    //Verifies the student's DV number
+    public Boolean verifyDVnum() {
+        if (getDvNum().length() != 11) {
+            return false;
+        }
+        if (!getDvNum().substring(0, 2).equalsIgnoreCase("dv")) {
+            return false;
+        }
+        for (int i = 2; i < 6; i++) {
+            if (!Character.isDigit(getDvNum().charAt(i))) {
+                return false;
+            }
+        }
+        for (int i = 7; i < 11; i++) {
+            if (!Character.isDigit(getDvNum().charAt(i))) {
+                return false;
+            }
+        }
+        return getDvNum().charAt(6) == '-';
+    }
+    
+    //Returns if student can write exam
+    public Boolean canWriteExams() {
+        return calculateDP() >= 40;
+    }
+
+    //Adds Subject from parameter to subjects list
+    public void addSubject(Subject s) {
+        subjects.add(s);
+    }
+
+    //Returns index of element in subjects list from inputted subject
+    public Integer getListIndex(String subject) {
+        for (int i = 0; i < subjects.size(); i++) {
+            if (subjects.get(i).getSubjectName().equalsIgnoreCase(subject)) {
+                return i;
+            }
+        }
+        return -1;
     }
 }

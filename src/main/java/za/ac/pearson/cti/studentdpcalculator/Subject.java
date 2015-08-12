@@ -1,90 +1,117 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+//Stephan Malan DV2015-00723
+
 package za.ac.pearson.cti.studentdpcalculator;
 
-/**
- *
- * @author uboshet
- */
 public class Subject {
     
-    private String name;
+    //Global variables
+    private String subjectName;
+    private Double assignmentMark;
     private Double semesterTestMark;
-    private Double continuousAssessmentMark;
-    private Double assessmentMark;
+    private Double continuousMark;
+    private Double assignmentWeight;
     private Double semesterTestWeight;
-    private Double continuousAssessmentWeight;
-    private Double assessmentWeight;
+    private Double continuousWeight;
+    private Double calculatedDP;
 
-    public Subject(String name, Double semesterTestMark, Double continuousAssessmentMark, Double assessmentMark, Double semesterTestWeight, Double continuousAssessmentWeight, Double assessmentWeight) {
-        this.name = name;
+    /*
+        ########## Constructors ##########
+    */
+    
+    //Constructor
+    public Subject(String subjectName, Double assignmentMark, Double semesterTestMark, Double continuousMark, Double assignmentWeight, Double semesterTestWeight, Double continuousWeight) {
+        this.subjectName = subjectName;
+        this.assignmentMark = assignmentMark;
         this.semesterTestMark = semesterTestMark;
-        this.continuousAssessmentMark = continuousAssessmentMark;
-        this.assessmentMark = assessmentMark;
+        this.continuousMark = continuousMark;
+        this.assignmentWeight = assignmentWeight;
         this.semesterTestWeight = semesterTestWeight;
-        this.continuousAssessmentWeight = continuousAssessmentWeight;
-        this.assessmentWeight = assessmentWeight;
+        this.continuousWeight = continuousWeight;
+        calculatedDP = -1.0;
     }
 
-    public String getName() {
-        return name;
+    /*
+        ########## Accessors ##########
+    */
+    
+    //Returns subject name
+    public String getSubjectName() {
+        return subjectName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    //Returns assignment mark
+    public Double getAssignmentMark() {
+        return assignmentMark;
     }
 
+    //Returns semester test mark
     public Double getSemesterTestMark() {
         return semesterTestMark;
     }
 
-    public void setSemesterTestMark(Double semesterTestMark) {
-        this.semesterTestMark = semesterTestMark;
+    //Returns continuous assessment mark
+    public Double getContinuousMark() {
+        return continuousMark;
     }
 
-    public Double getContinuousAssessmentMark() {
-        return continuousAssessmentMark;
+    //Returns assignment weight
+    public Double getAssignmentWeight() {
+        return assignmentWeight;
     }
 
-    public void setContinuousAssessmentMark(Double continuousAssessmentMark) {
-        this.continuousAssessmentMark = continuousAssessmentMark;
-    }
-
-    public Double getAssessmentMark() {
-        return assessmentMark;
-    }
-
-    public void setAssessmentMark(Double assessmentMark) {
-        this.assessmentMark = assessmentMark;
-    }
-
+    //Returns semester test weight
     public Double getSemesterTestWeight() {
         return semesterTestWeight;
     }
 
+    //Returns continuous assessment weight
+    public Double getContinuousWeight() {
+        return continuousWeight;
+    }
+
+    //Returns calculated DP
+    public Double getCalculatedDP() {
+        return calculatedDP;
+    }
+
+    //Sets the value of the subject name
+    public void setSubjectName(String subjectName) {
+        this.subjectName = subjectName;
+    }
+
+    //Sets the value of the assignment mark
+    public void setAssignmentMark(Double assignmentMark) {
+        this.assignmentMark = assignmentMark;
+    }
+
+    //Sets the value of the semester test mark
+    public void setSemesterTestMark(Double semesterTestMark) {
+        this.semesterTestMark = semesterTestMark;
+    }
+
+    //Sets the value of the continuous assessment mark
+    public void setContinuousMark(Double continuousMark) {
+        this.continuousMark = continuousMark;
+    }
+
+    //Sets the value of the assignment weight
+    public void setAssignmentWeight(Double assignmentWeight) {
+        this.assignmentWeight = assignmentWeight;
+    }
+
+    //Sets the value of the semester test weight
     public void setSemesterTestWeight(Double semesterTestWeight) {
         this.semesterTestWeight = semesterTestWeight;
     }
 
-    public Double getContinuousAssessmentWeight() {
-        return continuousAssessmentWeight;
+    //Sets the value of the continuous assessment weight
+    public void setContinuousWeight(Double continuousWeight) {
+        this.continuousWeight = continuousWeight;
     }
 
-    public void setContinuousAssessmentWeight(Double continuousAssessmentWeight) {
-        this.continuousAssessmentWeight = continuousAssessmentWeight;
+    //Sets the value of the calculated DP
+    public void setCalculatedDP(Double calculatedDP) {
+        this.calculatedDP = calculatedDP;
     }
-
-    public Double getAssessmentWeight() {
-        return assessmentWeight;
-    }
-
-    public void setAssessmentWeight(Double assessmentWeight) {
-        this.assessmentWeight = assessmentWeight;
-    }
-    
-    
     
 }
