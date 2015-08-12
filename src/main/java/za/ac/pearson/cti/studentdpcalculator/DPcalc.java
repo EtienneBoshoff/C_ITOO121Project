@@ -39,9 +39,9 @@ public class DPcalc {
     private final Double assignment;
     private final Double semesterTest;
     private final Double continuous;
-    private final Double assignmentWeight;
-    private final Double semesterTestWeight;
-    private final Double continousAssessmentWeight;
+    private Double assignmentWeight;
+    private Double semesterTestWeight;
+    private Double continousAssessmentWeight;
     private final String studentName;
     private final String subject;
     private final String studentDVnumber;
@@ -189,18 +189,20 @@ return output;
     }
     
     public void setAssignmentWeight(Double assignmentWeight) {
-       throw new UnsupportedOperationException("You still need to complete this method");
+       this.assignmentWeight = assignmentWeight;
    
     }
     
     public void setSemesterTestWeight(Double semesterTestWeight) {
-      throw new UnsupportedOperationException("You still need to complete this method");
+            this.semesterTestWeight = semesterTestWeight;
+
         
         
     }
     
     public void setContinuousAssessmentWeight(Double continuousAssessmentWeight) {
-        throw new UnsupportedOperationException("You still need to complete this method");
+            this.continousAssessmentWeight = continousAssessmentWeight;
+
     }
     
     /**
@@ -209,22 +211,9 @@ return output;
      * @return True if you can write exams. False otherwise
      */
     public Boolean canWriteExams() {
-          /*
-        Teachers Work
+    
         
-        return calculateDP() >= 0.40;
-        
-        
-        */
-        
-        double dp;
-        dp = assignment*0.6 + semesterTest*0.2 + continuous*0.2;
-        
-        if (calculateDP() >=40) {
-            return true;
-    }   else {
-            return false;
-    }
+        return calculateDP() >=40;
     }
     
     /**
@@ -234,29 +223,24 @@ return output;
      * @return 
      */
     public Boolean verifyDVnum() {
-        
-         
-        
-    String  dvNumber = "DV2013-0756";
-      
-    if(dvNumber.length()==11 ){ 
-//check if the dvnumber is to long or to short
-        return false;
-        }if (dvNumber.startsWith("DV") && dvNumber.regionMatches(6, "-", 0, 1)){ 
-//check if dv start with word DV and if has the dash on the righ place
-        return true;
-        }else {
-            return false;
+        boolean check;
+        check = false;
+               
+    if(studentDVnumber.length()!=11 ){ 
+    //check if the dvnumber is to long or to short
+        return check = false;
+    }else if (studentDVnumber.startsWith("DV") && studentDVnumber.regionMatches(6, "-", 0, 1)){ 
+    //check if dv start with word DV and if has the dash on the righ place
+        return check = true;
+    }else {
+            return check = false;
         }
-        
-             
-        
-        
-        
         
     }
 
     public void addSubject(Subject subject) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+   
+    
     }
 }
