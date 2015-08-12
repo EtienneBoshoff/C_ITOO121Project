@@ -42,8 +42,17 @@ public class DPcalc {
     
     String number;
     String nameStud;
-    Double DP;
+    String subject;
+    //Double DP;
+    //Double assignment;
+    //Double semesterTest;
+    //Double continuous;
+    //Double weightSem;
+    //Double weightAss;
+    //Double weightCont;
+    //private Subject aSubject;
     List<Subject> subjects = new ArrayList<>();
+    
     
     
     //End of variable declarations
@@ -56,42 +65,35 @@ public class DPcalc {
      * @param contAssMark The continual assessment mark of the student in percentage
      */
     public DPcalc(Double assMark, Double semTestMark, Double contAssMark) {
-        assignment = assMark;
+        /*assignment = assMark;
         semesterTest = semTestMark;
-        continuous = contAssMark;
+        continuous = contAssMark;*/
+        subjects.add(new Subject("DP", semTestMark, contAssMark, assMark, 0.2, 0.2, 0.6));
+        nameStud = "Default Student";
+        //subject = "Default Subject";
+        number = "N/A";
+        
     }
     
-    public DPcalc(Double assMark, Double semTestMark, Double contAssMark, String studName, String studSubject, String studNumber, Double assWeight, Double contWeight, Double semWeight) {
-        assignment = assMark;
-        semesterTest = semTestMark;
-        continuous = contAssMark;
+    public DPcalc(Double assignment, Double semesterTest, Double continuous, String studName, String studNumber, String name, Double weightAss, Double weightSem, Double weightCont) {
+        //assignment = assMark;
+        //semesterTest = semTestMark;
+        //continuous = contAssMark;
         nameStud = studName;
-        subject = studSubject;
+        //subject = studSubject;
         number = studNumber;
-        weightSem = semWeight;
-        weightAss = assWeight;
-        weightCont = contWeight;
+        //weightSem = semWeight;
+        //weightAss = assWeight;
+        //weightCont = contWeight;
         
-        Subject testSubject = new Subject();
-        subjects.add(testSubject);
-        Subject name = new Subject();
-        subjects.add(name);
-        Subject assignment = new Subject();
-        subjects.add(assignment);
-        Subject semesterTest = new Subject();
-        subjects.add(semesterTest);
-        Subject continuous = new Subject();
-        subjects.add(continuous);
-        Subject weightSem = new Subject();
-        subjects.add(weightSem);
-        Subject weightAss = new Subject();
-        subjects.add(weightAss);
-        Subject weightCont = new Subject();
-        subjects.add(weightCont);
         
-        for (Subject g: subjects) System.out.println(g);
+        subjects.add(new Subject(name, assignment, semesterTest, continuous, weightSem, weightAss, weightCont));
+        nameStud = studName;
+        number = studNumber;
+
+        
         }
-    }
+    
     
    
     
@@ -109,14 +111,13 @@ public class DPcalc {
     //Task: complete this method as described in the comments and to pass the unit test
     public Double calculateDP() {
         
-        Double semWeight = 0.2;
+        /*Double semWeight = 0.2;
         Double assWeight = 0.6;
-        Double contWeight = 0.2;
-        
-        DP = assignment*assWeight + semesterTest*semWeight + continuous*contWeight;
-        return DP;      
-        //throw new UnsupportedOperationException("You still need to complete this method");
-    }
+        Double contWeight = 0.2;*/
+                
+        Double DP = getAssignmentMark()*getAssignmentWeight() + getSemesterMark()*getSemesterTestWeight() + getContinuousAssessmentMark()*getContinuousAssessmentWeight();
+        return DP;
+        }
     
     /**
      * This method returns a string that is formatted to look like a nice report
@@ -137,13 +138,13 @@ public class DPcalc {
      * @return A formatted string
      */
     public String prettyPrintDPreport() {
-               String expectedResult = ("Dear student you have attained:\n"
-                + "Assignment: "+assignment+"%\n"
-                + "Semester test: "+semesterTest+"%\n"
-                + "Continous Assessment: "+continuous+"%\n"
-                + "Your DP is calculated as: 52.0%");
+                String expectedResult = "Dear student you have attained:\n"
+                + "Assignment: "+getAssignmentMark()+"%\n"
+                + "Semester test: "+getSemesterMark()+"%\n"
+                + "Continous Assessment: "+getContinuousAssessmentMark()+"%\n"
+                + "Your DP is calculated as: "+calculateDP()+"%";
         
-               System.out.println(expectedResult);
+
                return expectedResult;
         //throw new UnsupportedOperationException("You still need to complete this method");
     }
@@ -154,18 +155,9 @@ public class DPcalc {
      * within the calculator
      * @return The assignment mark stored within the calculator
      */
-    public Double getAssignmentMark() {
-        return assignment;
-    }
     
-    // Task create the other accessors
-    public Double getSemesterMark() {
-        return semesterTest;
-    }
     
-    public Double getContinuousAssessmentMark() {
-        return continuous;
-    }
+    
     
     /**
      * This method checks if you have eligibility to write the exams
@@ -203,69 +195,133 @@ public class DPcalc {
     String DVNum = userInput.nextLine();
     System.out.print("DV Number : "+DVNum+" ");
     }
-    //get the semester weight from the user
-    public void setSemesterTestWeight(Double semWeight) {
     
-    weightSem = semWeight;
-    
+    public Double getSemesterMark() {
+    return subjects.get(0).getSemesterTestMark();
     }
     
-    //get the assignment weight from the user
-    public void setAssignmentWeight(Double assWeight) {
-    
-    weightAss = assWeight;
-    
+    public Double getAssignmentWeight(){
+    return this.subjects.get(0).getWeightAss();
     }
     
-    //get the continuous assessment weight from the user
-    public void setContinuousAssessmentWeight(Double contWeight) {
+    public Double getSemesterTestWeight(){
+    return this.subjects.get(0).getWeightSem();
+    }
     
-    weightCont = contWeight;
+    public Double getContinuousAssessmentWeight(){
+    return this.subjects.get(0).getWeightCont();
+    }
     
+    public Double getSemesterTestMark(String subject) {
+    return this.subjects.get(getSubject(subject)).getSemesterTestMark();
+    }
+    
+    public Double getAssignmentMark(String subject) {
+    return this.subjects.get(getSubject(subject)).getAssignmentMark();
+    }
+    
+    public Double getContinuousAssessmentMark(String subject) {
+    return this.subjects.get(getSubject(subject)).getContinuousAssessmentMark();
+    }
+     
+    public Double getContinuousAssessmentMark() {
+    return subjects.get(0).getContinuousAssessmentMark();
+    }
+    
+    public Double getAssignmentMark() {
+    return subjects.get(0).getAssignmentMark();
+    }
+    
+    public void setWeightAss(Double weightAss) {
+    Subject subs = subjects.get(0);
+    subs.setWeightAss(weightAss);
+    subjects.set(0, subs);
+    }
+    
+    public void setWeightTest(Double weightTest) {
+    Subject subs = subjects.get(0);
+    subs.setWeightSem(weightTest);
+    subjects.set(0,subs);
+    }
+     
+    public void setWeightCont(Double weightCont) {
+    Subject subs = subjects.get(0);
+    subs.setWeightCont(weightCont);
+    subjects.set(0,subs);
     }
         
     
+    private Integer getSubject(String sub){
+    for (int i = 0; i < subjects.size(); i++) {
+    if (subjects.get(i).getName().equalsIgnoreCase(sub))
+    {
+    return i;
+          }
+        }    
+        return -10;
+        }
+
+        
+    
     //if statement to check if DVnum meets all the requirements (length, starts with DV, dash, contains numeric values in string)
-    public Boolean verifyDVnum() {
-           
-    if((number.length()) !=  11) {
-        if(!"DV".matches(number.substring(0,1))) {
-            if(!"-".matches(number.substring(6,7))) {
-                if(!number.substring(2,6).matches("[0-9]")) {
-                    if(!number.substring(7,11).matches("[0-9]")) {
-                            return false;
-                            }
-                        } 
-                    }
-                } else {
+    
+                
+        public Boolean verifyDVnum() {
+        if (number.length() == 11){
+            String d = number.charAt(0)+"";
+            String v = number.charAt(1)+"";
+            String year = number.substring(2, 6);
+            String dash = number.charAt(6)+"";
+            String lastNum = number.substring(7);
+            
+            if(d.equalsIgnoreCase("d") && 
+                   v.equalsIgnoreCase("v") && 
+                   year.matches("^\\d+$") && 
+                   dash.equals("-") && 
+                   lastNum.matches("^\\d+$"))
+            {
                 return true;
-                    }
-                }
-                return true;
-                }
-                
-                
-                
-                
-                
-                                         
+            }
+            else 
+            {
+                return false;
+            }
+        } 
+        else 
+        {
+        return false;
+        }
+    }
+     
+
+        
+        public void addSubject(Subject subject) {
+        subjects.add(subject);
+        }
+
+        
+            
+                                                                        
                   //print all the users information
-         public String printFull() {
+        /*public String printFull() {
             String fullResult = ("Dear student, your information is:\n"
-                + "Name: "+name+"\n"
-                + "Subject Name: "+subject+"\n"
+                + "Name: "+nameStud+"\n"
+                + "Subject: "+subject"\n"
                 + "DV number: "+number+"\n"
-                + "Weight of assignment mark: "+weightAss+"\n"
-                + "Weight of semester mark: "+weightSem+"\n"
-                + "Weight of continuous assessment mark: "+weightCont+"\n"
-                + "Assignment mark: "+assignment+"%\n"
-                + "Semester test mark: "+semesterTest+"%\n"
-                + "Continous Assessment mark: "+continuous+"%\n"
-                + "Your DP is calculated as: 52.0%\n");
+                + "Weight of assignment mark: "+getAssignmentWeight()+"\n"
+                + "Weight of semester mark: "+getSemesterTestWeight()+"\n"
+                + "Weight of continuous assessment mark: "+getContinuousAssessmentWeight()+"\n"
+                + "Assignment mark: "+getAssignmentMark()+"%\n"
+                + "Semester test mark: "+getSemesterMark()+"%\n"
+                + "Continous Assessment mark: "+getContinuousAssessmentMark()+"%\n"
+                + "Your DP is calculated as: "+calculateDP()+"%");
               
-                System.out.println(fullResult);
                 return fullResult;
                 }
+                */
+
+                
+                                     
       
- }
+                }
 
