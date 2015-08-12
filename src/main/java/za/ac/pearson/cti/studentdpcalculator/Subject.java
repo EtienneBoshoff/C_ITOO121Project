@@ -1,115 +1,90 @@
-
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package za.ac.pearson.cti.studentdpcalculator;
 
-
+/**
+ *
+ * @author uboshet
+ */
 public class Subject {
-     
-    private Double assignment;
-    private Double semesterTest;
-    private Double continuous;
     
-    private Double assignmentWeight;
-    private Double semesterWeight;
-    private Double continuousWeight;
-    
-    private String subject;
-    private Double calculatedDP;
-    //private String dvNumber;
-    //private String name;
-    
+    private String name;
+    private Double semesterTestMark;
+    private Double continuousAssessmentMark;
+    private Double assessmentMark;
+    private Double semesterTestWeight;
+    private Double continuousAssessmentWeight;
+    private Double assessmentWeight;
 
-    public Subject(String subject, Double assignment, Double semesterTest, Double continuous, Double assignmentWeight, Double semesterWeight, Double continuousWeight) {
+    public Subject(String name, Double semesterTestMark, Double continuousAssessmentMark, Double assessmentMark, Double semesterTestWeight, Double continuousAssessmentWeight, Double assessmentWeight) {
+        this.name = name;
+        this.semesterTestMark = semesterTestMark;
+        this.continuousAssessmentMark = continuousAssessmentMark;
+        this.assessmentMark = assessmentMark;
+        this.semesterTestWeight = semesterTestWeight;
+        this.continuousAssessmentWeight = continuousAssessmentWeight;
+        this.assessmentWeight = assessmentWeight;
+    }
 
-        this.assignment = assignment;
-        this.semesterTest = semesterTest;
-        this.continuous = continuous;
-        this.assignmentWeight = assignmentWeight;
-        this.semesterWeight = semesterWeight;
-        this.continuousWeight = continuousWeight;
-        this.subject = subject;
-        this.calculatedDP =-1.0;
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Double getSemesterTestMark() {
+        return semesterTestMark;
+    }
+
+    public void setSemesterTestMark(Double semesterTestMark) {
+        this.semesterTestMark = semesterTestMark;
+    }
+
+    public Double getContinuousAssessmentMark() {
+        return continuousAssessmentMark;
+    }
+
+    public void setContinuousAssessmentMark(Double continuousAssessmentMark) {
+        this.continuousAssessmentMark = continuousAssessmentMark;
+    }
+
+    public Double getAssessmentMark() {
+        return assessmentMark;
+    }
+
+    public void setAssessmentMark(Double assessmentMark) {
+        this.assessmentMark = assessmentMark;
+    }
+
+    public Double getSemesterTestWeight() {
+        return semesterTestWeight;
+    }
+
+    public void setSemesterTestWeight(Double semesterTestWeight) {
+        this.semesterTestWeight = semesterTestWeight;
+    }
+
+    public Double getContinuousAssessmentWeight() {
+        return continuousAssessmentWeight;
+    }
+
+    public void setContinuousAssessmentWeight(Double continuousAssessmentWeight) {
+        this.continuousAssessmentWeight = continuousAssessmentWeight;
+    }
+
+    public Double getAssessmentWeight() {
+        return assessmentWeight;
+    }
+
+    public void setAssessmentWeight(Double assessmentWeight) {
+        this.assessmentWeight = assessmentWeight;
     }
     
-//**************************************The Setters******************************************************************    
-
-    public void setAssignment(Double assignment) {
-        this.assignment = assignment;
-    }
-
-    public void setSemesterTest(Double semesterTest) {
-        this.semesterTest = semesterTest;
-    }
-
-    public void setContinuous(Double continuous) {
-        this.continuous = continuous;
-    }
-
-    public void setAssignmentWeight(Double assignmentWeight) {
-        this.assignmentWeight = assignmentWeight;
-    }
-
-    public void setSemesterWeight(Double semesterWeight) {
-        this.semesterWeight = semesterWeight;
-    }
-
-    public void setContinuousWeight(Double continuousWeight) {
-        this.continuousWeight = continuousWeight;
-    }
-
-    public void setSubject(String subject) {
-        this.subject = subject;
-    }
     
-    public void setcelculatedDP(Double calculatedDP){
-        this.calculatedDP = calculatedDP;
-    }
     
-//**************************************The Getters***************************************************      
-
-    public Double getAssignment() {
-        return assignment;
-    }
-
-    public Double getSemesterTest() {
-        return semesterTest;
-    }
-
-    public Double getContinuous() {
-        return continuous;
-    }
-
-    public Double getAssignmentWeight() {
-        return assignmentWeight;
-    }
-
-    public Double getSemesterWeight() {
-        return semesterWeight;
-    }
-
-    public Double getContinuousWeight() {
-        return continuousWeight;
-    }
-
-    public String getSubject() {
-        return subject;
-    }
-
-    public Double getcalculatedDP(){
-        return calculatedDP;
-    } 
 }
-
-
-
-/*
-/////////////////////////Homework//////////////////////
-
-List<subject> subjects = new Arraylist<>()
-
-subject.get(//index// 0).getAssignmentMark();
-subject asubject = new Subject()
-method
-addsubject(subject)
-get whatever assignment weight 
-
-*/
