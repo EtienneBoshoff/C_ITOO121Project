@@ -39,9 +39,9 @@ public class DPcalc {
     private final Double assignment;
     private final Double semesterTest;
     private final Double continuous;
-    private Double assignmentWeight;
-    private Double semesterTestWeight;
-    private Double continousAssessmentWeight;
+    private final Double assignmentWeight;
+    private final Double semesterTestWeight;
+    private final Double continousAssessmentWeight;
     private final String studentName;
     private final String subject;
     private final String studentDVnumber;
@@ -64,6 +64,12 @@ public class DPcalc {
         studentName = "Default Student";
         subject = "Default Subject";
         studentDVnumber = "N/A";
+        
+        Subject subject = new Subject(studentName, semesterTest, continousAssessmentWeight, semTestMark, semesterTestWeight, continousAssessmentWeight, assignmentWeight);
+        List <Subject> subjects = new ArrayList<>();
+        
+        
+        
     }
 
     /**
@@ -229,18 +235,26 @@ return output;
      */
     public Boolean verifyDVnum() {
         
-
-       String  dvNumber = "DV2013-0756";
+         
+        
+    String  dvNumber = "DV2013-0756";
       
-   
-      
-  if(dvNumber.length()==11 ){
+    if(dvNumber.length()==11 ){ 
+//check if the dvnumber is to long or to short
         return false;
-        }else{
+        }if (dvNumber.startsWith("DV") && dvNumber.regionMatches(6, "-", 0, 1)){ 
+//check if dv start with word DV and if has the dash on the righ place
         return true;
+        }else {
+            return false;
         }
-      
-      }
+        
+             
+        
+        
+        
+        
+    }
 
     public void addSubject(Subject subject) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
