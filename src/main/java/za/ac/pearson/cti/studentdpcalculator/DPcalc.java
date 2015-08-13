@@ -20,7 +20,7 @@ public class DPcalc {
     private String dvNumber;
     private ArrayList<Subject> subjects = new ArrayList<>();
 
-    //Construcrors
+    //Here are the constructors
     public DPcalc(Double assMark, Double semTestMark, Double conAssMark) {
         this.subjects.add(new Subject("general dp", assMark, semTestMark, conAssMark, 0.6, 0.2, 0.2));
         this.nameOfStudent = "Student";
@@ -39,7 +39,7 @@ public class DPcalc {
     }
     
     
-    //Adds new subject to Array
+    //Adds a new subject to the Array
     public void addSubject(Subject subject) {
         this.subjects.add(subject);
     }
@@ -55,7 +55,7 @@ public class DPcalc {
     }
     
     
-    //Calculates DP marks
+    //Calculates DP
     public Double calculateDP() {
         
         return getAssignmentMark()*getAssignmentWeight() + 
@@ -105,29 +105,29 @@ public class DPcalc {
         return calculateDP() >= 40.0;
     }
     
-    //Varifys DV number
+    //Verify DV number
     public Boolean verifyDVnum() {
         //By length
         if (dvNumber.length() != 11) {
             return false;
         }
-        //By first caracters
+        //Checks that first 2 characters are indeed DV 
         if (!dvNumber.substring(0, 2).equalsIgnoreCase("dv")) {
             return false;
         }
-        //By fist set of numbers
+        //Checks that characters 2-5 are indeed numbers
         for (int i = 2; i < 6; i++) {
             if (!Character.isDigit(dvNumber.charAt(i))) {
                 return false;
             }
         }
-        //by second set of numbers
+        //Checks that characters 7-10 are also numbers
         for (int i = 7; i < 11; i++) {
             if (!Character.isDigit(dvNumber.charAt(i))) {
                 return false;
             }
         }
-        //all tests pass returns true
+        //6th character must be a dash
         return dvNumber.charAt(6) == '-';
     }
     
@@ -141,7 +141,7 @@ public class DPcalc {
         return -1;
     }
     
-    //Getters by Index
+    //Getters
     public Double getAssignmentMark(String subject) {
         return this.subjects.get(Index(subject)).getAssignmentMark();
     }
@@ -163,7 +163,7 @@ public class DPcalc {
         return this.subjects.get(Index(subject)).getContinuousAssessmentWeight();
     }
 
-    //Setter by Index
+    //Setters
      public void setAssignmentMark(Double assignmentMark, String subject) {
         this.subjects.get(Index(subject)).setAssignmentMark(assignmentMark);
     }

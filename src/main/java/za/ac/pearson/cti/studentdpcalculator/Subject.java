@@ -23,7 +23,7 @@ public class Subject {
         this.calculatedDP = -1.0;
     }
 
-    //Getters for Storage Class
+    //Getters
     public String getSubjectName() {
         return subjectName;
     }
@@ -49,7 +49,7 @@ public class Subject {
         return calculatedDP;
     }
 
-    //Setters for Storage Class
+    //Setters
     public void setSubjectName(String subjectName) {
         this.subjectName = subjectName;
     }
