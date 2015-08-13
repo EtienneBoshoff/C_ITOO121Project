@@ -56,9 +56,6 @@ public class Subject {
     }
 
     //Setters for Storage Class
-    public void setSubjectName(String subjectName) {
-        this.subjectName = subjectName;
-    }
     public void setAssignmentMark(Double assignmentMark) {
         this.assignmentMark = assignmentMark;
     }
