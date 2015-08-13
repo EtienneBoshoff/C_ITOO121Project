@@ -123,7 +123,7 @@ public class DPcalc {
         return report;
     }
     
-    public String printFull(){
+    public String prettyFullPrint(){
         System.out.println("Have a great day");
         return null;
     }
@@ -134,57 +134,57 @@ public class DPcalc {
      * @return The assignment mark stored within the calculator
      */
     public Double getAssignmentMark() {
-        return subject.get(0).getAssignmentMark();
+        return subject.get(0).getAssessmentMark();
     }
     
     // Task create the other accessors
     public Double getSemesterMark() {
-        return subject.get(0).getSemesterTest();
+        return subject.get(0).getSemesterTestMark();
     }
     
     public Double getAssignmentWeight(){
-        return this.subject.get(0).getWeightAss();
+        return this.subject.get(0).getAssessmentWeight();
     }
     
     public Double getSemesterTestWeight(){
-        return this.subject.get(0).getWeightTest();
+        return this.subject.get(0).getSemesterTestWeight();
     }
     
     public Double getContinuousAssessmentWeight(){
-        return this.subject.get(0).getWeightCont();
+        return this.subject.get(0).getContinuousAssessmentWeight();
     }
     
     public Double getSemesterTestMark(String subject) {
-        return this.subject.get(collectSubject(subject)).getSemesterTest();
+        return this.subject.get(collectSubject(subject)).getSemesterTestMark();
     }
     
     public Double getAssignmentMark(String subject) {
-        return this.subject.get(collectSubject(subject)).getAssignmentMark();
+        return this.subject.get(collectSubject(subject)).getAssessmentMark();
     }
     
     public Double getContinuousAssessmentMark(String subject) {
-        return this.subject.get(collectSubject(subject)).getContinuousMark();
+        return this.subject.get(collectSubject(subject)).getContinuousAssessmentMark();
     }
     
     public Double getContinuousAssessmentMark() {
-       return subject.get(0).getContinuousMark();
+       return subject.get(0).getContinuousAssessmentMark();
     }
     
-    public void setWeightAss(Double weightAss) {
+    public void setAssignmentWeight(Double assignmentWeight) {
        Subject subs = subject.get(0);
-       subs.setWeightAss(weightAss);
+       subs.setAssessmentWeight(assignmentWeight);
        subject.set(0, subs);
     }
     
-    public void setWeightTest(Double weightTest) {
+    public void setSemesterTestWeight(Double semesterTestWeight) {
         Subject subs = subject.get(0);
-        subs.setWeightTest(weightTest);
+        subs.setSemesterTestWeight(semesterTestWeight);
         subject.set(0,subs);
     }
     
-    public void setWeightCont(Double weightCont) {
+    public void setContinuousAssessmentWeight(Double continuousAssessmentWeight) {
         Subject subs = subject.get(0);
-        subs.setWeightCont(weightCont);
+        subs.setContinuousAssessmentWeight(continuousAssessmentWeight);
         subject.set(0,subs);
     }
     
