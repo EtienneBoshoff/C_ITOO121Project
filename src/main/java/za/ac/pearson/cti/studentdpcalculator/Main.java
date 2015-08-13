@@ -33,7 +33,7 @@ public class Main {
      */
     public static void main(String[] args) {
         
-        
+        String userDV = "";
         //Bonus credit part
         /**
          * Write a check here to see if the following conditions are met
@@ -51,10 +51,47 @@ public class Main {
         String userInput = keyboardInput.nextLine();
         // Now we greet the user by name
         System.out.println("Greetings "+ userInput);
+        
+        //Get DVnum
+        System.out.print("Please enter yout dv: ");
+        userDV = keyboardInput.nextLine();
+        
+       // Double assignmentMark = Double.parseDouble(userInput);
+        
+        //Get Assmark
         System.out.print("Please enter the percentage you received for your Assignment: ");
         userInput = keyboardInput.nextLine();
         Double assignmentMark = Double.parseDouble(userInput);
+       
+        //Get SemTestMark
+        System.out.print("Please enter the percentage you received for your Semester test: ");
+        userInput = keyboardInput.nextLine();
+        Double semTestMark = Double.parseDouble(userInput);
         
+        //Get ContAss Mark
+        System.out.print("Please enter the percentage you received for your Continual assessment: ");
+        userInput = keyboardInput.nextLine();
+        Double contAssMark = Double.parseDouble(userInput);
+        
+        DPcalc calc = new DPcalc (assignmentMark,semTestMark,contAssMark);
+        System.out.println (calc.prettyPrintDPreport());
+        
+        if (calc.verifyDVnum())
+        {
+            System.out.println("DV number is valid");
+        }
+        else
+        {
+            System.out.println("DV number is not valid");
+        }
+        if (calc.canWriteExams())
+        {
+            System.out.println("You are eligable for exams");
+        }
+        else
+                {
+                    System.out.println("You are not eligable for exams");          
+                }
         
         
     }
