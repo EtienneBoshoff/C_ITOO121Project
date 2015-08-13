@@ -1,0 +1,8 @@
+-------------------------------------------------------------------------------
+Test set: DPcalcTests
+-------------------------------------------------------------------------------
+Tests run: 26, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.034 sec <<< FAILURE! - in DPcalcTests
+testThatYouHaveAllAccessors(DPcalcTests)  Time elapsed: 0.017 sec  <<< ERROR!
+java.lang.RuntimeException: Uncompilable source code - Erroneous sym type: za.ac.pearson.cti.studentdpcalculator.DPcalc.setAssignmentWeight
+	at DPcalcTests.testThatYouHaveAllAccessors(DPcalcTests.java:368)
+
