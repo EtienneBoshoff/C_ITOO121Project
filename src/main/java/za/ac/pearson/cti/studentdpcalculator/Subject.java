@@ -7,26 +7,26 @@ package za.ac.pearson.cti.studentdpcalculator;
 
 /**
  *
- * @author Wehan
+ * @author uboshet
  */
 public class Subject {
     
     private String name;
-    private Double semesterTest;
-    private Double continuousMark;
-    private Double assignmentMark;
-    private Double weightAss;
-    private Double weightCont;
-    private Double weightTest;
+    private Double semesterTestMark;
+    private Double continuousAssessmentMark;
+    private Double assessmentMark;
+    private Double semesterTestWeight;
+    private Double continuousAssessmentWeight;
+    private Double assessmentWeight;
 
-    public Subject(String name, Double semesterTest, Double continuousMark, Double assignmentMark, Double weightTest, Double weightCont, Double weightAss) {
+    public Subject(String name, Double semesterTestMark, Double continuousAssessmentMark, Double assessmentMark, Double semesterTestWeight, Double continuousAssessmentWeight, Double assessmentWeight) {
         this.name = name;
-        this.semesterTest = semesterTest;
-        this.continuousMark = continuousMark;
-        this.assignmentMark = assignmentMark;
-        this.weightAss = weightAss;
-        this.weightCont = weightCont;
-        this.weightTest = weightTest;
+        this.semesterTestMark = semesterTestMark;
+        this.continuousAssessmentMark = continuousAssessmentMark;
+        this.assessmentMark = assessmentMark;
+        this.semesterTestWeight = semesterTestWeight;
+        this.continuousAssessmentWeight = continuousAssessmentWeight;
+        this.assessmentWeight = assessmentWeight;
     }
 
     public String getName() {
@@ -37,52 +37,54 @@ public class Subject {
         this.name = name;
     }
 
-    public Double getSemesterTest() {
-        return semesterTest;
+    public Double getSemesterTestMark() {
+        return semesterTestMark;
     }
 
-    public void setSemesterTest(Double semesterTest) {
-        this.semesterTest = semesterTest;
+    public void setSemesterTestMark(Double semesterTestMark) {
+        this.semesterTestMark = semesterTestMark;
     }
 
-    public Double getContinuousMark() {
-        return continuousMark;
+    public Double getContinuousAssessmentMark() {
+        return continuousAssessmentMark;
     }
 
-    public void setContinuousMark(Double continuousMark) {
-        this.continuousMark = continuousMark;
+    public void setContinuousAssessmentMark(Double continuousAssessmentMark) {
+        this.continuousAssessmentMark = continuousAssessmentMark;
     }
 
-    public Double getAssignmentMark() {
-        return assignmentMark;
+    public Double getAssessmentMark() {
+        return assessmentMark;
     }
 
-    public void setAssignmentMark(Double assignmentMark) {
-        this.assignmentMark = assignmentMark;
+    public void setAssessmentMark(Double assessmentMark) {
+        this.assessmentMark = assessmentMark;
     }
 
-    public Double getWeightTest() {
-        return weightTest;
+    public Double getSemesterTestWeight() {
+        return semesterTestWeight;
     }
 
-    public void setWeightTest(Double weightTest) {
-        this.weightTest = weightTest;
+    public void setSemesterTestWeight(Double semesterTestWeight) {
+        this.semesterTestWeight = semesterTestWeight;
     }
 
-    public Double getWeightCont() {
-        return weightCont;
+    public Double getContinuousAssessmentWeight() {
+        return continuousAssessmentWeight;
     }
 
-    public void setWeightCont(Double weightCont) {
-        this.weightCont = weightCont;
+    public void setContinuousAssessmentWeight(Double continuousAssessmentWeight) {
+        this.continuousAssessmentWeight = continuousAssessmentWeight;
     }
 
-    public Double getWeightAss() {
-        return weightAss;
+    public Double getAssessmentWeight() {
+        return assessmentWeight;
     }
 
-    public void setWeightAss(Double weightAss) {
-        this.weightAss = weightAss;
+    public void setAssessmentWeight(Double assessmentWeight) {
+        this.assessmentWeight = assessmentWeight;
     }
-
+    
+    
+    
 }
