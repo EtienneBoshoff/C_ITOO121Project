@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="DPcalcTests" time="0" tests="26" errors="0" skipped="0" failures="0">
+<testsuite name="DPcalcTests" time="0.021" tests="26" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_40\jre\bin"/>
@@ -62,7 +62,7 @@
     <property name="exec.args" value="-classpath %classpath za.ac.pearson.cti.studentdpcalculator.Main"/>
     <property name="sun.cpu.isalist" value="pentium_pro+mmx pentium_pro pentium+mmx pentium i486 i386 i86"/>
   </properties>
-  <testcase name="testCalculateDPwithFailingMarks" classname="DPcalcTests" time="0"/>
+  <testcase name="testCalculateDPwithFailingMarks" classname="DPcalcTests" time="0.017"/>
   <testcase name="testInvalidDVnumWithDatePartThatIsWrong" classname="DPcalcTests" time="0"/>
   <testcase name="testGetAssignmentWhereSubjectIsInCapitalLetters" classname="DPcalcTests" time="0"/>
   <testcase name="testGetSemesterTestWhereSubjectIsOnlyInLowerCase" classname="DPcalcTests" time="0"/>
@@ -72,15 +72,15 @@
   <testcase name="testGetSemesterTestMarkWithMultipleSubjects" classname="DPcalcTests" time="0"/>
   <testcase name="testGetContinuousAssessmentWhereSubjectIsInCapitalLetters" classname="DPcalcTests" time="0"/>
   <testcase name="testValidDVnum" classname="DPcalcTests" time="0"/>
-  <testcase name="testInvalidDVnumThatIsTooShort" classname="DPcalcTests" time="0"/>
+  <testcase name="testInvalidDVnumThatIsTooShort" classname="DPcalcTests" time="0.001"/>
   <testcase name="testCanWriteExams" classname="DPcalcTests" time="0"/>
   <testcase name="testGetSemesterTestWithSubjectThatDoesNotExist" classname="DPcalcTests" time="0"/>
   <testcase name="testGetAssignmentWhereSubjectIsOnlyInLowerCase" classname="DPcalcTests" time="0"/>
   <testcase name="testInvalidDVnumWithLast4DigitsThatIsWrong" classname="DPcalcTests" time="0"/>
   <testcase name="testInvalidDVnumThatIsMissingTheDash" classname="DPcalcTests" time="0"/>
-  <testcase name="testGetContinuousAssessmentWhereSubjectIsOnlyInLowerCase" classname="DPcalcTests" time="0"/>
+  <testcase name="testGetContinuousAssessmentWhereSubjectIsOnlyInLowerCase" classname="DPcalcTests" time="0.002"/>
   <testcase name="testThatYouHaveAllAccessors" classname="DPcalcTests" time="0"/>
-  <testcase name="testPrettyPrint" classname="DPcalcTests" time="0"/>
+  <testcase name="testPrettyPrint" classname="DPcalcTests" time="0.001"/>
   <testcase name="testInvalidDVnumThatIsTooLong" classname="DPcalcTests" time="0"/>
   <testcase name="testInvalidDVnumThatHasAdashInTheWrongPlace" classname="DPcalcTests" time="0"/>
   <testcase name="testGetSemesterTestWhereSubjectIsInCapitalLetters" classname="DPcalcTests" time="0"/>

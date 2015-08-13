@@ -40,6 +40,7 @@ public class DPcalc {
     //Variable declarations here
     //Task: Complete the variable declarations
     
+    // These are all my variable declarations for my studentName, Dvnumber and array list
     private String studentName;
     private String studentDVnumber;
     private List<Subject> subject = new ArrayList<>(); 
@@ -53,6 +54,8 @@ public class DPcalc {
      * @param semTestMark The semester test mark of the student in percentage
      * @param contAssMark The continual assessment mark of the student in percentage
      */
+    
+    //This is the constructor module that will add new subjects to the DPcalc class.
     public DPcalc(Double assMark, Double semTestMark, Double contAssMark) {
        this.subject.add(new Subject("DP", semTestMark, contAssMark, assMark, 0.2, 0.2, 0.6));
         studentName = "Default Student";
@@ -90,6 +93,8 @@ public class DPcalc {
      * @return The DP of the student as a double floating point value
      */
     //Task: complete this method as described in the comments and to pass the unit test
+    
+    //This will calculate the DP by taking the mark they obtained and multiplying it by the weight and adding all of it together
     public Double calculateDP() {
         
          Double DP = getAssignmentMark()*getAssignmentWeight() + getSemesterMark()*getSemesterTestWeight() + getContinuousAssessmentMark()*getContinuousAssessmentWeight();
@@ -114,6 +119,8 @@ public class DPcalc {
      * 
      * @return A formatted string
      */
+    
+    //This will print a nice report to represent the assignemtn information, semester test and CAS mark to the studnet in a formal manner
     public String prettyPrintDPreport() {
         String report = "Dear student you have attained:\n"
                 + "Assignment: "+getAssignmentMark()+"%\n"
@@ -133,6 +140,8 @@ public class DPcalc {
      * within the calculator
      * @return The assignment mark stored within the calculator
      */
+    
+    //This are my accessors that will get the assignment, semester and assesment mark from the array list at index 0
     public Double getAssignmentMark() {
         return subject.get(0).getAssessmentMark();
     }
@@ -170,6 +179,7 @@ public class DPcalc {
        return subject.get(0).getContinuousAssessmentMark();
     }
     
+    //These are my setters that will set the assignment, semester and assesment mark at index 0 in the subs array list
     public void setAssignmentWeight(Double assignmentWeight) {
        Subject subs = subject.get(0);
        subs.setAssessmentWeight(assignmentWeight);
@@ -188,6 +198,7 @@ public class DPcalc {
         subject.set(0,subs);
     }
     
+    //This for loop will step through the subject array list with the if statement that will return i at index 0 else it will return -10 which is out of bounds of the array
     private Integer collectSubject(String sub){
         for (int i = 0; i < subject.size(); i++) {
             if (subject.get(i).getName().equalsIgnoreCase(sub))
@@ -202,6 +213,8 @@ public class DPcalc {
      * Remember you need at least a 40% DP to get exam eligibility
      * @return True if you can write exams. False otherwise
      */
+    
+    //This will calculate the students dp and check if it is higher or equal to 40 and see if the student qualifies for exams
     public Boolean canWriteExams() {
         return calculateDP()>= 40.0;
     }//this method checks whether the student's DP is high enough to write exams displays true or false
@@ -212,6 +225,8 @@ public class DPcalc {
      * "DV[yearEnrolled]-[fourDigits]"
      * @return 
      */
+    
+    // This is a sub string that will check the validity of a students dv number to see if it meets the standards of a DV number, it will return true if it is correct and return false if it does not match
     public Boolean verifyDVnum() {
         if (studentDVnumber.length() == 11){
             String d = studentDVnumber.charAt(0)+"";
