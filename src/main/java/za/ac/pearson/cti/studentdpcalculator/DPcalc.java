@@ -213,7 +213,7 @@ public class DPcalc {
     public Double getContinuousAssessmentWeight(String subject) {
         return this.subjects.get(Index(subject)).getContinuousAssessmentWeight();
     }
-    //Setter by Index
+    //Getter by Index
     
     
     
@@ -240,7 +240,7 @@ public class DPcalc {
     public void setContinuousAssessmentWeight(Double continuousAssessmentWeight, String subject) {
         this.subjects.get(Index(subject)).setContinuousAssessmentWeight(continuousAssessmentWeight);
     }
-    //Getters by Index
+    //Setters by Index
     
     
     
