@@ -58,7 +58,8 @@ public class DPcalc {
         studentName = "Default Student";
         studentDVnumber = "N/A";
     }
-
+    // first contrustor 
+    
     /**
      * This is the secondary constructor for DPcalc
      * @param assignment The assignment mark of the student in percentage
@@ -76,6 +77,7 @@ public class DPcalc {
         this.studentName = studentName;
         this.studentDVnumber = studentDVnumber;
     }
+    //DPcalc constructor 2 with the subject list and declares the subjects, studentName and studentDVnumber
           //String name, Double semesterTestMark, Double continuousAssessmentMark, Double assessmentMark, Double semesterTestWeight, Double continuousAssessmentWeight, Double assessmentWeight
        
     /**
@@ -97,7 +99,7 @@ public class DPcalc {
                 getContinuousAssessmentMark()*getContinuousAssessmentWeight();
         return DP;
     }
-    
+    //method that calculates the DP using the getters
     /**
      * This method returns a string that is formatted to look like a nice report
      * when printed with System.out.println
@@ -124,7 +126,7 @@ public class DPcalc {
                 + "Your DP is calculated as: "+calculateDP()+"%";
         return report;
     }
-    
+    //returns a string report that displays assignment mark, semester test mark, continuous assessment mark and the calculated DP
     public String prettyFullPrint(){
         System.out.println("Have a great day");
         return null;
@@ -138,58 +140,58 @@ public class DPcalc {
     public Double getAssignmentMark() {
         return subjects.get(0).getAssessmentMark();
     }
-    
+    //gets the assignment mark from the getAssignmentMark(String subject) and returns it
     // Task create the other accessors
     public Double getSemesterMark() {
         return subjects.get(0).getSemesterTestMark();
     }
-    
+    //gets the semester test mark from the getSemesterTestMark(String subject) and returns it
     public Double getAssignmentWeight(){
         return this.subjects.get(0).getAssessmentWeight();
     }
-    
+    //gets the assignment weight from the subjects array list and returns it
     public Double getSemesterTestWeight(){
         return this.subjects.get(0).getSemesterTestWeight();
     }
-    
+    //gets the semester test weight from the subjects array list and returns it
     public Double getContinuousAssessmentWeight(){
         return this.subjects.get(0).getContinuousAssessmentWeight();
     }
-    
+    //gets the continuous assessment weight from the subjects array list and returns it
     public Double getSemesterTestMark(String subject) {
         return this.subjects.get(collectSubject(subject)).getSemesterTestMark();
     }
-    
+    //gets the semester test mark from the arraylest and returns it
     public Double getAssignmentMark(String subject) {
         return this.subjects.get(collectSubject(subject)).getAssessmentMark();
     }
-    
+    //gets the assingment mark from the arraylest and returns it
     public Double getContinuousAssessmentMark(String subject) {
         return this.subjects.get(collectSubject(subject)).getContinuousAssessmentMark();
     }
-    
+    //gets the continuous assessment mark from the arraylest and returns it
     public Double getContinuousAssessmentMark() {
        return subjects.get(0).getContinuousAssessmentMark();
     }
-    
+    //gets the continuous assessment mark from the getContinuousAssessmentMark(String subject) and returns it
     public void setAssignmentWeight(Double assignmentWeight) {
        Subject sub = subjects.get(0);
        sub.setAssessmentWeight(assignmentWeight);
        subjects.set(0, sub);
     }
-    
+    //extracts the subjects assignment weight from the arraylist, sets the assignment weight and puts the weight back into the list
     public void setSemesterTestWeight(Double semesterTestWeight) {
         Subject sub = subjects.get(0);
         sub.setSemesterTestWeight(semesterTestWeight);
         subjects.set(0,sub);
     }
-    
+    //extracts the subjects semester test weight from the arraylist, sets the semester test weight and puts the weight back into the list
     public void setContinuousAssessmentWeight(Double continuousAssessmentWeight) {
         Subject sub = subjects.get(0);
         sub.setContinuousAssessmentWeight(continuousAssessmentWeight);
         subjects.set(0,sub);
     }
-    
+    //extracts the subjects continuous assessment weight from the arraylist, sets the continuos assessment weight and puts the weight back into the list
     private Integer collectSubject(String sub){
         for (int i = 0; i < subjects.size(); i++) {
             if (subjects.get(i).getName().equalsIgnoreCase(sub))
@@ -199,6 +201,8 @@ public class DPcalc {
         }    
         return -10;
 }
+    //a private method to loop through the array list to find the subject using the index and returns the index when the correct subject is found
+    
     /**
      * This method checks if you have eligibility to write the exams
      * Remember you need at least a 40% DP to get exam eligibility
@@ -240,8 +244,10 @@ public class DPcalc {
         return false;
         }
     }
-
+//Method to verify DVnumber, Breaks up the DVnumber into substring and uses regular expresion to check if each sub string matches and ig
+    
     public void addSubject(Subject subject) {
         this.subjects.add(subject);
     }
 }
+// adds subject to the array list
