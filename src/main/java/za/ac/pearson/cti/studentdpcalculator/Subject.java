@@ -16,7 +16,6 @@ public class Subject {
     private Double assignmentWeight;
     private Double semesterTestWeight;
     private Double continuousAssessmentWeight;
-    private Double calculatedDP;
 
     public Subject(String subjectName, Double assignmentMark, Double semesterTestMark, Double continuousAssessmentMark, Double assignmentWeight, Double semesterTestWeight, Double continuousAssessmentWeight) {
         this.subjectName = subjectName;
@@ -26,7 +25,6 @@ public class Subject {
         this.assignmentWeight = assignmentWeight;
         this.semesterTestWeight = semesterTestWeight;
         this.continuousAssessmentWeight = continuousAssessmentWeight;
-        this.calculatedDP = -1.0;
     }
 
     //Getters for Storage Class
@@ -51,9 +49,6 @@ public class Subject {
     public Double getContinuousAssessmentWeight() {
         return continuousAssessmentWeight;
     }
-    public Double getCalculatedDP() {
-        return calculatedDP;
-    }
 
     //Setters for Storage Class
     public void setAssignmentMark(Double assignmentMark) {
@@ -73,8 +68,5 @@ public class Subject {
     }
     public void setContinuousAssessmentWeight(Double continuousAssessmentWeight) {
         this.continuousAssessmentWeight = continuousAssessmentWeight;
-    }
-    public void setCalculatedDP(Double calculatedDP) {
-        this.calculatedDP = calculatedDP;
     }
 }
