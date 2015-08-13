@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="DPcalcTests" time="0.029" tests="26" errors="1" skipped="0" failures="0">
+<testsuite name="DPcalcTests" time="0.01" tests="26" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
-    <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0\jre\bin"/>
-    <property name="java.vm.version" value="25.0-b70"/>
+    <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.7.0_80\jre\bin"/>
+    <property name="java.vm.version" value="24.80-b11"/>
     <property name="java.vm.vendor" value="Oracle Corporation"/>
     <property name="java.vendor.url" value="http://java.oracle.com/"/>
     <property name="path.separator" value=";"/>
@@ -11,47 +11,47 @@
     <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
     <property name="file.encoding.pkg" value="sun.io"/>
     <property name="user.script" value=""/>
-    <property name="user.country" value="ZA"/>
+    <property name="user.country" value="US"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="sun.os.patch.level" value=""/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
-    <property name="user.dir" value="F:\C_ITOO121Project-master"/>
-    <property name="java.runtime.version" value="1.8.0-b132"/>
+    <property name="user.dir" value="C:\Users\Xavier\Documents\Xavier\Object-Oriented Programming\C_ITOO121Project-master\C_ITOO121Project-master"/>
+    <property name="java.runtime.version" value="1.7.0_80-b15"/>
     <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
-    <property name="java.endorsed.dirs" value="C:\Program Files\Java\jdk1.8.0\jre\lib\endorsed"/>
+    <property name="java.endorsed.dirs" value="C:\Program Files\Java\jdk1.7.0_80\jre\lib\endorsed"/>
     <property name="os.arch" value="amd64"/>
-    <property name="java.io.tmpdir" value="C:\Users\Arno\AppData\Local\Temp\"/>
+    <property name="java.io.tmpdir" value="C:\Users\Xavier\AppData\Local\Temp\"/>
     <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="user.variant" value=""/>
     <property name="os.name" value="Windows 8.1"/>
-    <property name="maven.ext.class.path" value="C:\Users\Arno\AppData\Roaming\NetBeans\8.0.2\maven-nblib\netbeans-eventspy.jar"/>
+    <property name="maven.ext.class.path" value="C:\Users\Xavier\AppData\Roaming\NetBeans\8.0.2\maven-nblib\netbeans-eventspy.jar"/>
     <property name="classworlds.conf" value="C:\Program Files\NetBeans 8.0.2\java\maven\bin\m2.conf"/>
     <property name="sun.jnu.encoding" value="Cp1252"/>
-    <property name="java.library.path" value="C:\Program Files\Java\jdk1.8.0\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\ProgramData\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\ATI Technologies\ATI.ACE\Core-Static;C:\Program Files\Java\jdk1.8.0\bin\;C:\Program Files\apache-maven-3.3.3\bin\;C:\Program Files (x86)\Git\cmd;C:\Program Files (x86)\Git\bin;C:\Program Files (x86)\GitExtensions\;."/>
+    <property name="java.library.path" value="C:\Program Files\Java\jdk1.7.0_80\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\ProgramData\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\GitExtensions\;C:\Program Files (x86)\Skype\Phone\;."/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
-    <property name="java.class.version" value="52.0"/>
+    <property name="java.class.version" value="51.0"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="os.version" value="6.3"/>
-    <property name="user.home" value="C:\Users\Arno"/>
+    <property name="user.home" value="C:\Users\Xavier"/>
     <property name="user.timezone" value="Africa/Harare"/>
-    <property name="exec.executable" value="C:\Program Files\Java\jdk1.8.0\bin\java.exe"/>
+    <property name="exec.executable" value="C:\Program Files\Java\jdk1.7.0_80\bin\java.exe"/>
     <property name="java.awt.printerjob" value="sun.awt.windows.WPrinterJob"/>
-    <property name="java.specification.version" value="1.8"/>
+    <property name="java.specification.version" value="1.7"/>
     <property name="file.encoding" value="UTF-8"/>
-    <property name="user.name" value="Arno"/>
+    <property name="user.name" value="Xavier"/>
     <property name="java.class.path" value="C:\Program Files\NetBeans 8.0.2\java\maven\boot\plexus-classworlds-2.4.jar"/>
-    <property name="java.vm.specification.version" value="1.8"/>
+    <property name="java.vm.specification.version" value="1.7"/>
     <property name="sun.arch.data.model" value="64"/>
-    <property name="java.home" value="C:\Program Files\Java\jdk1.8.0\jre"/>
-    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher -Dexec.args=-classpath %classpath za.ac.pearson.cti.studentdpcalculator.Main -Dexec.executable=C:\Program Files\Java\jdk1.8.0\bin\java.exe -Dmaven.ext.class.path=C:\Users\Arno\AppData\Roaming\NetBeans\8.0.2\maven-nblib\netbeans-eventspy.jar -Dfile.encoding=UTF-8 surefire:test exec:exec"/>
+    <property name="java.home" value="C:\Program Files\Java\jdk1.7.0_80\jre"/>
+    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher -Dexec.args=-classpath %classpath za.ac.pearson.cti.studentdpcalculator.Main -Dexec.executable=C:\Program Files\Java\jdk1.7.0_80\bin\java.exe -Dmaven.ext.class.path=C:\Users\Xavier\AppData\Roaming\NetBeans\8.0.2\maven-nblib\netbeans-eventspy.jar -Dfile.encoding=UTF-8 surefire:test exec:exec"/>
     <property name="java.specification.vendor" value="Oracle Corporation"/>
     <property name="user.language" value="en"/>
     <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
     <property name="java.vm.info" value="mixed mode"/>
-    <property name="java.version" value="1.8.0"/>
-    <property name="java.ext.dirs" value="C:\Program Files\Java\jdk1.8.0\jre\lib\ext;C:\Windows\Sun\Java\lib\ext"/>
-    <property name="sun.boot.class.path" value="C:\Program Files\Java\jdk1.8.0\jre\lib\resources.jar;C:\Program Files\Java\jdk1.8.0\jre\lib\rt.jar;C:\Program Files\Java\jdk1.8.0\jre\lib\sunrsasign.jar;C:\Program Files\Java\jdk1.8.0\jre\lib\jsse.jar;C:\Program Files\Java\jdk1.8.0\jre\lib\jce.jar;C:\Program Files\Java\jdk1.8.0\jre\lib\charsets.jar;C:\Program Files\Java\jdk1.8.0\jre\lib\jfr.jar;C:\Program Files\Java\jdk1.8.0\jre\classes"/>
+    <property name="java.version" value="1.7.0_80"/>
+    <property name="java.ext.dirs" value="C:\Program Files\Java\jdk1.7.0_80\jre\lib\ext;C:\WINDOWS\Sun\Java\lib\ext"/>
+    <property name="sun.boot.class.path" value="C:\Program Files\Java\jdk1.7.0_80\jre\lib\resources.jar;C:\Program Files\Java\jdk1.7.0_80\jre\lib\rt.jar;C:\Program Files\Java\jdk1.7.0_80\jre\lib\sunrsasign.jar;C:\Program Files\Java\jdk1.7.0_80\jre\lib\jsse.jar;C:\Program Files\Java\jdk1.7.0_80\jre\lib\jce.jar;C:\Program Files\Java\jdk1.7.0_80\jre\lib\charsets.jar;C:\Program Files\Java\jdk1.7.0_80\jre\lib\jfr.jar;C:\Program Files\Java\jdk1.7.0_80\jre\classes"/>
     <property name="java.vendor" value="Oracle Corporation"/>
     <property name="maven.home" value="C:\Program Files\NetBeans 8.0.2\java\maven"/>
     <property name="file.separator" value="\"/>
@@ -62,34 +62,30 @@
     <property name="exec.args" value="-classpath %classpath za.ac.pearson.cti.studentdpcalculator.Main"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase name="testCalculateDPwithFailingMarks" classname="DPcalcTests" time="0.01"/>
+  <testcase name="testCalculateDPwithFailingMarks" classname="DPcalcTests" time="0.002"/>
   <testcase name="testInvalidDVnumWithDatePartThatIsWrong" classname="DPcalcTests" time="0"/>
   <testcase name="testGetAssignmentWhereSubjectIsInCapitalLetters" classname="DPcalcTests" time="0"/>
   <testcase name="testGetSemesterTestWhereSubjectIsOnlyInLowerCase" classname="DPcalcTests" time="0"/>
-  <testcase name="testGetAssignmentWithSubjectThatDoesNotExist" classname="DPcalcTests" time="0"/>
+  <testcase name="testGetAssignmentWithSubjectThatDoesNotExist" classname="DPcalcTests" time="0.001"/>
   <testcase name="testCannotWriteExams" classname="DPcalcTests" time="0"/>
-  <testcase name="testGetAssignmentMarkWithMultipleSubjects" classname="DPcalcTests" time="0"/>
+  <testcase name="testGetAssignmentMarkWithMultipleSubjects" classname="DPcalcTests" time="0.001"/>
   <testcase name="testGetSemesterTestMarkWithMultipleSubjects" classname="DPcalcTests" time="0"/>
-  <testcase name="testGetContinuousAssessmentWhereSubjectIsInCapitalLetters" classname="DPcalcTests" time="0"/>
+  <testcase name="testGetContinuousAssessmentWhereSubjectIsInCapitalLetters" classname="DPcalcTests" time="0.004"/>
   <testcase name="testValidDVnum" classname="DPcalcTests" time="0"/>
   <testcase name="testInvalidDVnumThatIsTooShort" classname="DPcalcTests" time="0"/>
   <testcase name="testCanWriteExams" classname="DPcalcTests" time="0"/>
   <testcase name="testGetSemesterTestWithSubjectThatDoesNotExist" classname="DPcalcTests" time="0"/>
-  <testcase name="testGetAssignmentWhereSubjectIsOnlyInLowerCase" classname="DPcalcTests" time="0"/>
+  <testcase name="testGetAssignmentWhereSubjectIsOnlyInLowerCase" classname="DPcalcTests" time="0.001"/>
   <testcase name="testInvalidDVnumWithLast4DigitsThatIsWrong" classname="DPcalcTests" time="0"/>
   <testcase name="testInvalidDVnumThatIsMissingTheDash" classname="DPcalcTests" time="0"/>
   <testcase name="testGetContinuousAssessmentWhereSubjectIsOnlyInLowerCase" classname="DPcalcTests" time="0"/>
-  <testcase name="testThatYouHaveAllAccessors" classname="DPcalcTests" time="0.017">
-    <error message="Uncompilable source code - Erroneous sym type: za.ac.pearson.cti.studentdpcalculator.DPcalc.setAssignmentWeight" type="java.lang.RuntimeException">java.lang.RuntimeException: Uncompilable source code - Erroneous sym type: za.ac.pearson.cti.studentdpcalculator.DPcalc.setAssignmentWeight
-	at DPcalcTests.testThatYouHaveAllAccessors(DPcalcTests.java:368)
-</error>
-  </testcase>
-  <testcase name="testPrettyPrint" classname="DPcalcTests" time="0.001"/>
+  <testcase name="testThatYouHaveAllAccessors" classname="DPcalcTests" time="0"/>
+  <testcase name="testPrettyPrint" classname="DPcalcTests" time="0"/>
   <testcase name="testInvalidDVnumThatIsTooLong" classname="DPcalcTests" time="0"/>
   <testcase name="testInvalidDVnumThatHasAdashInTheWrongPlace" classname="DPcalcTests" time="0"/>
   <testcase name="testGetSemesterTestWhereSubjectIsInCapitalLetters" classname="DPcalcTests" time="0"/>
   <testcase name="testCanWriteExamsEdgeCase" classname="DPcalcTests" time="0"/>
-  <testcase name="testGetContinuousAssessmentWithSubjectThatDoesNotExist" classname="DPcalcTests" time="0.001"/>
+  <testcase name="testGetContinuousAssessmentWithSubjectThatDoesNotExist" classname="DPcalcTests" time="0"/>
   <testcase name="testCalculateDPwithPassingMarks" classname="DPcalcTests" time="0"/>
-  <testcase name="testGetContinuousAssessmentWithMultipleSubjects" classname="DPcalcTests" time="0"/>
+  <testcase name="testGetContinuousAssessmentWithMultipleSubjects" classname="DPcalcTests" time="0.001"/>
 </testsuite>

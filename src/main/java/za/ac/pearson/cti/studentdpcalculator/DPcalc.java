@@ -170,19 +170,19 @@ public class DPcalc {
        return subject.get(0).getContinuousMark();
     }
     
-    public void setWeightAss(Double weightAss) {
+    public void setAssignmentWeight(Double weightAss) {
        Subject subs = subject.get(0);
        subs.setWeightAss(weightAss);
        subject.set(0, subs);
     }
     
-    public void setWeightTest(Double weightTest) {
+    public void setSemesterTestWeight(Double weightTest) {
         Subject subs = subject.get(0);
         subs.setWeightTest(weightTest);
         subject.set(0,subs);
     }
     
-    public void setWeightCont(Double weightCont) {
+    public void setContinuousAssessmentWeight(Double weightCont) {
         Subject subs = subject.get(0);
         subs.setWeightCont(weightCont);
         subject.set(0,subs);

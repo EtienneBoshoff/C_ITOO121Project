@@ -1,4 +1,3 @@
-
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -367,7 +366,7 @@ public class DPcalcTests {
         //Test values
         calc.setAssignmentWeight(newTestWeightValueForAssessment);
         calc.setContinuousAssessmentWeight(newTestWeightValueForContinuousAssessment);
-        calc.setSemesterTestWeight(newTestWeightValueForSemesterTest);
+        calc.set(newTestWeightValueForSemesterTest);
         
         Double result1 = calc.getAssignmentMark();
         Double result2 = calc.getContinuousAssessmentMark();
