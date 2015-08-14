@@ -114,8 +114,7 @@ public class DPcalc {
         return getAssignmentMark()* 0.6
             + getSemesterMark() * 0.2
             + getContinuousAssessmentMark() * 0.2;
-        
-
+     
     }
     
     /**
