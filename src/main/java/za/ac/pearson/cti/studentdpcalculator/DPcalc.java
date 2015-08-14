@@ -188,7 +188,6 @@ return output;
             this.semesterTestWeight = semesterTestWeight;
 
         
-        
     }
     
     public void setContinuousAssessmentWeight(Double continuousAssessmentWeight) {
@@ -225,7 +224,7 @@ return output;
     }
     
         public String printFull(){
-        System.out.println("have a splendid day");
+        System.out.println("have a-splendid day");
         return null;
     }
 
