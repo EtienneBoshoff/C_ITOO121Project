@@ -215,13 +215,7 @@ return output;
      */
     public Boolean verifyDVnum() {
                      
-    if(studentDVnumber.length()==11 ){ 
-
-        return true;
-    }else {
-        return false;
- 
-        }
+        return studentDVnumber.length()==11;
         
     }
     
