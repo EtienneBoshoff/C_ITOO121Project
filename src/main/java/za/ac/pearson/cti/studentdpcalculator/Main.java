@@ -33,7 +33,7 @@ public class Main {
         //End of bonus credit part
         
         //This part asks the user for his name and marks while welcoming him to the program
-        System.out.println("Welcome to DP Calculator: ");
+        System.out.println("Welcome to DP Calculator:  ");
         System.out.print("What is your name: ");
         // This makes an object for the keyboard
         Scanner keyboardInput = new Scanner(System.in);
