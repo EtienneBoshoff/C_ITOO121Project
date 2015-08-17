@@ -124,7 +124,7 @@ public class DPcalc {
      * @return A formatted string
      */
     public String prettyPrintDPreport() {
-        throw new UnsupportedOperationException("You still need to complete this method");
+        throw new UnsupportedOperationException("You still have to complete this method");
     }
     
     /**
