@@ -1,0 +1,171 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package za.ac.pearson.cti.studentdpcalculator;
+
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.io.IOException;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+/**
+ *
+ * @author Philip
+ */
+public class DPcalcGUIframe extends JFrame {
+    public DPcalcGUIframe() throws IOException{
+        
+        super("DP calc - by Philip Venter DV2015-0048");
+        JPanel calcPnl = new JPanel();
+            //------------------------------------------------------------------
+            setDefaultCloseOperation(3);
+            setSize(470,540);
+            setLocationRelativeTo(null);
+            //------------------------------------------------------------------
+        
+        JButton calcBtn = new JButton("Calculate");
+        JButton multiSubjectBtn = new JButton("Multiple Subjects");
+        JButton resetBtn = new JButton("Reset");
+        JButton helpBtn = new JButton("Help");
+        JComboBox subjectCmboBox;
+            //------------------------------------------------------------------
+            String[] comboValues = {"Subjects", 
+                "Object Orientated Programming", 
+                "Introduction to Information Systems", 
+                "Networking Technologies", 
+                "Human Computer Interaction", 
+                "Computer Skills Development B"};
+            subjectCmboBox = new JComboBox(comboValues);
+            //------------------------------------------------------------------
+        JLabel headerLbl = new JLabel("DP Calculator");
+            //------------------------------------------------------------------
+            headerLbl.setFont(new Font("Serif", Font.BOLD, 36));
+            //------------------------------------------------------------------
+        JLabel semMarkLbl = new JLabel("Semester Test Mark");
+        JLabel conMarkLbl = new JLabel("Continouos Assessment Mark");
+        JLabel assMarkLbl = new JLabel("Assignment Mark");
+        JLabel semWeightLbl = new JLabel("Semester Test Weight");
+        JLabel conWeightLbl = new JLabel("Continouos Assessment Weight");
+        JLabel assWeightLbl = new JLabel("Assignment Mark");
+        JLabel passFailLbl = new JLabel("Pass/Fail");
+        JLabel percLbl = new JLabel("Percentage Achieved: ");
+        JLabel emoticon = new JLabel();
+            //------------------------------------------------------------------
+            emoticon.setIcon( new ImageIcon(ImageIO.read(this.getClass().getClassLoader().getResource("eh.jpg"))));
+            //------------------------------------------------------------------
+        JTextField semMarkTxtField = new JTextField();
+        JTextField conMarkTxtField = new JTextField();
+        JTextField assMarkTxtField = new JTextField();
+        JTextField semWeightTxtField = new JTextField("0.2");
+        JTextField conWeightTxtField = new JTextField("0.2");
+        JTextField assWeightTxtField = new JTextField("0.6");
+        
+        //Layout----------------------------------------------------------------
+        calcPnl.setLayout(null);
+        headerLbl.setBounds(100, 0, 450, 50);
+        subjectCmboBox.setBounds(85, 60, 250, 20);
+        semMarkLbl.setBounds(10, 100, 200, 20);         semMarkTxtField.setBounds(250, 100, 200, 20);
+        conMarkLbl.setBounds(10, 120, 200, 20);         conMarkTxtField.setBounds(250, 120, 200, 20);
+        assMarkLbl.setBounds(10, 140, 200, 20);         assMarkTxtField.setBounds(250, 140, 200, 20);
+        semWeightLbl.setBounds(10, 180, 200, 20);       semWeightTxtField.setBounds(250, 180, 200, 20);
+        conWeightLbl.setBounds(10, 200, 200, 20);       conWeightTxtField.setBounds(250, 200, 200, 20);
+        assWeightLbl.setBounds(10, 220, 200, 20);       assWeightTxtField.setBounds(250, 220, 200, 20);
+        emoticon.setBounds(10, 250, 200, 200);          passFailLbl.setBounds(250, 260, 250, 20);        
+                                                        percLbl.setBounds(250, 280, 200, 20);             
+                                                        calcBtn.setBounds(250, 320, 200, 20);
+                                                        multiSubjectBtn.setBounds(250, 340, 200, 20);
+                                                        resetBtn.setBounds(250, 360, 200, 20);
+                                                        helpBtn.setBounds(250, 380, 200, 20);
+        //----------------------------------------------------------------------
+        
+        //Add to calcPnl--------------------------------------------------------
+        calcPnl.add(calcBtn);
+        calcPnl.add(multiSubjectBtn);
+        calcPnl.add(resetBtn);
+        calcPnl.add(helpBtn);
+        calcPnl.add(subjectCmboBox);
+        calcPnl.add(headerLbl);
+        calcPnl.add(semMarkLbl);
+        calcPnl.add(conMarkLbl);
+        calcPnl.add(assMarkLbl);
+        calcPnl.add(semWeightLbl);
+        calcPnl.add(conWeightLbl);
+        calcPnl.add(assWeightLbl);
+        calcPnl.add(passFailLbl);
+        calcPnl.add(percLbl);
+        calcPnl.add(emoticon);
+        calcPnl.add(semMarkTxtField);
+        calcPnl.add(conMarkTxtField);
+        calcPnl.add(assMarkTxtField);
+        calcPnl.add(semWeightTxtField);
+        calcPnl.add(conWeightTxtField);
+        calcPnl.add(assWeightTxtField);
+        //----------------------------------------------------------------------
+        
+        //Action Listeners------------------------------------------------------
+        //calculate button
+        calcBtn.addActionListener((ActionEvent evt) -> {
+            try {
+                Double assignmentMark = Double.parseDouble(assMarkTxtField.getText());
+                Double semesterTestMark = Double.parseDouble(semMarkTxtField.getText());
+                Double continuousAssessmentMark = Double.parseDouble(conMarkTxtField.getText());
+                Double assignmentWeight = Double.parseDouble(assWeightTxtField.getText());
+                Double semesterTestWeight = Double.parseDouble(semWeightTxtField.getText());
+                Double continuousAssessmentWeight = Double.parseDouble(conWeightTxtField.getText());
+                
+                DPcalc calc = new DPcalc(assignmentMark, semesterTestMark, continuousAssessmentMark, "Student", "DV2015-0000", subjectCmboBox.getSelectedItem().toString(), assignmentWeight, semesterTestWeight, continuousAssessmentWeight);
+                
+                if (calc.canWriteExams()){
+                    passFailLbl.setText("Pass");
+                    emoticon.setIcon( new ImageIcon(ImageIO.read(this.getClass().getClassLoader().getResource("ay.jpg"))));
+                } else {
+                    passFailLbl.setText("Fail");
+                    emoticon.setIcon( new ImageIcon(ImageIO.read(this.getClass().getClassLoader().getResource("no.jpg"))));
+                }
+                
+                percLbl.setText("Percentage Achieved: " + calc.calculateDP() + "%");
+            } catch (IOException | NumberFormatException ex) {
+                System.out.println(ex);
+            }
+        });
+        //add another subject button
+        multiSubjectBtn.addActionListener((ActionEvent evt) -> {
+            
+        });
+        //reset Button
+        resetBtn.addActionListener((ActionEvent evt) -> {
+            try {
+                semMarkTxtField.setText("");
+                conMarkTxtField.setText("");
+                assMarkTxtField.setText("");
+                semWeightTxtField.setText("0.2");
+                conWeightTxtField.setText("0.2");
+                assWeightTxtField.setText("0.6");
+                passFailLbl.setText("Pass/Fail");
+                percLbl.setText("Percentage Achieved: ");
+                emoticon.setIcon( new ImageIcon(ImageIO.read(this.getClass().getClassLoader().getResource("eh.jpg"))));
+            } catch (IOException ex) {
+                System.out.println(ex);
+            }
+        });
+        //help button
+        helpBtn.addActionListener((ActionEvent evt) -> {
+            JOptionPane.showMessageDialog(calcPnl, evt);
+        });
+        //----------------------------------------------------------------------
+        
+        //adds the panel to the frame-------------------------------------------
+        getContentPane().add(calcPnl);
+        //----------------------------------------------------------------------
+    }
+}
