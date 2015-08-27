@@ -33,7 +33,7 @@ public class Main {
      */
     public static void main(String[] args) {
         
-        
+        DPCalcGuiFrame x = new DPCalcGuiFrame();
         //Bonus credit part
         /**
          * Write a check here to see if the following conditions are met
