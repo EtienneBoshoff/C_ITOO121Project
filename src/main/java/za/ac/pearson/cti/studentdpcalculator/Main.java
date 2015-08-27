@@ -33,6 +33,7 @@ public class Main {
      */
     public static void main(String[] args) {
         
+        DPcalcGUIFrame x = new DPcalcGUIFrame ();
         String userDV = "";
         //Bonus credit part
         /**
