@@ -16,7 +16,7 @@ import java.util.Scanner;
 /**
  * Remember that all programs will be compiled through Maven.
  * If Maven is not used then you will receive 0 for this task
- * @author Etienne Boshoff - Lecturer CTI Education Group
+ * @author Barend Van Der Berg DV2015-0020
  */
 public class Main {
     
@@ -33,7 +33,7 @@ public class Main {
      */
     public static void main(String[] args) {
         
-        
+        String userDV = "";
         //Bonus credit part
         /**
          * Write a check here to see if the following conditions are met
@@ -51,10 +51,53 @@ public class Main {
         String userInput = keyboardInput.nextLine();
         // Now we greet the user by name
         System.out.println("Greetings "+ userInput);
+        
+        //Here you get the users DV number
+        System.out.print("Please enter yout dv number: ");
+        userDV = keyboardInput.nextLine();
+        
+        
+        //Here you get your assignment mark
         System.out.print("Please enter the percentage you received for your Assignment: ");
         userInput = keyboardInput.nextLine();
         Double assignmentMark = Double.parseDouble(userInput);
+       
+        //Here you get semester test mark
+        System.out.print("Please enter the percentage you received for your Semester test: ");
+        userInput = keyboardInput.nextLine();
+        Double semTestMark = Double.parseDouble(userInput);
         
+        //Here you get continuous assesment mark
+        System.out.print("Please enter the percentage you received for your Continual assessment: ");
+        userInput = keyboardInput.nextLine();
+        Double contAssMark = Double.parseDouble(userInput);
+        
+        DPcalc calc = new DPcalc (assignmentMark,semTestMark,contAssMark);
+        System.out.println (calc.prettyPrintDPreport());
+        
+        //This method deterrmines wheter the DV that has been inputted is valid
+        if (calc.verifyDVnum())
+        {
+            //message if DV valid
+            System.out.println("This DV number is valid");
+        }
+        else
+        {
+            //message if DV not valid
+            System.out.println("That DV number is not valid");
+        }
+        
+        //This method determines wheter the user can write exams or not
+        if (calc.canWriteExams())
+        {
+            //message if allowe to write
+            System.out.println("You are allowed to write exams, Congradulations!");
+        }
+        else
+                {
+                    //message if not allowed to write
+                    System.out.println("You are not allowed to write exams.");          
+                }
         
         
     }

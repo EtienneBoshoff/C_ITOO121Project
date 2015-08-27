@@ -11,10 +11,15 @@
  */
 package za.ac.pearson.cti.studentdpcalculator;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 /**
  * Program description:  This class will calculate a students due performance
  * or DP.  
- * @author Etienne Boshoff - Lecturer CTI Education Group
+ * @author Barend Van Der Berg DV2015-0020
  * 
  * Task: Complete the methods such that the tests pass.  Note you are not
  * allowed to change the tests in any way.
@@ -33,24 +38,76 @@ public class DPcalc {
      */
     //Variable declarations here
     //Task: Complete the variable declarations
-    Double assignment;
-    Double semesterTest;
-    Double continuous;
+    //private final Double assignment;
+    //private final Double semesterTest;
+    //private final Double continuous;
+    //private Double assignmentWeight;
+   // private Double semesterTestWeight;
+    //private Double continousAssessmentWeight;
+   //private final String studentName;
+    //private final String subject;
+    //private final String studentDVnumber;
+    private String DVnum;
+    private String studentName;
+    List<Subject> courses; 
+//End of variable declarations
     
-    //End of variable declarations
     
-    /**
-     * This is the constructor for DPcalc.  A constructor is used to create an
-     * object and give it its default values. 
-     * @param assMark The assignment mark of the student in percentage
-     * @param semTestMark The semester test mark of the student in percentage
-     * @param contAssMark The continual assessment mark of the student in percentage
-     */
-    public DPcalc(Double assMark, Double semTestMark, Double contAssMark) {
-        assignment = assMark;
-        semesterTest = semTestMark;
-        continuous = contAssMark;
+    //This is the first constructor
+    public DPcalc (Double assMark, Double semTestMark, Double contAssMark,String name ,String DV ,String Subject ,Double assWeigh, Double semWeigh, Double contWeigh){
+        DVnum = DV;
+        studentName = name;
+        Subject cour = new Subject (Subject, assMark,semTestMark, contAssMark,  assWeigh,semWeigh,  contWeigh);
+        courses = new ArrayList<>();
+        courses.add(cour);
     }
+
+    //This is the second constructor
+    public DPcalc(Double assMark, Double semTestMark, Double contAssMark) {
+        
+        courses = new ArrayList<>();
+        Subject cour = new Subject (assMark, semTestMark, contAssMark);
+        courses.add(cour);
+       
+        courses.get(0).setAssWeight(0.6);
+        courses.get(0).setContWeight(0.2);
+        courses.get(0).setSemWeight(0.2);
+    }
+    
+    public boolean verifyDVnum ()
+    {
+        System.out.println(DVnum);
+        //This method ensures that the DV inputted is not too long
+        if (DVnum.length() > 11)
+        {
+            return false;
+        }
+        else 
+        {
+            if (DVnum.length() < 11)
+            {
+                return false;
+            }
+            else
+            {
+                Pattern pattern = Pattern.compile ("[D]{1}[V]{1}[0-9]{4}[\\-]{1}[0-9]{4}");
+                Matcher matcher = pattern.matcher (DVnum);
+                return matcher.find();
+            }
+        
+        }
+       
+        
+    }
+    
+    public String prettyFullPrint ()
+    {
+        String output = "";
+        return output;
+        
+    }
+    
+    
     
     /**
      * This method calculates the students DP for the semester with the values
@@ -65,7 +122,9 @@ public class DPcalc {
      */
     //Task: complete this method as described in the comments and to pass the unit test
     public Double calculateDP() {
-        throw new UnsupportedOperationException("You still need to complete this method");
+        
+        Double DP = getAssignmentMark() * courses.get(0).getAssWeight()  + getSemesterMark() * courses.get(0).getSemWeight() + getContinuousAssessmentMark() * courses.get(0).getContWeight()  ;
+        return DP; 
     }
     
     /**
@@ -87,27 +146,89 @@ public class DPcalc {
      * @return A formatted string
      */
     public String prettyPrintDPreport() {
-        throw new UnsupportedOperationException("You still need to complete this method");
+        //This mehod prints the result
+         String result = "Dear student you have attained:\n"
+                + "Assignment: "+getAssignmentMark()+"%\n"
+                + "Semester test: "+getSemesterMark()+"%\n"
+                + "Continous Assessment: "+getContinuousAssessmentMark()+"%\n"
+                + "Your DP is calculated as: " +calculateDP () +"%";
+         
+        return result;
     }
     
-    /**
-     * This method is known as an accessor method or getter.  It allows you to 
-     * get an attribute from an object.  In this case the Assignment mark stored
-     * within the calculator
-     * @return The assignment mark stored within the calculator
-     */
     public Double getAssignmentMark() {
-        return assignment;
+        return courses.get(0).getAssignmentMark();
+        //This Method returns assignmentMark;
     }
     
-    // Task create the other accessors
+    
     public Double getSemesterMark() {
-        throw new UnsupportedOperationException("You still need to complete this method");
+        return courses.get(0).getSemesterTestMark();
+        //This Method returns SemesterTestMark;
     }
     
     public Double getContinuousAssessmentMark() {
-        throw new UnsupportedOperationException("You still need to complete this method");
+       return courses.get(0).getContinuousAssMark();
+        //This Method returns ContinuousAssMark;
     }
+    
+         
+    //Below the weights are set (Setters)
+    
+    public void setAssignmentWeight(Double ass) {
+        Subject c = courses.get (0);
+        c.setAssWeight(ass);
+        courses.set(0, c);
+    }
+    
+    public void setSemesterTestWeight(Double sem) {
+        Subject c = courses.get (0);
+        c.setSemWeight(sem);
+        courses.set(0, c);
+    }
+    
+    public void setContinuousAssessmentWeight(Double cont) {
+        Subject c = courses.get (0);
+        c.setContWeight(cont);
+        courses.set(0, c);
+    }
+    
+    public double getAssignmentMark(String sub){
+        Subject c = courses.get (getSubjectIndex (sub));
+        return c.getAssignmentMark();
+    }
+    
+    public double getSemesterTestMark (String sub){
+        Subject c = courses.get (getSubjectIndex (sub));
+        return c.getSemesterTestMark();
+    }
+    
+    public double getContinuousAssessmentMark  (String sub){
+        Subject c = courses.get (getSubjectIndex (sub));
+        return c.getContinuousAssMark();
+    }
+    
+    
+    
+    
+    
+    private int getSubjectIndex (String sub){
+       
+        for (int x = 0; x < courses.size(); x++){
+            Subject c = courses.get (x);
+            if (c.getSubjectName().equalsIgnoreCase(sub)){
+                return x;
+            }
+            }
+        return -1;
+    }
+    
+    
+    public void addSubject (Subject sub)
+    {
+        courses.add(sub);
+    }
+    
     
     /**
      * This method checks if you have eligibility to write the exams
@@ -115,6 +236,7 @@ public class DPcalc {
      * @return True if you can write exams. False otherwise
      */
     public Boolean canWriteExams() {
-        throw new UnsupportedOperationException("You still need to complete this method");
+        return calculateDP() >= 40;
     }
+      
 }
