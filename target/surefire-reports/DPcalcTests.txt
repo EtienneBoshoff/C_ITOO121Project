@@ -1,0 +1,112 @@
+-------------------------------------------------------------------------------
+Test set: DPcalcTests
+-------------------------------------------------------------------------------
+Tests run: 26, Failures: 0, Errors: 26, Skipped: 0, Time elapsed: 0.021 sec <<< FAILURE! - in DPcalcTests
+testCalculateDPwithFailingMarks(DPcalcTests)  Time elapsed: 0.001 sec  <<< ERROR!
+java.lang.NoClassDefFoundError: za/ac/pearson/cti/studentdpcalculator/DPcalc
+	at java.net.URLClassLoader.findClass(URLClassLoader.java:381)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:424)
+	at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:331)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:357)
+	at DPcalcTests.testCalculateDPwithFailingMarks(DPcalcTests.java:66)
+
+testInvalidDVnumWithDatePartThatIsWrong(DPcalcTests)  Time elapsed: 0 sec  <<< ERROR!
+java.lang.NoClassDefFoundError: za/ac/pearson/cti/studentdpcalculator/DPcalc
+	at DPcalcTests.testInvalidDVnumWithDatePartThatIsWrong(DPcalcTests.java:211)
+
+testGetAssignmentWhereSubjectIsInCapitalLetters(DPcalcTests)  Time elapsed: 0 sec  <<< ERROR!
+java.lang.NoClassDefFoundError: za/ac/pearson/cti/studentdpcalculator/DPcalc
+	at DPcalcTests.testGetAssignmentWhereSubjectIsInCapitalLetters(DPcalcTests.java:404)
+
+testGetSemesterTestWhereSubjectIsOnlyInLowerCase(DPcalcTests)  Time elapsed: 0 sec  <<< ERROR!
+java.lang.NoClassDefFoundError: za/ac/pearson/cti/studentdpcalculator/DPcalc
+	at DPcalcTests.testGetSemesterTestWhereSubjectIsOnlyInLowerCase(DPcalcTests.java:485)
+
+testGetAssignmentWithSubjectThatDoesNotExist(DPcalcTests)  Time elapsed: 0 sec  <<< ERROR!
+java.lang.Exception: Unexpected exception, expected<java.lang.ArrayIndexOutOfBoundsException> but was<java.lang.NoClassDefFoundError>
+	at DPcalcTests.testGetAssignmentWithSubjectThatDoesNotExist(DPcalcTests.java:391)
+
+testCannotWriteExams(DPcalcTests)  Time elapsed: 0 sec  <<< ERROR!
+java.lang.NoClassDefFoundError: za/ac/pearson/cti/studentdpcalculator/DPcalc
+	at DPcalcTests.testCannotWriteExams(DPcalcTests.java:140)
+
+testGetAssignmentMarkWithMultipleSubjects(DPcalcTests)  Time elapsed: 0.001 sec  <<< ERROR!
+java.lang.NoClassDefFoundError: za/ac/pearson/cti/studentdpcalculator/DPcalc
+	at DPcalcTests.testGetAssignmentMarkWithMultipleSubjects(DPcalcTests.java:439)
+
+testGetSemesterTestMarkWithMultipleSubjects(DPcalcTests)  Time elapsed: 0.001 sec  <<< ERROR!
+java.lang.NoClassDefFoundError: za/ac/pearson/cti/studentdpcalculator/DPcalc
+	at DPcalcTests.testGetSemesterTestMarkWithMultipleSubjects(DPcalcTests.java:505)
+
+testGetContinuousAssessmentWhereSubjectIsInCapitalLetters(DPcalcTests)  Time elapsed: 0 sec  <<< ERROR!
+java.lang.NoClassDefFoundError: za/ac/pearson/cti/studentdpcalculator/DPcalc
+	at DPcalcTests.testGetContinuousAssessmentWhereSubjectIsInCapitalLetters(DPcalcTests.java:536)
+
+testValidDVnum(DPcalcTests)  Time elapsed: 0.001 sec  <<< ERROR!
+java.lang.NoClassDefFoundError: za/ac/pearson/cti/studentdpcalculator/DPcalc
+	at DPcalcTests.testValidDVnum(DPcalcTests.java:184)
+
+testInvalidDVnumThatIsTooShort(DPcalcTests)  Time elapsed: 0.001 sec  <<< ERROR!
+java.lang.NoClassDefFoundError: za/ac/pearson/cti/studentdpcalculator/DPcalc
+	at DPcalcTests.testInvalidDVnumThatIsTooShort(DPcalcTests.java:262)
+
+testCanWriteExams(DPcalcTests)  Time elapsed: 0 sec  <<< ERROR!
+java.lang.NoClassDefFoundError: za/ac/pearson/cti/studentdpcalculator/DPcalc
+	at DPcalcTests.testCanWriteExams(DPcalcTests.java:118)
+
+testGetSemesterTestWithSubjectThatDoesNotExist(DPcalcTests)  Time elapsed: 0.001 sec  <<< ERROR!
+java.lang.Exception: Unexpected exception, expected<java.lang.ArrayIndexOutOfBoundsException> but was<java.lang.NoClassDefFoundError>
+	at DPcalcTests.testGetSemesterTestWithSubjectThatDoesNotExist(DPcalcTests.java:457)
+
+testGetAssignmentWhereSubjectIsOnlyInLowerCase(DPcalcTests)  Time elapsed: 0.001 sec  <<< ERROR!
+java.lang.NoClassDefFoundError: za/ac/pearson/cti/studentdpcalculator/DPcalc
+	at DPcalcTests.testGetAssignmentWhereSubjectIsOnlyInLowerCase(DPcalcTests.java:419)
+
+testInvalidDVnumWithLast4DigitsThatIsWrong(DPcalcTests)  Time elapsed: 0 sec  <<< ERROR!
+java.lang.NoClassDefFoundError: za/ac/pearson/cti/studentdpcalculator/DPcalc
+	at DPcalcTests.testInvalidDVnumWithLast4DigitsThatIsWrong(DPcalcTests.java:237)
+
+testInvalidDVnumThatIsMissingTheDash(DPcalcTests)  Time elapsed: 0 sec  <<< ERROR!
+java.lang.NoClassDefFoundError: za/ac/pearson/cti/studentdpcalculator/DPcalc
+	at DPcalcTests.testInvalidDVnumThatIsMissingTheDash(DPcalcTests.java:312)
+
+testGetContinuousAssessmentWhereSubjectIsOnlyInLowerCase(DPcalcTests)  Time elapsed: 0 sec  <<< ERROR!
+java.lang.NoClassDefFoundError: za/ac/pearson/cti/studentdpcalculator/DPcalc
+	at DPcalcTests.testGetContinuousAssessmentWhereSubjectIsOnlyInLowerCase(DPcalcTests.java:551)
+
+testThatYouHaveAllAccessors(DPcalcTests)  Time elapsed: 0 sec  <<< ERROR!
+java.lang.NoClassDefFoundError: za/ac/pearson/cti/studentdpcalculator/DPcalc
+	at DPcalcTests.testThatYouHaveAllAccessors(DPcalcTests.java:365)
+
+testPrettyPrint(DPcalcTests)  Time elapsed: 0.001 sec  <<< ERROR!
+java.lang.NoClassDefFoundError: za/ac/pearson/cti/studentdpcalculator/DPcalc
+	at DPcalcTests.testPrettyPrint(DPcalcTests.java:94)
+
+testInvalidDVnumThatIsTooLong(DPcalcTests)  Time elapsed: 0 sec  <<< ERROR!
+java.lang.NoClassDefFoundError: za/ac/pearson/cti/studentdpcalculator/DPcalc
+	at DPcalcTests.testInvalidDVnumThatIsTooLong(DPcalcTests.java:287)
+
+testInvalidDVnumThatHasAdashInTheWrongPlace(DPcalcTests)  Time elapsed: 0 sec  <<< ERROR!
+java.lang.NoClassDefFoundError: za/ac/pearson/cti/studentdpcalculator/DPcalc
+	at DPcalcTests.testInvalidDVnumThatHasAdashInTheWrongPlace(DPcalcTests.java:338)
+
+testGetSemesterTestWhereSubjectIsInCapitalLetters(DPcalcTests)  Time elapsed: 0 sec  <<< ERROR!
+java.lang.NoClassDefFoundError: za/ac/pearson/cti/studentdpcalculator/DPcalc
+	at DPcalcTests.testGetSemesterTestWhereSubjectIsInCapitalLetters(DPcalcTests.java:470)
+
+testCanWriteExamsEdgeCase(DPcalcTests)  Time elapsed: 0 sec  <<< ERROR!
+java.lang.NoClassDefFoundError: za/ac/pearson/cti/studentdpcalculator/DPcalc
+	at DPcalcTests.testCanWriteExamsEdgeCase(DPcalcTests.java:161)
+
+testGetContinuousAssessmentWithSubjectThatDoesNotExist(DPcalcTests)  Time elapsed: 0 sec  <<< ERROR!
+java.lang.Exception: Unexpected exception, expected<java.lang.ArrayIndexOutOfBoundsException> but was<java.lang.NoClassDefFoundError>
+	at DPcalcTests.testGetContinuousAssessmentWithSubjectThatDoesNotExist(DPcalcTests.java:523)
+
+testCalculateDPwithPassingMarks(DPcalcTests)  Time elapsed: 0 sec  <<< ERROR!
+java.lang.NoClassDefFoundError: za/ac/pearson/cti/studentdpcalculator/DPcalc
+	at DPcalcTests.testCalculateDPwithPassingMarks(DPcalcTests.java:42)
+
+testGetContinuousAssessmentWithMultipleSubjects(DPcalcTests)  Time elapsed: 0 sec  <<< ERROR!
+java.lang.NoClassDefFoundError: za/ac/pearson/cti/studentdpcalculator/DPcalc
+	at DPcalcTests.testGetContinuousAssessmentWithMultipleSubjects(DPcalcTests.java:571)
+
