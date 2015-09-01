@@ -8,6 +8,7 @@ package za.ac.pearson.cti.studentdpcalculator;
 import java.io.File;
 import java.text.DecimalFormat;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -265,8 +266,8 @@ public class DPcalcGUIFrame extends javax.swing.JFrame {
            emoticon.setIcon(frownEmoti);
 
        }
-       
-       //This will round to two deciamls 
+       checkPercentages ();
+        //This will round to two deciamls 
         DecimalFormat df = new DecimalFormat("#.##");
         
         //Limit percentage output to 100
@@ -282,6 +283,21 @@ public class DPcalcGUIFrame extends javax.swing.JFrame {
        
     }//GEN-LAST:event_calculateBtnActionPerformed
 
+    void checkPercentages ()
+    {
+        //This method checks the weights
+        Double perc1 = Double.parseDouble (semWeightTxtField.getText ());
+        Double perc2 = Double.parseDouble (contWeightTxtField.getText ());
+        Double perc3 = Double.parseDouble (assWeightTxtField.getText ());
+        Double total = perc1 + perc2 + perc3;
+        if (total != 1)
+        {
+            JOptionPane.showMessageDialog(calcPnl,
+            "Please make sure you inputted correct weights. They must equal 1 together.");
+            
+        }
+    }
+    
     private void multiSubjectBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_multiSubjectBtnActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_multiSubjectBtnActionPerformed
