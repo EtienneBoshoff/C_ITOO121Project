@@ -17,7 +17,13 @@ public class Subject {
     private Double semesterTestWeight;
     private Double continuousAssessmentWeight;
 
-    public Subject(String subjectName, Double assignmentMark, Double semesterTestMark, Double continuousAssessmentMark, Double assignmentWeight, Double semesterTestWeight, Double continuousAssessmentWeight) {
+    public Subject(String subjectName, 
+            Double assignmentMark, 
+            Double semesterTestMark, 
+            Double continuousAssessmentMark, 
+            Double assignmentWeight, 
+            Double semesterTestWeight, 
+            Double continuousAssessmentWeight) {
         this.subjectName = subjectName;
         this.assignmentMark = assignmentMark;
         this.semesterTestMark = semesterTestMark;

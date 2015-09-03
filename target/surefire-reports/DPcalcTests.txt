@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: DPcalcTests
 -------------------------------------------------------------------------------
-Tests run: 26, Failures: 0, Errors: 26, Skipped: 0, Time elapsed: 0.021 sec <<< FAILURE! - in DPcalcTests
-testCalculateDPwithFailingMarks(DPcalcTests)  Time elapsed: 0.001 sec  <<< ERROR!
+Tests run: 26, Failures: 0, Errors: 26, Skipped: 0, Time elapsed: 0.015 sec <<< FAILURE! - in DPcalcTests
+testCalculateDPwithFailingMarks(DPcalcTests)  Time elapsed: 0 sec  <<< ERROR!
 java.lang.NoClassDefFoundError: za/ac/pearson/cti/studentdpcalculator/DPcalc
 	at java.net.URLClassLoader.findClass(URLClassLoader.java:381)
 	at java.lang.ClassLoader.loadClass(ClassLoader.java:424)
@@ -30,23 +30,23 @@ testCannotWriteExams(DPcalcTests)  Time elapsed: 0 sec  <<< ERROR!
 java.lang.NoClassDefFoundError: za/ac/pearson/cti/studentdpcalculator/DPcalc
 	at DPcalcTests.testCannotWriteExams(DPcalcTests.java:140)
 
-testGetAssignmentMarkWithMultipleSubjects(DPcalcTests)  Time elapsed: 0.001 sec  <<< ERROR!
+testGetAssignmentMarkWithMultipleSubjects(DPcalcTests)  Time elapsed: 0 sec  <<< ERROR!
 java.lang.NoClassDefFoundError: za/ac/pearson/cti/studentdpcalculator/DPcalc
 	at DPcalcTests.testGetAssignmentMarkWithMultipleSubjects(DPcalcTests.java:439)
 
-testGetSemesterTestMarkWithMultipleSubjects(DPcalcTests)  Time elapsed: 0.001 sec  <<< ERROR!
+testGetSemesterTestMarkWithMultipleSubjects(DPcalcTests)  Time elapsed: 0 sec  <<< ERROR!
 java.lang.NoClassDefFoundError: za/ac/pearson/cti/studentdpcalculator/DPcalc
 	at DPcalcTests.testGetSemesterTestMarkWithMultipleSubjects(DPcalcTests.java:505)
 
-testGetContinuousAssessmentWhereSubjectIsInCapitalLetters(DPcalcTests)  Time elapsed: 0 sec  <<< ERROR!
+testGetContinuousAssessmentWhereSubjectIsInCapitalLetters(DPcalcTests)  Time elapsed: 0.015 sec  <<< ERROR!
 java.lang.NoClassDefFoundError: za/ac/pearson/cti/studentdpcalculator/DPcalc
 	at DPcalcTests.testGetContinuousAssessmentWhereSubjectIsInCapitalLetters(DPcalcTests.java:536)
 
-testValidDVnum(DPcalcTests)  Time elapsed: 0.001 sec  <<< ERROR!
+testValidDVnum(DPcalcTests)  Time elapsed: 0 sec  <<< ERROR!
 java.lang.NoClassDefFoundError: za/ac/pearson/cti/studentdpcalculator/DPcalc
 	at DPcalcTests.testValidDVnum(DPcalcTests.java:184)
 
-testInvalidDVnumThatIsTooShort(DPcalcTests)  Time elapsed: 0.001 sec  <<< ERROR!
+testInvalidDVnumThatIsTooShort(DPcalcTests)  Time elapsed: 0 sec  <<< ERROR!
 java.lang.NoClassDefFoundError: za/ac/pearson/cti/studentdpcalculator/DPcalc
 	at DPcalcTests.testInvalidDVnumThatIsTooShort(DPcalcTests.java:262)
 
@@ -54,11 +54,11 @@ testCanWriteExams(DPcalcTests)  Time elapsed: 0 sec  <<< ERROR!
 java.lang.NoClassDefFoundError: za/ac/pearson/cti/studentdpcalculator/DPcalc
 	at DPcalcTests.testCanWriteExams(DPcalcTests.java:118)
 
-testGetSemesterTestWithSubjectThatDoesNotExist(DPcalcTests)  Time elapsed: 0.001 sec  <<< ERROR!
+testGetSemesterTestWithSubjectThatDoesNotExist(DPcalcTests)  Time elapsed: 0 sec  <<< ERROR!
 java.lang.Exception: Unexpected exception, expected<java.lang.ArrayIndexOutOfBoundsException> but was<java.lang.NoClassDefFoundError>
 	at DPcalcTests.testGetSemesterTestWithSubjectThatDoesNotExist(DPcalcTests.java:457)
 
-testGetAssignmentWhereSubjectIsOnlyInLowerCase(DPcalcTests)  Time elapsed: 0.001 sec  <<< ERROR!
+testGetAssignmentWhereSubjectIsOnlyInLowerCase(DPcalcTests)  Time elapsed: 0 sec  <<< ERROR!
 java.lang.NoClassDefFoundError: za/ac/pearson/cti/studentdpcalculator/DPcalc
 	at DPcalcTests.testGetAssignmentWhereSubjectIsOnlyInLowerCase(DPcalcTests.java:419)
 
@@ -78,7 +78,7 @@ testThatYouHaveAllAccessors(DPcalcTests)  Time elapsed: 0 sec  <<< ERROR!
 java.lang.NoClassDefFoundError: za/ac/pearson/cti/studentdpcalculator/DPcalc
 	at DPcalcTests.testThatYouHaveAllAccessors(DPcalcTests.java:365)
 
-testPrettyPrint(DPcalcTests)  Time elapsed: 0.001 sec  <<< ERROR!
+testPrettyPrint(DPcalcTests)  Time elapsed: 0 sec  <<< ERROR!
 java.lang.NoClassDefFoundError: za/ac/pearson/cti/studentdpcalculator/DPcalc
 	at DPcalcTests.testPrettyPrint(DPcalcTests.java:94)
 

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="DPcalcTests" time="0.008" tests="26" errors="26" skipped="0" failures="0">
+<testsuite name="DPcalcTests" time="0.015" tests="26" errors="26" skipped="0" failures="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_40\jre\bin"/>
@@ -62,7 +62,7 @@
     <property name="exec.args" value="-classpath %classpath za.ac.pearson.cti.studentdpcalculator.Main"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase name="testCalculateDPwithFailingMarks" classname="DPcalcTests" time="0.001">
+  <testcase name="testCalculateDPwithFailingMarks" classname="DPcalcTests" time="0">
     <error message="za/ac/pearson/cti/studentdpcalculator/DPcalc" type="java.lang.NoClassDefFoundError">java.lang.NoClassDefFoundError: za/ac/pearson/cti/studentdpcalculator/DPcalc
 	at java.net.URLClassLoader.findClass(URLClassLoader.java:381)
 	at java.lang.ClassLoader.loadClass(ClassLoader.java:424)
@@ -96,27 +96,27 @@
 	at DPcalcTests.testCannotWriteExams(DPcalcTests.java:140)
 </error>
   </testcase>
-  <testcase name="testGetAssignmentMarkWithMultipleSubjects" classname="DPcalcTests" time="0.001">
+  <testcase name="testGetAssignmentMarkWithMultipleSubjects" classname="DPcalcTests" time="0">
     <error message="za/ac/pearson/cti/studentdpcalculator/DPcalc" type="java.lang.NoClassDefFoundError">java.lang.NoClassDefFoundError: za/ac/pearson/cti/studentdpcalculator/DPcalc
 	at DPcalcTests.testGetAssignmentMarkWithMultipleSubjects(DPcalcTests.java:439)
 </error>
   </testcase>
-  <testcase name="testGetSemesterTestMarkWithMultipleSubjects" classname="DPcalcTests" time="0.001">
+  <testcase name="testGetSemesterTestMarkWithMultipleSubjects" classname="DPcalcTests" time="0">
     <error message="za/ac/pearson/cti/studentdpcalculator/DPcalc" type="java.lang.NoClassDefFoundError">java.lang.NoClassDefFoundError: za/ac/pearson/cti/studentdpcalculator/DPcalc
 	at DPcalcTests.testGetSemesterTestMarkWithMultipleSubjects(DPcalcTests.java:505)
 </error>
   </testcase>
-  <testcase name="testGetContinuousAssessmentWhereSubjectIsInCapitalLetters" classname="DPcalcTests" time="0">
+  <testcase name="testGetContinuousAssessmentWhereSubjectIsInCapitalLetters" classname="DPcalcTests" time="0.015">
     <error message="za/ac/pearson/cti/studentdpcalculator/DPcalc" type="java.lang.NoClassDefFoundError">java.lang.NoClassDefFoundError: za/ac/pearson/cti/studentdpcalculator/DPcalc
 	at DPcalcTests.testGetContinuousAssessmentWhereSubjectIsInCapitalLetters(DPcalcTests.java:536)
 </error>
   </testcase>
-  <testcase name="testValidDVnum" classname="DPcalcTests" time="0.001">
+  <testcase name="testValidDVnum" classname="DPcalcTests" time="0">
     <error message="za/ac/pearson/cti/studentdpcalculator/DPcalc" type="java.lang.NoClassDefFoundError">java.lang.NoClassDefFoundError: za/ac/pearson/cti/studentdpcalculator/DPcalc
 	at DPcalcTests.testValidDVnum(DPcalcTests.java:184)
 </error>
   </testcase>
-  <testcase name="testInvalidDVnumThatIsTooShort" classname="DPcalcTests" time="0.001">
+  <testcase name="testInvalidDVnumThatIsTooShort" classname="DPcalcTests" time="0">
     <error message="za/ac/pearson/cti/studentdpcalculator/DPcalc" type="java.lang.NoClassDefFoundError">java.lang.NoClassDefFoundError: za/ac/pearson/cti/studentdpcalculator/DPcalc
 	at DPcalcTests.testInvalidDVnumThatIsTooShort(DPcalcTests.java:262)
 </error>
@@ -126,12 +126,12 @@
 	at DPcalcTests.testCanWriteExams(DPcalcTests.java:118)
 </error>
   </testcase>
-  <testcase name="testGetSemesterTestWithSubjectThatDoesNotExist" classname="DPcalcTests" time="0.001">
+  <testcase name="testGetSemesterTestWithSubjectThatDoesNotExist" classname="DPcalcTests" time="0">
     <error message="Unexpected exception, expected&lt;java.lang.ArrayIndexOutOfBoundsException&gt; but was&lt;java.lang.NoClassDefFoundError&gt;" type="java.lang.Exception"><![CDATA[java.lang.Exception: Unexpected exception, expected<java.lang.ArrayIndexOutOfBoundsException> but was<java.lang.NoClassDefFoundError>
 	at DPcalcTests.testGetSemesterTestWithSubjectThatDoesNotExist(DPcalcTests.java:457)
 ]]></error>
   </testcase>
-  <testcase name="testGetAssignmentWhereSubjectIsOnlyInLowerCase" classname="DPcalcTests" time="0.001">
+  <testcase name="testGetAssignmentWhereSubjectIsOnlyInLowerCase" classname="DPcalcTests" time="0">
     <error message="za/ac/pearson/cti/studentdpcalculator/DPcalc" type="java.lang.NoClassDefFoundError">java.lang.NoClassDefFoundError: za/ac/pearson/cti/studentdpcalculator/DPcalc
 	at DPcalcTests.testGetAssignmentWhereSubjectIsOnlyInLowerCase(DPcalcTests.java:419)
 </error>
@@ -156,7 +156,7 @@
 	at DPcalcTests.testThatYouHaveAllAccessors(DPcalcTests.java:365)
 </error>
   </testcase>
-  <testcase name="testPrettyPrint" classname="DPcalcTests" time="0.001">
+  <testcase name="testPrettyPrint" classname="DPcalcTests" time="0">
     <error message="za/ac/pearson/cti/studentdpcalculator/DPcalc" type="java.lang.NoClassDefFoundError">java.lang.NoClassDefFoundError: za/ac/pearson/cti/studentdpcalculator/DPcalc
 	at DPcalcTests.testPrettyPrint(DPcalcTests.java:94)
 </error>

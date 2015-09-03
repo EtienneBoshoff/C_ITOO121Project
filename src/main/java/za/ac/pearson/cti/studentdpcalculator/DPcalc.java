@@ -50,7 +50,10 @@ public class DPcalc {
      * @param semTestMark The semester test mark of the student in percentage
      * @param conAssMark The continual assessment mark of the student in percentage
      */
-    public DPcalc(Double assMark, Double semTestMark, Double conAssMark) {
+    public DPcalc(Double assMark, 
+            Double semTestMark, 
+            Double conAssMark) {
+        
         this.subject.add(new Subject("general dp", assMark, semTestMark, conAssMark, 0.6, 0.2, 0.2));
         /*Hard coding of default Weights*/
         this.nameOfStudent = "Student";
@@ -68,7 +71,16 @@ public class DPcalc {
      * @param semWeight The weight which the semester test counts
      * @param conWeight The weight which the continuous assessment counts
      */
-    public DPcalc(Double assMark, Double semTestMark, Double conAssMark, String nameOfStudent, String dvNumber, String subject, Double assWeight, Double semWeight, Double conWeight) {
+    public DPcalc(Double assMark, 
+            Double semTestMark, 
+            Double conAssMark, 
+            String nameOfStudent, 
+            String dvNumber, 
+            String subject, 
+            Double assWeight, 
+            Double semWeight, 
+            Double conWeight) {
+        
         this.subject.add(new Subject(subject, assMark, semTestMark, conAssMark, assWeight, semWeight, conWeight));
         this.nameOfStudent = nameOfStudent;
         this.dvNumber = dvNumber;
@@ -88,16 +100,16 @@ public class DPcalc {
     //Task: complete this method as described in the comments and to pass the unit test
     public Double calculateDP() {
         
-        return getAssignmentMark()*getAssignmentWeight() + 
-                getSemesterMark()*getSemesterTestWeight() + 
-                getContinuousAssessmentMark()*getContinuousAssessmentWeight();
+        return getAssignmentMark() * getAssignmentWeight() + 
+                getSemesterMark() * getSemesterTestWeight() + 
+                getContinuousAssessmentMark() * getContinuousAssessmentWeight();
     }
     //calculates the dp for a set subject
     public Double calculateDP(String subject) {
         
-        return getAssignmentMark(subject)*getAssignmentWeight(subject) +
-                getSemesterTestMark(subject)*getSemesterTestWeight(subject) +
-                getContinuousAssessmentMark(subject)*getContinuousAssessmentWeight(subject);
+        return getAssignmentMark(subject) * getAssignmentWeight(subject) +
+                getSemesterTestMark(subject) * getSemesterTestWeight(subject) +
+                getContinuousAssessmentMark(subject) * getContinuousAssessmentWeight(subject);
     }
     
     
