@@ -33,7 +33,7 @@ public class Main {
      */
     public static void main(String[] args) {
         
-        
+        DPcalcGUIFrame calcframe = new DPcalcGUIFrame();
         //Bonus credit part
         /**
          * Write a check here to see if the following conditions are met
@@ -42,7 +42,7 @@ public class Main {
          */
         //End of bonus credit part
         
-                System.out.println("Welcome to DP Calculator: ");
+        System.out.println("Welcome to DP Calculator: ");
         System.out.print("What is your name: ");
         // This makes an object for the keyboard
         Scanner keyboardInput = new Scanner(System.in);

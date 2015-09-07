@@ -11,6 +11,10 @@
  */
 package za.ac.pearson.cti.studentdpcalculator;
 
+/** This is where I import the utility for declaring an array list
+ *  This is where I import the utility for declaring a Matcher type variable
+ *  This is where I import the utility for declaring an Pattern type variable
+ */
 import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -37,6 +41,12 @@ public class DPcalc {
      */
     //Variable declarations here
     //Task: Complete the variable declarations
+    
+    /**
+     * Students name is declared as a private string: "studentName"
+     * Students DV Number is declared as a private string: "studentDVnumber"
+     * Private array list redeclared with an object named subjects which is extended by class "Subject".
+     */
     private String studentName;
     private String studentDVnumber;
     private ArrayList <Subject> subjects = new ArrayList<>();
@@ -48,12 +58,15 @@ public class DPcalc {
      * @param semTestMark The semester test mark of the student in percentage
      * @param contAssMark The continual assessment mark of the student in percentage
      */
-    public DPcalc(Double assMark, Double semTestMark, Double contAssMark) {
+    
+    // Constructor for DPcalc class, contains parameters for the students's assignment (assessment), semester Test, and continuous assessment marks. 
+    public DPcalc(Double assMark, Double semTestMark, Double contAssMark) { 
         Subject aSubject  = new Subject("Default Subject", semTestMark,contAssMark,assMark, 0.2, 0.2, 0.6);
         studentName = "Default Student";
         studentDVnumber = "N/A";
         this.subjects.add(aSubject);
-        //String name, Double semesterTestMark, Double continuousAssessmentMark, Double assignmentMark, Double semesterTestWeight, Double continuousAssessmentWeight, Double assessmentWeight
+        
+        //Code for referencing order of parameters from subject: String name, Double semesterTestMark, Double continuousAssessmentMark, Double assignmentMark, Double semesterTestWeight, Double continuousAssessmentWeight, Double assessmentWeight
     }
 
     /**
@@ -92,9 +105,16 @@ public class DPcalc {
      */
     //Task: complete this method as described in the comments and to pass the unit test
     public Double calculateDP() {
-        return (getAssignmentMark()*getAssignmentWeight()) + (getSemesterMark()*getSemesterTestWeight()) + (getContinuousAssessmentMark()*getContinuousAssessmentWeight());
+        return (getAssignmentMark()*getAssignmentWeight()) + 
+               (getSemesterMark()*getSemesterTestWeight()) + 
+               (getContinuousAssessmentMark()*getContinuousAssessmentWeight());
     }
     
+    public Double calculateDP(String subject) {
+        return (getAssignmentMark(subject)*getAssignmentWeight(subject)) + 
+               (getSemesterTestMark(subject)*getSemesterTestWeight(subject)) + 
+               (getContinuousAssessmentMark(subject)*getContinuousAssessmentWeight(subject));
+    }
     /**
      * This method returns a string that is formatted to look like a nice report
      * when printed with System.out.println
@@ -123,7 +143,7 @@ public class DPcalc {
     }
     
     public String prettyFullPrint() {
-        String output = "Dear user this is Pretty Ful Print";
+        String output = "Dear user this is Pretty Full Print";
         return output;
     }
     /**
@@ -132,19 +152,24 @@ public class DPcalc {
      * within the calculator
      * @return The assignment mark stored within the calculator
      */
+    
+    // getter for assignment mark. This method takes the assignment from the subjects array and returns its first index, adding it to getAssignmentMark.
     public Double getAssignmentMark() {
         return subjects.get(0).getAssignmentMark();
     }
     
     // Task create the other accessors
+    // getter for semester mark. This method takes the semester from the subjects array and returns its first index, adding it to getSemesterMark.
+
      public Double getSemesterMark() {
         return subjects.get(0).getSemesterTestMark();
     }
     
+    // getter for assignment weight. This method takes the assignment from the subjects array and returns its first index, adding it to getAssignmentWeight.
     public Double getAssignmentWeight() {
         return subjects.get(0).getAssignmentWeight();
     }
-    
+    // getter for continuous assessment weight. This method takes the assignment from the subjects array and returns its first index, adding it to getContinuousAssessmentWeight.
     public Double getContinuousAssessmentWeight() {
         return subjects.get(0).getContinuousAssessmentWeight();
     }
@@ -178,7 +203,14 @@ public class DPcalc {
      * Remember you need at least a 40% DP to get exam eligibility
      * @return True if you can write exams. False otherwise
      */
- public Boolean canWriteExams() {
+    
+    /**
+     * if statement used in order to check whether the student can write an exam. 
+     * this is based on the outcome of their DP, and if it's greater than 40.0 (passing grade).
+     * when the method has been successfully executed it will return True, if not then False.
+     * @return 
+     */
+    public Boolean canWriteExams() {
         return calculateDP()>=40.0;
     }
  
@@ -194,33 +226,20 @@ public class DPcalc {
         Matcher m = p.matcher(studentDVnumber);
             return m.find();
         }
-        return false;
-        
-        
-
-            
-        /**return pass == TRUE;
-        
-        Pattern p = Pattern.compile("[D]{1}[V]{1}[yearEnrolled]{4}[\\-]{1}[fourDigits]{4}");
-        Matcher m = p.matcher(studentDVnumber);
-        boolean pass = m.find();
-        
-        if (studentDVnumber.length() == 11 && pass == true){
-            return pass;
-        }
-        else if(studentDVnumber.length() < 11 || studentDVnumber.length() > 11)
-        {
-            pass = false;
-            return pass;
-        }
-       */     
+        return false;    
     }
-
+    
+    // public method used with parameter of class Subject as a blue print by the new object "subject" to add all 
     public void addSubject(Subject subject) {
         this.subjects.add(subject);
     } 
     
-    private Integer GetTheHoesSubject(String subject) {
+    /**
+     * private method used to 
+     * @param subject
+     * @return 
+     */
+    private Integer collectSubject(String subject) {
         /**for (int i = 0; i < subjects.size(); i++) {
             if (this.subjects.get(i).getName().equalsIgnoreCase(subject)) {
                 return i;    
@@ -239,44 +258,44 @@ public class DPcalc {
     }
     
     public Double getAssignmentMark(String subject) {
-        return subjects.get(GetTheHoesSubject(subject)).getAssignmentMark();
+        return subjects.get(collectSubject(subject)).getAssignmentMark();
     }
     
     public Double getSemesterTestMark(String subject) {
-        return subjects.get(GetTheHoesSubject(subject)).getSemesterTestMark();
+        return subjects.get(collectSubject(subject)).getSemesterTestMark();
     }
     
     public Double getContinuousAssessmentMark(String subject) {
-        return subjects.get(GetTheHoesSubject(subject)).getContinuousAssessmentMark();
+        return subjects.get(collectSubject(subject)).getContinuousAssessmentMark();
     }
     
     public Double getAssignmentWeight(String subject) {
-    return subjects.get(GetTheHoesSubject(subject)).getAssignmentWeight();
+    return subjects.get(collectSubject(subject)).getAssignmentWeight();
     }
         
     public Double getSemesterTestWeight(String subject) {
-    return subjects.get(GetTheHoesSubject(subject)).getSemesterTestWeight();
+    return subjects.get(collectSubject(subject)).getSemesterTestWeight();
     }
     
     public Double getContinuousAssessmentWeight(String subject) {
-    return subjects.get(GetTheHoesSubject(subject)).getContinuousAssessmentWeight();
+    return subjects.get(collectSubject(subject)).getContinuousAssessmentWeight();
     }
     
     public void setAssignmentWeight(Double assignmentWeight, String subject) {
-        Integer index = GetTheHoesSubject(subject);
+        Integer index = collectSubject(subject);
         Subject s = subjects.get(index);
         s.setAssignmentWeight(assignmentWeight);
         subjects.set(index, s);
     }
         
     public void setSemesterTestWeight(Double semesterTestWeight, String subject) {
-        Integer index = GetTheHoesSubject(subject); 
+        Integer index = collectSubject(subject); 
         Subject s = subjects.get(index);
         s.setSemesterTestWeight(semesterTestWeight);
         subjects.set(index, s);
     }
     public void setContinuousAssessmentWeight(Double continuousAssessmentWeight, String subject) {
-        Integer index = GetTheHoesSubject(subject);   
+        Integer index = collectSubject(subject);   
         Subject s = subjects.get(index);
         s.setContinuousAssessmentWeight(continuousAssessmentWeight);
         subjects.set(index, s);
