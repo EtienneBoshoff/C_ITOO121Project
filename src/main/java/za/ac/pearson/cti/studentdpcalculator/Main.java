@@ -7,6 +7,7 @@ public class Main {
     
     public static void main(String[] args) {
         //Welcomes user and retrieves information
+        /*
         System.out.println("Welcome to DP Calculator: ");
         System.out.print("What is your name: ");
         Scanner keyboardInput = new Scanner(System.in);
@@ -36,5 +37,7 @@ public class Main {
         System.out.println(dp.prettyFullPrint());
         System.out.println("");
         System.out.println(dp.verifyDVnum());
+                */
+        DPCalcGUIFrame.main(null);
     }
 }
