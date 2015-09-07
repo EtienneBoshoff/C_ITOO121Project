@@ -36,15 +36,15 @@ public class Main {
      */
     public static void main(String[] args) {
         
-        
-        //Bonus credit part
+        new DPcalcGUIFrame().setVisible(true);
+        /*   //Bonus credit part
         /**
-         * Write a check here to see if the following conditions are met
-         * 1. There has to be 3 inputs given with the command line
-         * they are: The assignmentMark, semesterTestMark, contAssessmentMark
-         */
+        * Write a check here to see if the following conditions are met
+        * 1. There has to be 3 inputs given with the command line
+        * they are: The assignmentMark, semesterTestMark, contAssessmentMark
+        */
         //End of bonus credit part
-        
+        /*
         //This part asks the user for his name and marks while welcoming him to the program
         System.out.println("Welcome to DP Calculator: ");
         System.out.print("What is your name: ");
@@ -57,10 +57,10 @@ public class Main {
         System.out.print("Please enter the percentage you received for your Assignment: ");
         userInput = keyboardInput.nextLine();
         Double assignmentMark = Double.parseDouble(userInput);
-         System.out.print("Please enter the percentage you received for your Semester test: ");
+        System.out.print("Please enter the percentage you received for your Semester test: ");
         userInput = keyboardInput.nextLine();
         Double semesterTest = Double.parseDouble(userInput);
-         System.out.print("Please enter the percentage you received for your Continuous Assessment: ");
+        System.out.print("Please enter the percentage you received for your Continuous Assessment: ");
         userInput = keyboardInput.nextLine();
         Double contAss = Double.parseDouble(userInput);
         
@@ -70,11 +70,11 @@ public class Main {
         {
             System.out.println("you can write exams");
         }
-        else 
+        else
         {
             System.out.println("you have failed");
         }
-        
+        */
     }
     
 }

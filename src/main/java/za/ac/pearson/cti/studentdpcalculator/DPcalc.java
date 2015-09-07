@@ -276,6 +276,7 @@ public class DPcalc {
     public Boolean canWriteExams() {
 
         return calculateDP() >= 40.0;   //checks if the dp is 40% or more and returnes true or false
+       // return  >= 40.0;   //checks if the dp is 40% or more and returnes true or false >= 40.0;   //checks if the dp is 40% or more and returnes true or false
 
     }
 

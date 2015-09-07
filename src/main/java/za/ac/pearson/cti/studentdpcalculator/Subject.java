@@ -100,16 +100,3 @@ public class Subject {
 }
 
 
-
-/*
-/////////////////////////Homework//////////////////////
-
-List<subject> subjects = new Arraylist<>()
-
-subject.get(//index// 0).getAssignmentMark();
-subject asubject = new Subject()
-method
-addsubject(subject)
-get whatever assignment weight 
-
-*/
