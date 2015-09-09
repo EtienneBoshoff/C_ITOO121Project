@@ -95,24 +95,8 @@
                   <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
               </Group>
               <Group type="102" attributes="0">
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="155" max="-2" attributes="0"/>
-                          <Component id="subjectCmboBox" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="studentNameLbl" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="studentDVnumberLbl" alignment="0" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="studentNameTxtField" pref="82" max="32767" attributes="0"/>
-                              <Component id="studentDVnumberTxtField" max="32767" attributes="0"/>
-                          </Group>
-                      </Group>
-                  </Group>
+                  <EmptySpace min="-2" pref="155" max="-2" attributes="0"/>
+                  <Component id="subjectCmboBox" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
@@ -124,17 +108,7 @@
                   <Component id="DPcalcLbl" min="-2" pref="22" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="subjectCmboBox" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="studentNameLbl" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="studentNameTxtField" alignment="0" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="studentDVnumberLbl" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="studentDVnumberTxtField" alignment="0" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace max="-2" attributes="0"/>
+                  <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="semTestMarkLbl" min="-2" max="-2" attributes="0"/>
                       <Component id="semTestMarkTxtField" min="-2" max="-2" attributes="0"/>
@@ -249,7 +223,7 @@
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="5">
-                <StringItem index="0" value="Networkiing Technologies"/>
+                <StringItem index="0" value="Networking Technologies"/>
                 <StringItem index="1" value="Introductionto Information Systems"/>
                 <StringItem index="2" value="Human Computer Interaction"/>
                 <StringItem index="3" value="Object Oriented Programming"/>
@@ -309,23 +283,6 @@
         <Component class="javax.swing.JButton" name="helpBtn">
           <Properties>
             <Property name="text" type="java.lang.String" value="Help"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JTextField" name="studentNameTxtField">
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="studentNameTxtFieldActionPerformed"/>
-          </Events>
-        </Component>
-        <Component class="javax.swing.JTextField" name="studentDVnumberTxtField">
-        </Component>
-        <Component class="javax.swing.JLabel" name="studentNameLbl">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Student Name:"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JLabel" name="studentDVnumberLbl">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Student DV Number:"/>
           </Properties>
         </Component>
       </SubComponents>

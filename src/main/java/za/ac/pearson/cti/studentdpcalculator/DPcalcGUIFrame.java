@@ -56,10 +56,6 @@ public class DPcalcGUIFrame extends javax.swing.JFrame {
         calcBtn = new javax.swing.JButton();
         multiSubjectBtn = new javax.swing.JButton();
         helpBtn = new javax.swing.JButton();
-        studentNameTxtField = new javax.swing.JTextField();
-        studentDVnumberTxtField = new javax.swing.JTextField();
-        studentNameLbl = new javax.swing.JLabel();
-        studentDVnumberLbl = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("DP calculator - by Timothy Pietersen");
@@ -85,7 +81,7 @@ public class DPcalcGUIFrame extends javax.swing.JFrame {
 
         emoticonLbl.setIcon(new javax.swing.ImageIcon(getClass().getResource("/neutral.jpg"))); // NOI18N
 
-        subjectCmboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Networkiing Technologies", "Introductionto Information Systems", "Human Computer Interaction", "Object Oriented Programming", "Computer Skills Development" }));
+        subjectCmboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Networking Technologies", "Introductionto Information Systems", "Human Computer Interaction", "Object Oriented Programming", "Computer Skills Development" }));
 
         semTestMarkTxtField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -122,16 +118,6 @@ public class DPcalcGUIFrame extends javax.swing.JFrame {
         multiSubjectBtn.setText("Add Subject");
 
         helpBtn.setText("Help");
-
-        studentNameTxtField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                studentNameTxtFieldActionPerformed(evt);
-            }
-        });
-
-        studentNameLbl.setText("Student Name:");
-
-        studentDVnumberLbl.setText("Student DV Number:");
 
         javax.swing.GroupLayout calcPnlLayout = new javax.swing.GroupLayout(calcPnl);
         calcPnl.setLayout(calcPnlLayout);
@@ -178,19 +164,8 @@ public class DPcalcGUIFrame extends javax.swing.JFrame {
                             .addComponent(helpBtn))))
                 .addGap(27, 27, 27))
             .addGroup(calcPnlLayout.createSequentialGroup()
-                .addGroup(calcPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(calcPnlLayout.createSequentialGroup()
-                        .addGap(155, 155, 155)
-                        .addComponent(subjectCmboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(calcPnlLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(calcPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(studentNameLbl)
-                            .addComponent(studentDVnumberLbl))
-                        .addGap(51, 51, 51)
-                        .addGroup(calcPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(studentNameTxtField, javax.swing.GroupLayout.DEFAULT_SIZE, 82, Short.MAX_VALUE)
-                            .addComponent(studentDVnumberTxtField))))
+                .addGap(155, 155, 155)
+                .addComponent(subjectCmboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         calcPnlLayout.setVerticalGroup(
@@ -200,15 +175,7 @@ public class DPcalcGUIFrame extends javax.swing.JFrame {
                 .addComponent(DPcalcLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(subjectCmboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(19, 19, 19)
-                .addGroup(calcPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(studentNameLbl)
-                    .addComponent(studentNameTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(calcPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(studentDVnumberLbl)
-                    .addComponent(studentDVnumberTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addGroup(calcPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(semTestMarkLbl)
                     .addComponent(semTestMarkTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -273,6 +240,8 @@ public class DPcalcGUIFrame extends javax.swing.JFrame {
         Double assignmentWeight = Double.parseDouble(assWeightTxtField.getText());
         Double semesterTestWeight = Double.parseDouble(semTestWeightTxtField.getText());
         Double continuousAssessmentWeight = Double.parseDouble(contWeigtTxtField.getText());
+        String studentName = "";
+        String studentDVnumber ="";
 
         if(assignmentMark <= 100.0 &&
             semesterTestMark <= 100.0 &&
@@ -285,17 +254,15 @@ public class DPcalcGUIFrame extends javax.swing.JFrame {
             continuousAssessmentWeight <= 1.0 &&
             assignmentWeight >= 0.0 &&
             semesterTestWeight >= 0.0 &&
-            continuousAssessmentWeight >= 0.0 &&
-            !studentNameTxtField.getText().isEmpty() &&
-            !studentDVnumberTxtField.getText().isEmpty()){
+            continuousAssessmentWeight >= 0.0){
         }
 
         if ((assignmentWeight + semesterTestWeight + continuousAssessmentWeight) == 1.0){
             DPcalc calc = new DPcalc(assignmentMark,
                 semesterTestMark,
                 continuousAssessmentMark,
-                studentNameTxtField.getText(),
-                studentDVnumberTxtField.getText(),
+                studentName, 
+                studentDVnumber,
                 subjectCmboBox.getSelectedItem().toString(),
                 assignmentWeight,
                 semesterTestWeight,
@@ -322,8 +289,7 @@ public class DPcalcGUIFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_calcBtnActionPerformed
 
     private void resetBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetBtnActionPerformed
-        studentNameTxtField.setText("");
-        studentDVnumberTxtField.setText("");
+
         semTestMarkTxtField.setText("") ;
         contMarkTxtField.setText("") ;
         assMarkTxtField.setText("") ;
@@ -343,10 +309,6 @@ public class DPcalcGUIFrame extends javax.swing.JFrame {
     private void semTestMarkTxtFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_semTestMarkTxtFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_semTestMarkTxtFieldActionPerformed
-
-    private void studentNameTxtFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_studentNameTxtFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_studentNameTxtFieldActionPerformed
 
     private void assMarkTxtFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_assMarkTxtFieldActionPerformed
         // TODO add your handling code here:
@@ -409,10 +371,6 @@ public class DPcalcGUIFrame extends javax.swing.JFrame {
     private javax.swing.JTextField semTestMarkTxtField;
     private javax.swing.JLabel semTestWeightLbl;
     private javax.swing.JTextField semTestWeightTxtField;
-    private javax.swing.JLabel studentDVnumberLbl;
-    private javax.swing.JTextField studentDVnumberTxtField;
-    private javax.swing.JLabel studentNameLbl;
-    private javax.swing.JTextField studentNameTxtField;
     private javax.swing.JComboBox subjectCmboBox;
     // End of variables declaration//GEN-END:variables
 }
