@@ -154,18 +154,15 @@ public class DPcalc {
     }
     
     public Double getSemesterTestMark(String subject) {
-        return semesterTest;
-        //throw new UnsupportedOperationException("You still need to complete this method");       
+        return semesterTest;       
     }
     
     public Double getAssignmentMark(String subject) {
         return assignment;
-        //throw new UnsupportedOperationException("You still need to complete this method");
     }
     
     public Double getContinuousAssessmentMark(String subject) {
         return continuous;
-        //throw new UnsupportedOperationException("You still need to complete this method");
     }
     
     public Double getContinuousAssessmentMark() {
@@ -173,18 +170,15 @@ public class DPcalc {
     }
     
     public void setAssignmentWeight(Double assignmentWeight) {
-        double assgnmnt;
-        assgnmnt = assignmentWeight;
+        this.assignmentWeight = assignmentWeight;
     }
     
     public void setSemesterTestWeight(Double semesterTestWeight) {
-        double semstr;
-        semstr = semesterTestWeight;
+        this.semesterTestWeight = semesterTestWeight;
     }
     
     public void setContinuousAssessmentWeight(Double continuousAssessmentWeight) {
-        double cont;
-        cont = continuousAssessmentWeight;
+        this.continousAssessmentWeight = continuousAssessmentWeight;
     }
     
     /**
@@ -203,23 +197,32 @@ public class DPcalc {
      * @return 
      */
     public Boolean verifyDVnum() {
+        
+             
+  
+        String firstNum;
+        String lastNum;
+        
+        firstNum = studentDVnumber.substring(2,6);
+        String Should_be_me = "2015";
+        lastNum = studentDVnumber.substring(7,11);
+        String Should_be_last = "0123";
+        
         if (studentDVnumber.length() != 11){
             return false;
         }
-        //String testDVnumber = "DV2015-0123";
+        
         else{
             //It check the student number starts with "DV".
             if (studentDVnumber.startsWith("DV")){
                 //It check if the 7th letter is a "-".
-                if (studentDVnumber.charAt(7) == '-'){
-                    if (studentDVnumber.substring(2, 6) == "") {
-                        //It check if the last 4 letter in a student number is 
-                        //"0123"
-                        if (studentDVnumber.endsWith("0123")) {
-                            //It return true after checking all the value
-                            //return true;
+                if (studentDVnumber.charAt(6) == '-'){
+                    //it checks the fist number in DV (2015)
+                    if (firstNum.equals(Should_be_me)) {
+                        //It check the last number in DV(0123)
+                        if (lastNum.equals(Should_be_last)) {
                         }    
-                    }
+                   }
                 }
             }
         }
@@ -230,6 +233,7 @@ public class DPcalc {
         
         List<Subject> subjects  = new ArrayList<>(); 
           
+        
          subjects.get(assignment.intValue());
          subjects.get(semesterTest.intValue());
          subjects.get(continuous.intValue());

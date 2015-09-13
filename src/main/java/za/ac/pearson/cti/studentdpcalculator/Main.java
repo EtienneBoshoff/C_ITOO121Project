@@ -33,15 +33,24 @@ public class Main {
      */
     public static void main(String[] args) {
         
+        new DpCalcGuiFrame().setVisible(true);
         
-        //Bonus credit part
+        
+
+
+
+
+
+
+
+
+//Bonus credit part
         /**
          * Write a check here to see if the following conditions are met
          * 1. There has to be 3 inputs given with the command line
          * they are: The assignmentMark, semesterTestMark, contAssessmentMark
          */
         //End of bonus credit part
-        
         //This part asks the user for his name and marks while welcoming him to the program
         System.out.println("Welcome to DP Calculator: ");
         System.out.print("What is your name: ");
@@ -54,9 +63,5 @@ public class Main {
         System.out.print("Please enter the percentage you received for your Assignment: ");
         userInput = keyboardInput.nextLine();
         Double assignmentMark = Double.parseDouble(userInput);
-        
-        
-        
-    }
-    
+    }   
 }

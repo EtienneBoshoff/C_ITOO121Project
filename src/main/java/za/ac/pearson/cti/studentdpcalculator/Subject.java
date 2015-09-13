@@ -13,6 +13,10 @@ import java.util.List;
  * @author uboshet
  */
 public class Subject {
+
+    static void add(Double assignment) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
     private String name;
     private Double semesterTestMark;
@@ -32,14 +36,12 @@ public class Subject {
         this.assessmentWeight = assessmentWeight;
     }
 
-    Subject(Subject subject, Double semesterTest, Double continousAssessmentWeight, Double assignment, Double semesterTestWeight, Double continousAssessmentWeight0, Double assignmentWeight) {
-        
-         //List<Subject> subjects  = new ArrayList<>(); 
+    Subject(Subject subject, Double semesterTest, Double continousAssessmentWeight, 
+            Double assignment, Double semesterTestWeight, Double continousAssessmentWeight0, Double assignmentWeight) {
+            
+       
          
-         Subject aSubject = new Subject (subject, assignment, semesterTest, 
-                 continousAssessmentWeight0, assignmentWeight, semesterTestWeight, 
-                  continousAssessmentWeight); 
-         subject.Add(aSubject); 
+         
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
@@ -100,9 +102,13 @@ public class Subject {
     }
 
     void Add(Subject aSubject) {
+          List<Subject> subjects  = new ArrayList<>();
+          
+          //subjects.add(getAssessmentWeight());
+        //Subject aSubject = new Subject (subject, assignment, semesterTest, 
+                 //continousAssessmentWeight0, assignmentWeight, semesterTestWeight, 
+                  //continousAssessmentWeight); 
+         //subject.Add(aSubject); 
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
-    
-    
+    }  
 }
